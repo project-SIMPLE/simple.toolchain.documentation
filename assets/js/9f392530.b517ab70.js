@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[545],{4662:e=>{e.exports=JSON.parse('{"title":"GAMA Platform","slug":"/category/gama-platform","permalink":"/category/gama-platform","navigation":{"previous":{"title":"Tutorial Intro","permalink":"/"},"next":{"title":"Prerequisites","permalink":"/Gama/installation"}}}')}}]);
