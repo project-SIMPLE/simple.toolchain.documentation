@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[977],{9169:e=>{e.exports=JSON.parse('{"title":"Demo","slug":"/category/demo","permalink":"/category/demo","navigation":{"previous":{"title":"Useful tools","permalink":"/MetaQuest/tools"},"next":{"title":"Rac VR","permalink":"/Demo/Rac-VR"}}}')}}]);
