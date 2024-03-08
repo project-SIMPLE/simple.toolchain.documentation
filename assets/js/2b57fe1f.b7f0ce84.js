@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[337],{8687:t=>{t.exports=JSON.parse('{"title":"Tutorials","slug":"/category/tutorials","permalink":"/category/tutorials","navigation":{"previous":{"title":"Install Unity Template","permalink":"/Getting-started/simple.template.unity"},"next":{"title":"Home","permalink":"/Tutorials/Home"}}}')}}]);

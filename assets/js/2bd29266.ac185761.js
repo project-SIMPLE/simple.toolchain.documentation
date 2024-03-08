@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[974],{4939:t=>{t.exports=JSON.parse('{"title":"Unity","slug":"/category/unity","permalink":"/category/unity","navigation":{"previous":{"title":"Prerequisites","permalink":"/Gama/installation"},"next":{"title":"Installation","permalink":"/Unity/installation"}}}')}}]);
