@@ -28,6 +28,20 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Download toolkit READMEs
+        run: |
+          wget https://raw.githubusercontent.com/project-SIMPLE/gaml.extension.unity/2024-06/README.md -O gaml.extension.unity.md
+          sed -i '1s/^/---\ntitle: Install GAMA Plugin\n---\n/' gaml.extension.unity.md
+          #
+          wget https://raw.githubusercontent.com/project-SIMPLE/simple.template.unity/main/README.md -O simple.template.unity.md
+          sed -i '1s/^/---\ntitle: Install Unity Template\n---\n/' simple.template.unity.md
+        working-directory: docs/Getting-started
+
+      - name: Download documentation.wiki
+        run: |
+          git clone https://github.com/project-SIMPLE/documentation.wiki.git ${{ runner.temp }}/wiki 
+          mv ${{ runner.temp }}/wiki/* docs/Tutorials
+
       - name: Build website
         run: yarn build
 

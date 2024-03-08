@@ -1,3 +1,8 @@
+---
+title: GAMA Platform
+position: 1
+---
+
 # Prerequisites
 
 ![gama splash screen](../../static/img/gama-splash.png)
