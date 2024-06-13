@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[464],{3534:e=>{e.exports=JSON.parse('{"title":"Projects tools","slug":"/category/projects-tools","permalink":"/category/projects-tools","navigation":{"previous":{"title":"Tutorial Intro","permalink":"/"},"next":{"title":"Meta Quest Headset","permalink":"/category/meta-quest-headset"}}}')}}]);
