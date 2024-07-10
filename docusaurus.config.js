@@ -131,6 +131,9 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+   themes: [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+  ],
 };
 
 module.exports = config;
