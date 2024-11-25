@@ -19,11 +19,11 @@ This method use the [scrcpy](https://github.com/Genymobile/scrcpy) project which
 
 ### Activate Wireless ADB
 
-https://www.virtu-al.net/wp-content/uploads/2019/11/com.oculus.vrshell-20191111-141155-768x768.jpg
-
 The classical way is to plug a computer to the headset, allow USB connection inside the headset and run the command `adb tcpip 5555`.
 
-Otherwise, a simplier way is to use a tool developed for this particular need and available as an APK to install inside the headset : https://github.com/thedroidgeek/oculus-wireless-adb
+![ADB enable screenshot](https://www.virtu-al.net/wp-content/uploads/2019/11/com.oculus.vrshell-20191111-141155-768x768.jpg)
+
+Otherwise, a simplier way is to use a tool developed for this particular need and available as an APK to install inside the headset : [https://github.com/thedroidgeek/oculus-wireless-adb](https://github.com/thedroidgeek/oculus-wireless-adb/releases/tag/1.2)
 
 
 ### Start scrcpy stream

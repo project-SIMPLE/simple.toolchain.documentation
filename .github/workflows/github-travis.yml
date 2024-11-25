@@ -8,7 +8,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:  # For manual trigger
+  workflow_dispatch: # For manual trigger
 
 permissions:
   contents: write
@@ -23,23 +23,25 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 'current'
+          node-version: "current"
 
       - name: Install dependencies
         run: yarn install
 
       - name: Download toolkit READMEs
         run: |
-          wget https://raw.githubusercontent.com/project-SIMPLE/gaml.extension.unity/2024-06/README.md -O gaml.extension.unity.md
-          sed -i '1s/^/---\ntitle: Install GAMA Plugin\n---\n/' gaml.extension.unity.md
+          wget https://github.com/project-SIMPLE/simple.toolchain/raw/refs/heads/2024-06/GAMA%20Plugin/README.md -O ${{ runner.temp }}/gaml.extension.unity.md
+          sed -i '1s/^/---\ntitle: Install GAMA Plugin\n---\n/' ${{ runner.temp }}/gaml.extension.unity.md
+          mv ${{ runner.temp }}/gaml.extension.unity.md docs/Getting-started
           #
-          wget https://raw.githubusercontent.com/project-SIMPLE/simple.template.unity/main/README.md -O simple.template.unity.md
-          sed -i '1s/^/---\ntitle: Install Unity Template\n---\n/' simple.template.unity.md
+          wget https://github.com/project-SIMPLE/simple.toolchain/raw/refs/heads/2024-06/Unity%20Template/README.md -O ${{ runner.temp }}/simple.template.unity.md
+          sed -i '1s/^/---\ntitle: Install Unity Template\n---\n/' ${{ runner.temp }}/simple.template.unity.md
+          mv ${{ runner.temp }}/simple.template.unity.md docs/Getting-started
         working-directory: docs/Getting-started
 
       - name: Download documentation.wiki
         run: |
-          git clone https://github.com/project-SIMPLE/documentation.wiki.git ${{ runner.temp }}/wiki 
+          git clone https://github.com/project-SIMPLE/simple.toolchain.wiki.git ${{ runner.temp }}/wiki
           mv ${{ runner.temp }}/wiki/* docs/Tutorials
 
       - name: Build website
