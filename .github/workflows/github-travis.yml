@@ -32,17 +32,16 @@ jobs:
         run: |
           wget https://github.com/project-SIMPLE/simple.toolchain/raw/refs/heads/2024-06/GAMA%20Plugin/README.md -O ${{ runner.temp }}/gaml.extension.unity.md
           sed -i '1s/^/---\ntitle: Install GAMA Plugin\n---\n/' ${{ runner.temp }}/gaml.extension.unity.md
-          mv ${{ runner.temp }}/gaml.extension.unity.md docs/Getting-started
+          mv ${{ runner.temp }}/gaml.extension.unity.md $GITHUB_WORKSPACE/docs/Getting-started
           #
           wget https://github.com/project-SIMPLE/simple.toolchain/raw/refs/heads/2024-06/Unity%20Template/README.md -O ${{ runner.temp }}/simple.template.unity.md
           sed -i '1s/^/---\ntitle: Install Unity Template\n---\n/' ${{ runner.temp }}/simple.template.unity.md
-          mv ${{ runner.temp }}/simple.template.unity.md docs/Getting-started
-        working-directory: docs/Getting-started
+          mv ${{ runner.temp }}/simple.template.unity.md $GITHUB_WORKSPACE/docs/Getting-started
 
       - name: Download documentation.wiki
         run: |
           git clone https://github.com/project-SIMPLE/simple.toolchain.wiki.git ${{ runner.temp }}/wiki
-          mv ${{ runner.temp }}/wiki/* docs/Tutorials
+          mv ${{ runner.temp }}/wiki/* $GITHUB_WORKSPACE/docs/Tutorials
 
       - name: Build website
         run: yarn build
