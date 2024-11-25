@@ -4,57 +4,54 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'SIMPLE project documentation',
-  favicon: 'https://avatars.githubusercontent.com/u/137744200',
+  title: "SIMPLE project documentation",
+  favicon: "https://avatars.githubusercontent.com/u/137744200",
 
   // Set the production url of your site here
-  url: 'https://doc.project-simple.eu',
+  url: "https://doc.project-simple.eu",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'project-SIMPLE', // Usually your GitHub org/user name.
-  projectName: 'documentation', // Usually your repo name.
+  organizationName: "project-SIMPLE", // Usually your GitHub org/user name.
+  projectName: "simple.toolchain.documentation", // Usually your repo name.
   trailingSlash: false,
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
-  stylesheets: [
-    "https://use.fontawesome.com/releases/v6.4.2/css/all.css",
-  ],
+  stylesheets: ["https://use.fontawesome.com/releases/v6.4.2/css/all.css"],
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/', 
-          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: "/",
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/project-SIMPLE/documentation/tree/main/',
+          editUrl: "https://github.com/project-SIMPLE/documentation/tree/main/",
         },
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -64,33 +61,33 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'https://avatars.githubusercontent.com/u/137744200',
+      image: "https://avatars.githubusercontent.com/u/137744200",
       navbar: {
-        title: 'SIMPLE documentation',
+        title: "SIMPLE documentation",
         logo: {
-          alt: 'SIMPLE Logo',
-          src: 'https://avatars.githubusercontent.com/u/137744200',
+          alt: "SIMPLE Logo",
+          src: "https://avatars.githubusercontent.com/u/137744200",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'docSidebar',
-            position: 'left',
-            label: 'Documentation',
+            type: "docSidebar",
+            sidebarId: "docSidebar",
+            position: "left",
+            label: "Documentation",
           },
           {
-            href: 'https://github.com/project-SIMPLE',
-          html: '<i class="fab fa-github" style="font-size: 24px;"></i>',
-          //label: 'GitHub repository',
-          position: 'right',
+            href: "https://github.com/project-SIMPLE",
+            html: '<i class="fab fa-github" style="font-size: 24px;"></i>',
+            //label: 'GitHub repository',
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Sponsor',
+            title: "Sponsor",
             items: [
               {
                 html: `
@@ -103,11 +100,11 @@ const config = {
                 html: `
                     <img src="/img/EU_POS.png" />
                   `,
-              }
+              },
             ],
           },
           {
-            title: 'Licence',
+            title: "Licence",
             items: [
               {
                 html: `
@@ -120,20 +117,21 @@ const config = {
                 html: `
                     <p>A copy of the license is included <a href="https://github.com/project-SIMPLE/documentation/blob/main/LICENSE" style="display:initial">here</a>, in the repository of the wiki content.</p>
                   `,
-              }
+              },
             ],
-          }
+          },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Project SIMPLE, Inc. Built with Docusaurus.`,
       },
       prism: {
+        additionalLanguages: ["csharp"], // "gaml"],
+        defaultLanguage: "java",
+
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
-   themes: [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-  ],
+  themes: [require.resolve("@easyops-cn/docusaurus-search-local")],
 };
 
 module.exports = config;
