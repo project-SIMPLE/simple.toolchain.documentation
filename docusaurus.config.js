@@ -56,7 +56,7 @@ const config = {
       }),
     ],
   ],
-
+  plugins: ['docusaurus-plugin-goatcounter'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -129,6 +129,9 @@ const config = {
 
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      goatcounter: {
+        code: 'doc-project-simple',
       },
     }),
   themes: [require.resolve("@easyops-cn/docusaurus-search-local")],
