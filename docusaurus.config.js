@@ -135,6 +135,7 @@ const config = {
       },
     }),
   themes: [require.resolve("@easyops-cn/docusaurus-search-local")],
+  onBrokenLinks: 'warn',
 };
 
 module.exports = config;
