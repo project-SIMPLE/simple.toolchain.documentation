@@ -1,4 +1,4 @@
-# Installating the platform and its dependencies
+# Installating the platform's dependencies
 
 In order to be able to run the web platform, you need to ensure you have all prerequisite dependencies:
 
@@ -23,10 +23,29 @@ Node.js 22.10.1 or later is required
 :::
 
 
-### Android Debug Bridge (ADB) {#2.1-android-debug-bridge-(adb)}
+### Android Debug Bridge (ADB) {#adb-installation-instructions} 
 
 ADB enables command-line interaction between the host system and Android devices, including VR headsets.
 It is also required when displaying the headsets streams on the application.
+
+<details>
+  <summary>  **Installation via Homebrew (macOS Only)**</summary>
+
+If your system is running macOS, you may use the package manager Homebrew, which makes the installation a bit more convenient:
+
+**Prerequisites:** You can check how to install Homebrew by following the installation instructions [here](https://brew.sh/)
+
+**Installation command:**
+```
+brew install android-platform-tools
+```
+
+</details>
+
+
+
+
+
 
 ### **Manual Installation**
 
@@ -53,16 +72,7 @@ source \~/.zshrc
 ```
 
 
-####  **Installation via Homebrew (macOS Only)**
 
-If your system is running macOS, you may use the package manager Homebrew, which makes the installation a bit more convenient:
-
-**Prerequisites:** You can check how to install Homebrew by following the installation instructions [here](https://brew.sh/)
-
-**Installation command:**
-```
-brew install android-platform-tools
-```
 </details>
 
 
@@ -118,17 +128,5 @@ Follow the instructions in the [GAMA Plugin Repository](https://github.com/proje
 
 ---
 
-:::info 
+With all the dependencies installed, check out you may proceed to the configuration of the web application
 
-: ":::info"
-
-:::
-
-
-:::tip
-":::tip"
-:::
-
-:::warning
-":::warn"
-:::
