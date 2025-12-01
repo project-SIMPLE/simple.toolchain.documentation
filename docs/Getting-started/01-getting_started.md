@@ -1,4 +1,4 @@
-# Installating the platform's dependencies
+-+# Installating the platform's dependencies  
 
 In order to be able to run the web platform, you need to ensure you have all prerequisite dependencies:
 

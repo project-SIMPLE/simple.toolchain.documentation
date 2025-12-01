@@ -1,3 +1,5 @@
+
+
 # .env file reference
 The application uses the file ```.env``` to be able to expose parameters easily modifiable by users that will affect the whole application.
 

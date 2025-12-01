@@ -24,7 +24,7 @@ In order for the web platform to be able to directly interact with the headsets 
 
 To do this, you can use the application Oculus Wireless ADB, available at [this link](https://github.com/thedroidgeek/oculus-wireless-ADB/releases/tag/1.3).
 
-### downloading Oculus Wireless ADB
+### installing Oculus Wireless ADB on the headset
 
 download the ```.apk``` file, then connect your headset to your computer. 
 
@@ -36,13 +36,13 @@ If you have ADB installed and properly configured:
 - open a terminal in the same folder as where you downloaded the ```.apk``` file
 - use the following command to install the application into your headset:
 ```
-ADB install tdg.oculuswirelessADB-1.3.apk
+adb install tdg.oculuswirelessADB-1.3.apk
 ```
 
 :::tip
 While you still have your headset connected to your computer, use the command 
 ```
-ADB tcpip 5555
+adb tcpip 5555
 ```
 This command opens the port 5555 on your headset when ADB is enabled, making connection the we web application much faster.
 :::
@@ -59,5 +59,5 @@ Congrats ! The application can now connect to the headset remotely.
 
 :::tip 
 
-If you want the application to automatically connect to your headset faster, add the IP address you set in the ```HEADSETS_IPS``` variable of the ```.env```configuration file.
-more information on [this page](../Technical/02-env_reference.md#Headset_ips)
+If you want the application to automatically connect to your headset faster, add the IP address you set in the `HEADSETS_IPS` variable of the ```.env```configuration file.
+more information on [this page](../Technical/env_reference.md#Headset_ips)
