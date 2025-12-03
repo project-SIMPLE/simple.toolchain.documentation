@@ -1,6 +1,6 @@
-# Functional Components
+# Functional components
 
-#### 6.3.1 SelectorSimulation
+#### SelectorSimulation
 
 **Purpose**: Main page component for simulation selection
 
@@ -10,7 +10,7 @@
 - Shows splashscreen images or placeholders  
 - Starts simulation when it’s associated simulation element is clicked
 
-#### 6.3.2 SimulationManager
+#### SimulationManager
 
 **Purpose**: Central control interface for active simulation
 
@@ -30,7 +30,7 @@
 - `pause_experiment`  
 - `stop_experiment`
 
-#### 6.3.3 SimulationManagerPlayer
+#### SimulationManagerPlayer
 
 **Purpose**: Individual headset control component within SimulationManager
 
@@ -48,7 +48,7 @@
 | Green ( Ingame) | Headset currently in a VR application connected to the application |
 | Red ( Error / disconnected) | The web socket connection has been severed |
 
-#### 6.3.4 PlayerScreenCanvas
+#### PlayerScreenCanvas
 
 **Purpose**: Renders VR headset screen mirror
 
@@ -79,7 +79,7 @@ Props: canvas, id, isPlaceholder, needsInteractivity, canvasSize, hideInfos
 - canvasSize: number specifying the length of the side of the square container of the stream  
 - hideInfos: Optional boolean that hides the player id 
 
-#### 6.3.5 StreamPlayerScreen
+#### StreamPlayerScreen
 
 **Purpose**: Container for multi-headset display view
 
@@ -91,7 +91,7 @@ Props: canvas, id, isPlaceholder, needsInteractivity, canvasSize, hideInfos
 - Designed for passive viewing and monitoring  
 - Optimized for large displays (monitors, TVs)
 
-#### 6.3.6 StreamPlayerScreenControl
+#### StreamPlayerScreenControl
 
 **Purpose**: Enhanced multi-headset display with tablet-optimized controls
 
@@ -110,7 +110,7 @@ Props: canvas, id, isPlaceholder, needsInteractivity, canvasSize, hideInfos
 - Optimized touch targets and gestures for tablet use  
 - May include quick access controls for common operations
 
-#### 6.3.7 StreamFullscreen
+#### StreamFullscreen
 
 **Purpose**: Single headset full-screen display
 
