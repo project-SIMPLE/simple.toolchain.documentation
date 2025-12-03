@@ -38,7 +38,9 @@ If you have ADB installed and properly configured:
 ```
 adb install tdg.oculuswirelessADB-1.3.apk
 ```
-
+```
+adb shell pm grant tdg.oculuswirelessadb android.permission.WRITE_SECURE_SETTINGS
+```
 :::tip
 While you still have your headset connected to your computer, use the command 
 ```
