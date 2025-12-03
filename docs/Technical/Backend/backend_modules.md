@@ -1,4 +1,4 @@
-# Backend Modules of the application
+# Backend modules of the application
 
 ![Backend functional diagram](../../../static/img/Backend/Backend_diagram.png)
 
@@ -131,9 +131,9 @@ if ADB is available, a new ADB manager is instantiated, then initialized.
 **Heartbeat Mechanism**: Heartbeat of 5000 ms by default  
 **Timeout Configuration**: 
 
-### 7.4 Video Streaming {#7.4-video-streaming}
+###  Video Streaming
 
-#### 7.4.1 ScrcpyServer
+#### ScrcpyServer
 
 **Purpose**: Generates video streams from headset screens
 

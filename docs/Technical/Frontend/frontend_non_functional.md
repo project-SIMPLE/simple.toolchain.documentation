@@ -1,4 +1,4 @@
-# Non-Functional Components 
+# Non-functional components
 
 These components provide UI elements without complex business logic and are reused throughout the application.
 
