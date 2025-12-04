@@ -1,4 +1,4 @@
-# Configurating the headset
+# Configurating the headsets
 -- --
 The web platform uses the headsets IP to determine what color they are, and which one to use for the icons in the simulation control page and the border surrounding the video streams.
 Therefore, these IP must be fixed.
@@ -8,8 +8,8 @@ Therefore, these IP must be fixed.
 Go to settings → arrow to the right of your wifi → edit → advanced 
 
 - set IP to static <br/>
-- set ```private mac``` to no ```proxy``` to no ```hidden network``` to no <br/>
-- set the IP to ```192.168.68.x``` choose x by referring to [the headsets_color constant](docs\Technical\constants.md) in the constants file page to choose a specific color. <br/>
+- set ```private mac``` to no, ```proxy``` to no, ```hidden network``` to no <br/>
+- set the IP to ```192.168.68.x``` choose x by referring to [the headsets_color constant](docs\Technical\constants.md) in the constants file page to choose a specific color. the application will render a gray border by default if the IP is not contained in headsets_colors.<br/>
 - set the gateway to ```192.168.68.1```<br/>
 - set the network prefix length to ```24```
 
@@ -17,6 +17,10 @@ Go to settings → arrow to the right of your wifi → edit → advanced
 - set the dns 2 to```1.0.0.1```<br/>
 
 -- --
+
+:::tip
+If you encounter issues such as your headset disconnecting from your network, check out the page dedicated to trouble shooting [here](docs\Tools\MetaQuest\troubleshooting.md)
+:::
 
 ## Enabling wireless ADB
 
