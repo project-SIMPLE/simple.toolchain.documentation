@@ -4,7 +4,7 @@ In order to be able to run the web platform, you need to ensure you have all pre
 
 
 ### Installing Node
-
+--- ---
 
 Visit the [official Node.js website](https://nodejs.org/en/download) and download the installer for your operating system.
 
@@ -19,17 +19,17 @@ To verify that node was correctly installed, you can use the command
 ```
 node -v 
 ```
-Node.js 22.10.1 or later is required
+Node.js v24 or later is required
 :::
 
 
 ### Android Debug Bridge (ADB) {#adb-installation-instructions} 
-
+--- ---
 ADB enables command-line interaction between the host system and Android devices, including VR headsets.
 It is also required when displaying the headsets streams on the application.
 
 <details>
-  <summary>  **Installation via Homebrew (macOS Only)**</summary>
+  <summary> **Installation via Homebrew (macOS Only)** </summary>
 
 If your system is running macOS, you may use the package manager Homebrew, which makes the installation a bit more convenient:
 
@@ -41,10 +41,6 @@ brew install android-platform-tools
 ```
 
 </details>
-
-
-
-
 
 
 ### **Manual Installation**
@@ -101,7 +97,7 @@ adb version
 
 ### Installing the GAMA platform
 --- 
-**Download and install GAMA**
+**Step 1: download and install GAMA**
 
 Download from the [official GAMA website](https://gama-platform.org/download)
 
