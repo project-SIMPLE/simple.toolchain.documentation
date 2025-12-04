@@ -7,7 +7,7 @@ Follow the same download procedure as the web platform (*Release or Direct Repos
 
 Once you have downloaded a Virtual Universe, extract it in the **learning package folders** defined in the .env file.
 For more information on the .env file, check out the dedicated[.env page](docs\Technical\env_reference.md)
-:::tip
+:::info
 by default, the learning package folder is ```simple.webplatform/learning-packages```
 :::
 
