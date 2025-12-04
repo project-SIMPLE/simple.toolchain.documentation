@@ -10,16 +10,32 @@ In the SIMPLE project, we're using dedicated private Wi-Fi that is disconnected 
 
 Luckily for us, it's possible to disable this behavior with the following commands:
 
+<details>
+<summary> **All in one command** </summary>
+
+You can use the following command in your terminal to apply all the settings simultaneously:
+
+```bash
+adb shell "settings put global captive_portal_detection_enabled 0" && adb shell "settings put global captive_portal_server localhost" && adb shell "settings put global captive_portal_https_url https://localhost" && adb shell "settings put global captive_portal_http_url http://localhost" && adb shell "settings put global captive_portal_mode 0" && adb shell "settings put global wifi_watchdog_on 0"  && adb shell "settings put global wifi_watchdog_poor_network_test_enabled 0" && adb shell "settings put global network_recommendations_enabled 0" && adb shell "settings put global network_avoid_bad_wifi 0" && adb shell "settings put global wifi_passpoint_enabled 0" && adb shell "settings put global wifi_sleep_policy 2"  && adb shell "settings put global stay_on_while_plugged_in 3" && adb shell "settings put global wifi_enhance_network_while_sleeping 0" && adb shell "settings put global ota_disable_automatic_update 1"
+```
+</details>
+
+
+
+
 
 ### Probing
+--- ---
+<br/>
 
-
-### Disable captive portal probing
+#### Disable captive portal probing
 ```bash
 adb shell "settings put global captive_portal_detection_enabled 0" 
 ```
+<br/>
 
-### Set the probing URL to localhost to always get a positive response (in case it gets re-activated)
+#### Set the probing URL to localhost to always get a positive response (in case it gets re-activated)
+
 ```bash
 adb shell "settings put global captive_portal_server localhost"
 ```
@@ -29,66 +45,99 @@ adb shell "settings put global captive_portal_https_url https://localhost"
 ```bash
 adb shell "settings put global captive_portal_http_url http://localhost"
 ```
-
-
+:::tip 
+you can use this command to apply all of these at once:
 ```bash
 adb shell "settings get global captive_portal_server" && adb shell "settings get global captive_portal_https_url" &&  adb shell "settings get global captive_portal_http_url" 
 ```
-### Disable captive portal mode
+:::
+
+#### Disable captive portal mode
 ```bash
 adb shell "settings put global captive_portal_mode 0"
 ```
 
 ### Choosing WiFi
 
-
-### Increase WiFi RSSI polling interval (less aggressive)
-### Another layer to disable WiFi monitoring that might cause disconnections
-```
+--- ---
+#### Increase WiFi RSSI polling interval (less aggressive)
+```bash
 adb shell "settings put global wifi_watchdog_on 0"
-
-### Disables the WiFi watchdog that monitors poor network quality
 ```
+
+#### Disables the WiFi watchdog that monitors poor network quality
+```bash
 adb shell "settings put global wifi_watchdog_poor_network_test_enabled 0"
-
-### Disable network recommendations
 ```
+#### Disable network recommendations
+```bash
 adb shell "settings put global network_recommendations_enabled 0" 
-
-### Disable automatic network switching
 ```
+
+#### Disable automatic network switching
+```bash
 adb shell "settings put global network_avoid_bad_wifi 0"
-
-### Disable hotspot 2.0 (Passpoint)
-### Disables automatic connection to Passpoint networks (carrier WiFi networks)
 ```
+
+
+###   Disable hotspot 2.0 (Passpoint) 
+#### Disables automatic connection to Passpoint networks (carrier WiFi networks)
+```bash
 adb shell "settings put global wifi_passpoint_enabled 0"
-
-#
-### Stay connected
-### 
-
-### Prevent WiFi to disconnect when the screen is off
 ```
+
+### Staying connected
+ 
+
+#### Prevent WiFi from disconnecting when the screen is turned off
+```bash
 adb shell "settings put global wifi_sleep_policy 2" 
-
-### Keeps the screen on while charging
 ```
+#### Keep the screen on while charging
+```bash
 adb shell "settings put global stay_on_while_plugged_in 3"
-
-### Disable background data restriction enforcement
 ```
+
+#### Disable background data restriction enforcement
+
+```bash
 adb shell "settings put global wifi_enhance_network_while_sleeping 0"
-
-### 
-### Misc
-### 
-
-### Disable automatic system updates
 ```
+
+### Verification of the settings
+To check if the settings are correctly applied to the headset, use the following command:
+
+```bash
+
+adb shell "settings get global captive_portal_detection_enabled" && adb shell "settings get global captive_portal_server " && adb shell "settings get global captive_portal_https_url" && adb shell "settings get global captive_portal_http_url" && adb shell "settings get global captive_portal_mode" && adb shell "settings get global wifi_watchdog_on" && adb shell "settings get global wifi_watchdog_poor_network_test_enabled" && adb shell "settings get global network_recommendations_enabled" && adb shell "settings get global network_avoid_bad_wifi" && adb shell "settings get global wifi_passpoint_enabled" && adb shell "settings get global wifi_sleep_policy"  && adb shell "settings get global stay_on_while_plugged_in" && adb shell "settings get global wifi_enhance_network_while_sleeping" && adb shell "settings get global ota_disable_automatic_update"
+
+```
+The output of this command must be:
+```bash
+0
+localhost
+https://localhost
+http://localhost
+0
+0
+0
+0
+0
+0
+2
+3
+0
+1
+```
+
+### Misc
+
+
+#### Disable automatic system updates
+```bash
 adb shell "settings put global ota_disable_automatic_update 1"
 ```
-### Restart headset (recommended)
-```
+#### Restart headset (recommended)
+```bash
 adb reboot
 ```
