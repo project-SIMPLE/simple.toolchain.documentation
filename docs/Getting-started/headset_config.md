@@ -46,14 +46,27 @@ adb install tdg.oculuswirelessADB-1.3.apk
 adb shell pm grant tdg.oculuswirelessadb android.permission.WRITE_SECURE_SETTINGS
 ```
 :::tip
-While you still have your headset connected to your computer, use the command 
+While not required, you can also open port 5555 of your headset to speed up its connection process to the web platform by using the following command:
 ```
 adb tcpip 5555
 ```
-This command opens the port 5555 on your headset when ADB is enabled, making connection the we web application much faster.
 :::
 
 ## Using Wireless ADB for the first time
+
+:::warning
+Before proceeding, make sure that only one headset is connected to your computer.
+You can check if this is the case by using the command
+```
+adb devices
+```
+in your terminal.
+If you see multiple devices, you can use the following command to disconnect every devices.
+```
+adb disconnect
+```
+Note that it will not break the usb connection.
+:::
 
 Once the installation is done, you can turn on your headset, and open the application.
 You can find the application in
@@ -64,6 +77,6 @@ Toggle the tcpip mode on, then turn on Wireless ADB by clicking on the main swit
 Congrats ! The application can now connect to the headset remotely.
 
 :::tip 
-
 If you want the application to automatically connect to your headset faster, add the IP address you set in the `HEADSETS_IPS` variable of the ```.env```configuration file.
 more information on [this page](../Technical/env_reference.md#Headset_ips)
+:::
