@@ -2,6 +2,17 @@
 
 By design, Meta Quest headsets are based on Android systems. Therefore, the headsets mimic the behavior of a typical Android smartphone, and most of the issues you encounter may stem from this.
 
+## Headsets Keep Going to Sleep
+
+If the headsets keep going to sleep, you may go into the **settings** of the headset.
+Go into **Settings app** → **General** → **Power**, and set **Display off** to 4 hours, and **sleep mode** to 4 hours. 
+
+This will prevent the headsets from going to sleep. 
+:::note
+You may still manually turn off the screen of the headset by briefly pressing the "**power**" button on its side.
+:::
+
+
 ## Headsets Keep Disconnecting from Wi-Fi
 
 By default, headsets probe new networks they connect to by sending a ping and trying to detect a captive portal if there is one.
@@ -129,6 +140,7 @@ http://localhost
 0
 1
 ```
+
 
 ### Misc
 
