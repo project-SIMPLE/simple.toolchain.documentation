@@ -7,8 +7,8 @@
 <script async src="//gc.zgo.at/count.js" data-goatcounter="https://doc-project-simple.goatcounter.com/count"></script>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css"><link rel="stylesheet" href="/assets/css/styles.732d59af.css">
-<script src="/assets/js/runtime~main.8d25c42e.js" defer="defer"></script>
-<script src="/assets/js/main.77cdfb59.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.a6f33eb5.js" defer="defer"></script>
+<script src="/assets/js/main.3b79b460.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -55,22 +55,22 @@ To make testing easier later, set ‘fullscreen’ to false in the ‘carte’ d
 <img width="820" alt="Wizard-Properties-Add" src="https://github.com/user-attachments/assets/40d1e496-b781-45d1-86d3-fb3489a9c941">
 <p>Then choose a name for the new properties. For the road species, we will keep the name &quot;road&quot; for the property. Then, click on &quot;Ok&quot;</p>
 <img width="820" alt="Wizard-Properties-Add-Road" src="https://github.com/user-attachments/assets/d4068eca-4965-4d0b-8ce3-a4e81a2e21dc">
-<p>The roads will only be sent at the initialization of the game, thus, we uncheck &quot;Update every&quot; to make it static. For <em>Aspect</em>, as we want to represent road geometries and not use a prefab, choose for &quot;Uses&quot; &quot;The geometries of the agents in GAMA&quot;. We keep the default color (gray), and the default height/depth (1 #m). We will not use a particular material for these agents, so we let the <em>material</em> field empty. As we want to represent roads as surfaces rather than lines, we add a buffer of 2m buffer around them. To do this, we need to fill the <em>Buffer</em> field with &quot;2.0&quot;.</p>
+<p>The roads will only be sent at the initialization of the game, thus, we uncheck &quot;Update every&quot; to make it static. For <em>Aspect</em>, as we want to represent road geometries and not use a prefab, choose for &quot;Uses&quot; &quot;The geometries of the agents in GAMA&quot;. We keep the default color (gray), and the default height/depth (1 #m). We will not use a particular material for these agents, so we let the <em>material</em> field empty. As we want to represent roads as surfaces rather than lines, we add a buffer of 2m buffer around them. To do this, we need to fill the <em>Buffer</em> field with &quot;3.0&quot;.</p>
 <p>As we want to interact with the roads using the ray interaction, in <em>Interaction</em> check the box <em>has a collider</em> and <em>is interactable</em>.</p>
 <p>Finally, we add a tag  to facilitate the identification of this type of entity in Unity. For that, in the <em>tag</em> field, write &quot;road&quot;.</p>
-<img width="820" alt="Wizard-Properties-Road" src="https://github.com/user-attachments/assets/685a90f9-ae36-47b8-b313-e5dfcf0046fc">
+<img width="820" alt="Wizard-Properties-Road" src="https://github.com/user-attachments/assets/d6d3560e-321d-46f1-893a-ff13b6bef8fc">
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="definition-of-the-building-unity-properties">Definition of the building unity properties<a href="#definition-of-the-building-unity-properties" class="hash-link" aria-label="Direct link to Definition of the building unity properties" title="Direct link to Definition of the building unity properties" translate="no">​</a></h4>
 <p>In this tutorial, we want to send all building geometries to Unity without interaction. We therefore check the building species add a new property for this purpose. As for road, we have to click on the &quot;+&quot; button to create a new property. Leave the default name (&quot;building&quot;). Similarly to roads, we want to only send the buildings at the initialization, so we uncheck &quot;Update every&quot;.
 For the <em>Aspect</em>, we want to represent the building by their GAMA geometries, so we set &quot;Uses&quot; to &quot;The geometry of the agent in GAMA&quot;. Concerning the Color, we want to display them in black, so we click on the gray square and choose the black color.</p>
 <img width="820" alt="Wizard-Properties-Building-Color" src="https://github.com/user-attachments/assets/cd592f97-0e24-439e-8a82-6bff86d031fb">
-<p>We use the default value for the <em>Material</em> (empty) and Buffer (0.0). For the <em>Height/depth</em> we set the value to <em>10.0</em>. We define no interaction for building and no Tag.</p>
-<img width="820" alt="Wizard-Properties-Building" src="https://github.com/user-attachments/assets/46bdd9a6-2250-4309-a8db-be7384212445">
+<p>We use the default value for the <em>Material</em> (empty) and Buffer (0.0). For the <em>Height/depth</em> we set the value to <em>5.0</em>. We define no interaction for building and no Tag.</p>
+<img width="820" alt="Wizard-Properties-Building" src="https://github.com/user-attachments/assets/c4cb4c11-c957-40ea-aade-4e25445d59c6">
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="definition-of-the-people-unity-properties">Definition of the people unity properties<a href="#definition-of-the-people-unity-properties" class="hash-link" aria-label="Direct link to Definition of the people unity properties" title="Direct link to Definition of the people unity properties" translate="no">​</a></h4>
 <p>In this tutorial, we want to send the location of the people agents to Unity without any interaction with them. We therefore add a new property for this purpose called &quot;people&quot;.
 As we want to sent the people agents at every step, we leave &quot;Update every&quot; checked with the default value for the simulation cycles (<em>1</em>).</p>
-<p>For <em>Aspect</em>, we want to represent people agents using a specific prefab called <em>Car</em>, we then have to select a prefab defined in Unity_ for &quot;Uses&quot;. In <em>Path to the Prefab</em>, we have to specify the path to the Prefab. For reasons of Unity limitations, this prefab must absolutely be in the Resources directory of the Unity project. In this tutorial, we want to use the <em>Car</em> prefab located in folder &quot;Assets/Resources/Prefabs/Visual Prefabs/City/Vehicles/&quot;, we then write in <em>Path</em> &quot;Prefabs/Visual Prefabs/City/Vehicles/Car&quot;. We set the scale of the prefab to &quot;30.0&quot;, the rotation coefficient to &quot;1.0&quot;, the rotation offset to &quot;-90.0&quot; and the offset along the Y-Axis to &quot;0.2&quot;.</p>
+<p>For <em>Aspect</em>, we want to represent people agents using a specific prefab called <em>Car</em>, we then have to select a prefab defined in Unity_ for &quot;Uses&quot;. In <em>Path to the Prefab</em>, we have to specify the path to the Prefab. For reasons of Unity limitations, this prefab must absolutely be in the Resources directory of the Unity project. In this tutorial, we want to use the <em>Car</em> prefab located in folder &quot;Assets/Resources/Prefabs/Visual Prefabs/City/Vehicles/&quot;, we then write in <em>Path</em> &quot;Prefabs/Visual Prefabs/City/Vehicles/Car&quot;. We set the scale of the prefab to &quot;60.0&quot;, the rotation coefficient to &quot;1.0&quot;, the rotation offset to &quot;-90.0&quot; and the offset along the Y-Axis to &quot;1.5&quot;.</p>
 <p>As we want no interaction with the people entities, leave all the check box in <em>Interaction</em> unchecked. We leave also empty the <em>Tag</em> field.</p>
-<img width="820" alt="Wizard-Properties-People" src="https://github.com/user-attachments/assets/b5ae09a4-1898-439b-af0c-e9501e4c4cd0">
+<img width="820" alt="Wizard-Properties-People" src="https://github.com/user-attachments/assets/41a605ed-270b-49d4-b631-9c12dbf4df0d">
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="page-3---define-the-information-about-the-player">Page 3 - Define the information about the player<a href="#page-3---define-the-information-about-the-player" class="hash-link" aria-label="Direct link to Page 3 - Define the information about the player" title="Direct link to Page 3 - Define the information about the player" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="min-minimum-number-of-players">Min (minimum number of players)<a href="#min-minimum-number-of-players" class="hash-link" aria-label="Direct link to Min (minimum number of players)" title="Direct link to Min (minimum number of players)" translate="no">​</a></h4>
 <p><em>How many players are required to run the simulation.</em></p>
@@ -82,14 +82,14 @@ As we want to sent the people agents at every step, we leave &quot;Update every&
 <p>By clicking on &quot;Player0&quot; it is possible to set the property of the player. In particular how it is represented in GAMA and in Unity for the other players. As we are here defining a single player GAMA, we will keep the default value for the <em>Aspect in Unity</em>. Concerning the attributes, we define the following values:</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="init-location-of-the-player">Init location of the player<a href="#init-location-of-the-player" class="hash-link" aria-label="Direct link to Init location of the player" title="Direct link to Init location of the player" translate="no">​</a></h4>
 <p><em>Sets the initial location of Player0.</em></p>
-<p>In this example, we&#x27;ll set it to <strong>100</strong>.</p>
+<p>In this example, we&#x27;ll set it to <strong>300</strong>.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="player-size">Player Size<a href="#player-size" class="hash-link" aria-label="Direct link to Player Size" title="Direct link to Player Size" translate="no">​</a></h4>
 <p><em>Player display size in GAMA.</em></p>
-<p>In this tutorial, we&#x27;ll set it to <strong>20.0</strong>.</p>
+<p>In this tutorial, we&#x27;ll set it to <strong>100.0</strong>.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="player-color">Player color<a href="#player-color" class="hash-link" aria-label="Direct link to Player color" title="Direct link to Player color" translate="no">​</a></h4>
 <p><em>Player display color in GAMA.</em></p>
 <p>In this tutorial, we keep the red color.</p>
-<img width="820" alt="Wizard-Properties-PlayerProperties" src="https://github.com/user-attachments/assets/d047d67e-1e1d-435e-9264-3c558d201ebe">
+<img width="818" alt="Wizard-Properties-NumPlayer" src="https://github.com/user-attachments/assets/41db03f2-ac44-4c6c-adf6-ae741dcc17aa">
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="finalizing">Finalizing<a href="#finalizing" class="hash-link" aria-label="Direct link to Finalizing" title="Direct link to Finalizing" translate="no">​</a></h3>
 <p>You can then click on finish to generate a new file: &quot;traffic and Pollution-VR.gaml&quot;, which will be used to launch the VR version of the model (experiment vr_xp). If the file does not appear, refresh the folder (right click on the folder, then &quot;refresh&quot;).</p>
 <p><img decoding="async" loading="lazy" src="https://github.com/user-attachments/assets/8117e89d-03ac-4295-a182-4c6cfecbcdea" alt="ModelCreated" class="img_ev3q"></p>
@@ -105,6 +105,6 @@ As we want to sent the people agents at every step, we leave &quot;Update every&
                     </p>
                   </li><li class="footer__item">
                     <p>A copy of the license is included <a href="https://github.com/project-SIMPLE/documentation/blob/main/LICENSE" style="display:initial">here</a>, in the repository of the wiki content.</p>
-                  </li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Project SIMPLE, Inc. Built with Docusaurus.</div></div></div></footer></div>
+                  </li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Project SIMPLE, Inc. Built with Docusaurus.</div></div></div></footer></div>
 </body>
 </html>
