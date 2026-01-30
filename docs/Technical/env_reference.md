@@ -1,9 +1,10 @@
-
-
 # .env file reference
 The application uses the file ```.env``` to be able to expose parameters easily modifiable by users that will affect the whole application.
 
-Here is a detailed list of all the different variables you can use, and what they do
+:::info
+In general, the application exposes information required by the backend through the index.ts file, while exposing informations for the frontend using the ```vite.config.ts``` file.
+:::
+
 
 
 ## Example env
@@ -23,7 +24,7 @@ EXTRA_VERBOSE = false
 LEARNING_PACKAGE_PATH="./learning-packages"
 EXTRA_LEARNING_PACKAGE_PATH="/uncommment/and/set/another/path/to/check"
 
-
+ENV_GAMALESS =  false
 HEADSETS_IP="192.168.68.15;192.168.68.103;192.168.68.104;192.168.68.110"
 ENV_MAX_ELEMENTS = 4
 AGGRESSIVE_DISCONNECT=false
@@ -167,3 +168,12 @@ SCRCPY_FORCE_H265 = true
 - **Required**: No  
 - **Description**: Additional directory for GAMA simulation models, scanned in addition to primary path  
 - **Use Case**: provide an additional folder as a source to discover GAMA simulations
+
+##### Application starting option
+
+**ENV_GAMALESS**
+
+- **Type**: boolean
+- **Default**: false 
+- **Required**: no
+- **Description**: Option that will disable the gama connector and all interactions related to gama, to only keep features related to streaming.
