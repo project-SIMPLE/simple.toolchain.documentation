@@ -30,7 +30,7 @@ To do this, you can use the application Oculus Wireless ADB, available at [this 
 
 ### installing Oculus Wireless ADB on the headset
 
-download the ```.apk``` file, then connect your headset to your computer. 
+download the ```.apk``` file on your computer, then connect your headset to your computer. 
 
 If you do not have ADB properly configured, refer to [the instructions on this page](01-getting_started.md#ADB-installation-instructions)
 
@@ -45,6 +45,9 @@ adb install tdg.oculuswirelessADB-1.3.apk
 ```
 adb shell pm grant tdg.oculuswirelessadb android.permission.WRITE_SECURE_SETTINGS
 ```
+
+These commands will install the application on your headset, and give it permissions to open the android debug bridge on the headset.
+
 :::tip
 While not required, you can also open port 5555 of your headset to speed up its connection process to the web platform by using the following command:
 ```

@@ -43,8 +43,8 @@ Crop
 
 -> round view
 
--> (cutted) Full screen
-1632:1220:100:320
+-> (cut) Full screen
+```1632:1220:100:320```
 
 ##### Meta Quest 3
 

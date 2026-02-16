@@ -3,7 +3,7 @@
 You can download Virtual Universe packages from the [SIMPLE GitHub organization](https://github.com/project-SIMPLE)
 Follow the same download procedure as the web platform (*Release or Direct Repository Download*)
 
-** Installing the Virtual Universe**
+**Installing the Virtual Universe**
 
 Once you have downloaded a Virtual Universe, extract it in the **learning package folders** defined in the .env file.
 For more information on the .env file, check out the dedicated[.env page](docs\Technical\env_reference.md)

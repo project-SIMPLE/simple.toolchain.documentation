@@ -2,9 +2,9 @@
 
 ## Installation
 
-1. The project requires GAMA version 1.9.3 (to download, go to https://github.com/gama-platform/gama/releases/tag/1.9.3 and select the version corresponding to your operating system)
-1. Download one of the released project on https://github.com/ACROSS-Lab/Rac-VR/releases
-1. Download the "Jaldi" font in your operating system.
+1. The project requires GAMA version 2025-06 to download, follow [this link](https://github.com/gama-platform/gama/releases/tag/2025.06.4)
+2. Download one of the released project on https://github.com/ACROSS-Lab/Rac-VR/releases
+3. Download the "Jaldi" font in your operating system.
 
 ## Set-up to do before the demo:
 
