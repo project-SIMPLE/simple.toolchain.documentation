@@ -31,8 +31,10 @@ This path is configured by `LEARNING_PACKAGE_PATH` in your `.env` file. See the 
 simple.webplatform/
 ├── learning-packages/
 │   ├── virtual-universe-1/
+│   │   ├── some-files.gaml
 │   │   └── settings.json
 │   ├── virtual-universe-2/
+│   │   ├── some-files.gaml
 │   │   └── settings.json
 │   └── ...
 ├── .env
@@ -48,8 +50,8 @@ Each Virtual Universe must have a `settings.json` file in its root folder.
 ## Verify Installation
 
 1. Start the web platform
-2. Navigate to the Virtual Universe selector
-3. Your installed Virtual Universes should appear in the list
+2. Your installed Virtual Universes should appear in the list
+3. Click on your Virtual Universes to start it
 
 <!-- TODO: Add screenshot of Virtual Universe selector -->
 <!-- Screenshot description: The web platform's Virtual Universe selector dropdown or list showing 2-3 installed Virtual Universes (e.g., "Rac-VR", "Mekong Delta"). -->

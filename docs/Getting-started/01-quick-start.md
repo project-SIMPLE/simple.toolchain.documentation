@@ -23,8 +23,7 @@ Download and install the following:
 1. **Node.js** - Download from [nodejs.org](https://nodejs.org/)
 2. **GAMA** - Download from [gama-platform.org](https://gama-platform.org/download)
 3. **ADB** (optional) - Required for headset connectivity
-   - macOS: `brew install android-platform-tools`
-   - Other OS: See [detailed instructions](02-dependencies.md#adb)
+   - See [detailed instructions](02-dependencies.md#adb)
 
 ### 2. Get the Web Platform
 
@@ -34,7 +33,7 @@ git clone https://github.com/project-SIMPLE/simple.webplatform
 cd simple.webplatform
 ```
 
-### 3. Configure Environment
+### 3. Configure Environment (Optional)
 
 ```bash
 # Copy the example environment file
@@ -53,7 +52,7 @@ See the [.env reference](docs/Technical/For-Developers/env_reference.md) for all
 ### 4. Install and Run
 
 ```bash
-# Install dependencies
+# Install dependencies (only first time)
 npm install
 
 # Start the application

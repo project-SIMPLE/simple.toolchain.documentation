@@ -13,7 +13,8 @@ Visit the [official Node.js website](https://nodejs.org/en/download) and downloa
 **Verify the installation:**
 
 ```bash
-node -v
+$ node -v
+v25.6.1
 ```
 
 :::info
@@ -64,7 +65,11 @@ source ~/.zshrc
 **Verify the installation:**
 
 ```bash
-adb version
+$ adb version
+Android Debug Bridge version 1.0.41
+Version 35.0.2-android-tools
+Installed as /usr/bin/adb
+Running on Linux 6.18.9-arch1-2 (x86_64)
 ```
 
 ## GAMA Platform

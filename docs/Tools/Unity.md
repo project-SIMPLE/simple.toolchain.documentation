@@ -9,7 +9,7 @@ Unity is used to create and modify the 3D Virtual Universes that run on the GAMA
 
 ## Requirements
 
-- **Unity Version:** 2022.3 LTS or later
+- **Unity Version:** 6000.3.8f1
 - **Module:** WebGL Build Support (required for web-based VR)
 
 ## Installation
@@ -17,11 +17,11 @@ Unity is used to create and modify the 3D Virtual Universes that run on the GAMA
 1. Download **Unity Hub** from [unity.com](https://unity.com/download)
 2. Install Unity Hub
 3. In Unity Hub, go to **Installs → Add**
-4. Select Unity version 2022.3 LTS or later
-5. **Important:** Add the **WebGL Build Support** module
+4. Select Unity version 6000.3.8f1
+5. **Important:** Add the **Android Build Support** module
 
 <!-- TODO: Add screenshot of Unity Hub installation with modules -->
-<!-- Screenshot description: Unity Hub install dialog showing Unity 2022.3 LTS selected with WebGL Build Support module checked. -->
+<!-- Screenshot description: Unity Hub install dialog showing Unity 2022.3 LTS selected with Android Build Support module checked. -->
 
 ## Create a New Project
 
@@ -34,12 +34,12 @@ Unity is used to create and modify the 3D Virtual Universes that run on the GAMA
 URP (Universal Render Pipeline) is recommended for VR applications as it performs better on standalone headsets.
 :::
 
-## Build for WebGL
+## Build for VR devices
 
 When your Virtual Universe is ready:
 
 1. Go to **File → Build Settings**
-2. Select **WebGL** platform
+2. Select **Android** platform
 3. Click **Switch Platform** if not already selected
 4. Configure **Player Settings**:
    - Set **Resolution and Presentation** to your target resolution
@@ -48,6 +48,6 @@ When your Virtual Universe is ready:
 
 ## Troubleshooting
 
-- **Build errors?** Ensure WebGL Build Support module is installed
+- **Build errors?** Ensure Android Build Support module is installed
 - **VR not working?** Check that WebXR export package is installed
 - **Performance issues?** Use URP and optimize textures for mobile VR
