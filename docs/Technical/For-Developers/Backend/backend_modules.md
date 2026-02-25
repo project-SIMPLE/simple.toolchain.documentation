@@ -2,6 +2,9 @@
 
 ![Backend functional diagram](../../../../static/img/Backend/Backend_diagram.png)
 
+<!-- TODO: Add updated backend architecture diagram if the current one becomes outdated -->
+<!-- Screenshot description: A block diagram showing the five main backend components (Controller, MonitorServer, PlayerManager, GamaConnector, ModelManager) with labeled arrows indicating the direction of communication between them and with external systems (GAMA server, VR headsets, frontend). -->
+
 
 
 ####  Controller

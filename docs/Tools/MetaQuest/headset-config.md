@@ -62,6 +62,10 @@ adb tcpip 5555
    ```bash
    adb devices
    ```
+
+<!-- TODO: Add screenshot of adb devices output with a single headset connected -->
+<!-- Screenshot description: A terminal window showing the output of `adb devices`, listing one connected device with its serial number and the status "device". -->
+
 2. If multiple devices appear, disconnect them:
    ```bash
    adb disconnect

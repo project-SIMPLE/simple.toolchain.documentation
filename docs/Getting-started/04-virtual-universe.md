@@ -40,6 +40,9 @@ simple.webplatform/
 └── ...
 ```
 
+<!-- TODO: Add screenshot of the learning-packages folder in a file explorer -->
+<!-- Screenshot description: A file explorer (e.g. Windows Explorer or macOS Finder) showing the `learning-packages` directory inside the `simple.webplatform` folder, with two or three Virtual Universe sub-folders visible, each containing a settings.json file. -->
+
 Each Virtual Universe must have a `settings.json` file in its root folder.
 
 ## Verify Installation

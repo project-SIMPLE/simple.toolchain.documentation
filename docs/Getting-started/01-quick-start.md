@@ -45,6 +45,9 @@ Edit `.env` and set at minimum:
 - `LEARNING_PACKAGE_PATH="./learning-packages"`
 - Your GAMA connection settings (if using GAMA)
 
+<!-- TODO: Add screenshot of the .env file open in a text editor -->
+<!-- Screenshot description: The .env file open in a code editor (e.g. VS Code) showing the key variables filled in: GAMA_IP_ADDRESS, GAMA_WS_PORT, LEARNING_PACKAGE_PATH, and WEB_APPLICATION_PORT. -->
+
 See the [.env reference](docs/Technical/For-Developers/env_reference.md) for all options.
 
 ### 4. Install and Run
@@ -56,6 +59,9 @@ npm install
 # Start the application
 npm start
 ```
+
+<!-- TODO: Add screenshot of the terminal after npm start -->
+<!-- Screenshot description: A terminal window showing the output of `npm start`, with the platform successfully started and the URL (e.g. http://localhost:8000) displayed. -->
 
 ### 5. Open in Browser
 
