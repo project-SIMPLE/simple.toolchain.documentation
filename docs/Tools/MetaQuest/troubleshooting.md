@@ -1,155 +1,120 @@
+---
+sidebar_position: 5
+---
+
 # Troubleshooting
 
-By design, Meta Quest headsets are based on Android systems. Therefore, the headsets mimic the behavior of a typical Android smartphone, and most of the issues you encounter may stem from this.
+Meta Quest headsets run on Android, so many issues are similar to Android smartphone problems.
 
 ## Headsets Keep Going to Sleep
 
-If the headsets keep going to sleep, you may go into the **settings** of the headset.
-Go into **Settings app** → **General** → **Power**, and set **Display off** to 4 hours, and **sleep mode** to 4 hours. 
+If headsets keep going to sleep:
 
-This will prevent the headsets from going to sleep. 
+1. Go to **Settings** on the headset
+2. Navigate to **General → Power**
+3. Set **Display off** to 4 hours
+4. Set **Sleep mode** to 4 hours
+
+<!-- TODO: Add screenshot of headset power settings -->
+<!-- Screenshot description: Meta Quest headset Settings → General → Power screen showing "Display off" and "Sleep mode" options set to 4 hours. -->
+
 :::note
-You may still manually turn off the screen of the headset by briefly pressing the "**power**" button on its side.
+You can still manually turn off the headset screen by briefly pressing the power button.
 :::
 
+## Headsets Keep Disconnecting from WiFi
 
-## Headsets Keep Disconnecting from Wi-Fi
+By default, headsets check for internet connectivity and captive portals. On isolated school networks without internet, this causes disconnection issues.
 
-By default, headsets probe new networks they connect to by sending a ping and trying to detect a captive portal if there is one.
+:::tip
+The SIMPLE web platform automatically applies these WiFi settings every time it connects to a headset via ADB. It also corrects any settings that have been changed back, ensuring the headset stays connected to your isolated network.
+:::
 
-In the SIMPLE project, we're using dedicated private Wi-Fi that is disconnected from the internet, which causes the probing system to fail and prevents auto-connection of the headsets to these networks.
+### Quick Fix (One Command)
 
-Luckily for us, it's possible to disable this behavior with the following commands:
+Run this single command to apply all WiFi fixes:
+
+```bash
+adb shell "settings put global captive_portal_detection_enabled 0" && adb shell "settings put global captive_portal_server localhost" && adb shell "settings put global captive_portal_https_url https://localhost" && adb shell "settings put global captive_portal_http_url http://localhost" && adb shell "settings put global captive_portal_mode 0" && adb shell "settings put global wifi_watchdog_on 0" && adb shell "settings put global wifi_watchdog_poor_network_test_enabled 0" && adb shell "settings put global network_recommendations_enabled 0" && adb shell "settings put global network_avoid_bad_wifi 0" && adb shell "settings put global wifi_passpoint_enabled 0" && adb shell "settings put global wifi_sleep_policy 2" && adb shell "settings put global stay_on_while_plugged_in 3" && adb shell "settings put global wifi_enhance_network_while_sleeping 0" && adb shell "settings put global ota_disable_automatic_update 1"
+```
+
+Then restart the headset:
+```bash
+adb reboot
+```
+
+### What This Fixes
+
+| Issue | Setting |
+|-------|---------|
+| Captive portal probing | Disabled |
+| WiFi network switching | Disabled |
+| Background network checks | Disabled |
+| Auto-updates | Disabled |
+| WiFi sleep policy | Stay connected |
+
+<!-- TODO: Add screenshot of headset network settings -->
+<!-- Screenshot description: Meta Quest headset WiFi settings showing the configured network with IP address 192.168.68.xx -->
+
+### Verify Settings
+
+After applying, verify with:
+
+```bash
+adb shell "settings get global captive_portal_detection_enabled"
+```
+
+Expected output: `0`
+
+### Manual Configuration (Detailed)
 
 <details>
-<summary> **All in one command** </summary>
+<summary>Show individual commands</summary>
 
-You can use the following command in your terminal to apply all the settings simultaneously:
+If you need to configure settings individually:
 
+**Disable captive portal detection:**
 ```bash
-adb shell "settings put global captive_portal_detection_enabled 0" && adb shell "settings put global captive_portal_server localhost" && adb shell "settings put global captive_portal_https_url https://localhost" && adb shell "settings put global captive_portal_http_url http://localhost" && adb shell "settings put global captive_portal_mode 0" && adb shell "settings put global wifi_watchdog_on 0"  && adb shell "settings put global wifi_watchdog_poor_network_test_enabled 0" && adb shell "settings put global network_recommendations_enabled 0" && adb shell "settings put global network_avoid_bad_wifi 0" && adb shell "settings put global wifi_passpoint_enabled 0" && adb shell "settings put global wifi_sleep_policy 2"  && adb shell "settings put global stay_on_while_plugged_in 3" && adb shell "settings put global wifi_enhance_network_while_sleeping 0" && adb shell "settings put global ota_disable_automatic_update 1"
+adb shell "settings put global captive_portal_detection_enabled 0"
 ```
-</details>
 
-
-
-
-
-### Probing
---- ---
-<br/>
-
-#### Disable captive portal probing
-```bash
-adb shell "settings put global captive_portal_detection_enabled 0" 
-```
-<br/>
-
-#### Set the probing URL to localhost to always get a positive response (in case it gets re-activated)
-
+**Set probing URLs to localhost:**
 ```bash
 adb shell "settings put global captive_portal_server localhost"
-```
-```bash
 adb shell "settings put global captive_portal_https_url https://localhost"
-```
-```bash
 adb shell "settings put global captive_portal_http_url http://localhost"
 ```
-:::tip 
-you can use this command to apply all of these at once:
-```bash
-adb shell "settings get global captive_portal_server" && adb shell "settings get global captive_portal_https_url" &&  adb shell "settings get global captive_portal_http_url" 
-```
-:::
 
-#### Disable captive portal mode
-```bash
-adb shell "settings put global captive_portal_mode 0"
-```
-
-### Choosing WiFi
-
---- ---
-#### Increase WiFi RSSI polling interval (less aggressive)
+**Disable WiFi watchdog:**
 ```bash
 adb shell "settings put global wifi_watchdog_on 0"
-```
-
-#### Disables the WiFi watchdog that monitors poor network quality
-```bash
 adb shell "settings put global wifi_watchdog_poor_network_test_enabled 0"
 ```
-#### Disable network recommendations
+
+**Disable network recommendations:**
 ```bash
-adb shell "settings put global network_recommendations_enabled 0" 
+adb shell "settings put global network_recommendations_enabled 0"
 ```
 
-#### Disable automatic network switching
+**Prevent automatic network switching:**
 ```bash
 adb shell "settings put global network_avoid_bad_wifi 0"
 ```
 
-
-###   Disable hotspot 2.0 (Passpoint) 
-#### Disables automatic connection to Passpoint networks (carrier WiFi networks)
+**Disable Passpoint:**
 ```bash
 adb shell "settings put global wifi_passpoint_enabled 0"
 ```
 
-### Staying connected
- 
-
-#### Prevent WiFi from disconnecting when the screen is turned off
+**Keep WiFi connected:**
 ```bash
-adb shell "settings put global wifi_sleep_policy 2" 
-```
-#### Keep the screen on while charging
-```bash
+adb shell "settings put global wifi_sleep_policy 2"
 adb shell "settings put global stay_on_while_plugged_in 3"
 ```
 
-#### Disable background data restriction enforcement
-
-```bash
-adb shell "settings put global wifi_enhance_network_while_sleeping 0"
-```
-
-### Verification of the settings
-To check if the settings are correctly applied to the headset, use the following command:
-
-```bash
-
-adb shell "settings get global captive_portal_detection_enabled" && adb shell "settings get global captive_portal_server " && adb shell "settings get global captive_portal_https_url" && adb shell "settings get global captive_portal_http_url" && adb shell "settings get global captive_portal_mode" && adb shell "settings get global wifi_watchdog_on" && adb shell "settings get global wifi_watchdog_poor_network_test_enabled" && adb shell "settings get global network_recommendations_enabled" && adb shell "settings get global network_avoid_bad_wifi" && adb shell "settings get global wifi_passpoint_enabled" && adb shell "settings get global wifi_sleep_policy"  && adb shell "settings get global stay_on_while_plugged_in" && adb shell "settings get global wifi_enhance_network_while_sleeping" && adb shell "settings get global ota_disable_automatic_update"
-
-```
-The output of this command must be:
-```bash
-0
-localhost
-https://localhost
-http://localhost
-0
-0
-0
-0
-0
-0
-2
-3
-0
-1
-```
-
-
-### Misc
-
-
-#### Disable automatic system updates
+**Disable automatic updates:**
 ```bash
 adb shell "settings put global ota_disable_automatic_update 1"
 ```
-#### Restart headset (recommended)
-```bash
-adb reboot
-```
+
+</details>

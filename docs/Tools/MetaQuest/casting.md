@@ -1,67 +1,99 @@
-# Casting headset
+---
+sidebar_position: 4
+---
 
-Here are the two main ways to display the live headset video on another screen.
+# Casting Headset to Screen
 
-In the context of SIMPLE, we recommend the **Offline casting** solution. Since the project is supposed to run offline in schools, it is the primary method. This approach is not affected by unstable internet connections and generally provides better streaming quality performance.
+There are two ways to display the headset's live video on another screen.
 
-## Online casting
-
-(this steps order is important to respect and follow)
-
-1. Ensure the VR headset and the computer are on the same network
-2. On the computer, open the website : https://oculus.com/casting
-3. In the headset, enable the screen casting
-  - In the sub menu, choose cast to `Computer`
-
-## Offline casting
-
-This method use the [scrcpy](https://github.com/Genymobile/scrcpy) project which can get video stream from ADB (Android Debug Bridge). Therefore, it's a little more complex to prepare, but allow offline and better quality stream.
-
-### Activate Wireless ADB
-
-The classical way is to plug a computer to the headset, allow USB connection inside the headset and run the command `adb tcpip 5555`.
-
-![ADB enable screenshot](https://www.virtu-al.net/wp-content/uploads/2019/11/com.oculus.vrshell-20191111-141155-768x768.jpg)
-
-Otherwise, a simplier way is to use a tool developed for this particular need and available as an APK to install inside the headset : [https://github.com/thedroidgeek/oculus-wireless-adb](https://github.com/thedroidgeek/oculus-wireless-adb/releases/tag/1.2)
-
-
-### Start scrcpy stream
-
-#### scrcpy v2.X
-
-<details>
- <summary>Deprecated method, please prefer scrcpy v3</summary>
-
-##### Meta Quest 2
-
-```
-scrcpy --tcpip=<IPv4.ADDRESS.OF.HEADSET> --crop <CROP:VALUE:TO:DISPLAY> --stay-awake --disable-screensaver --no-audio --video-bit-rate 1M --display-buffer=200 --video-codec=h265 --max-fps=20
-```
-
-Crop
-
--> round view
-
--> (cut) Full screen
-```1632:1220:100:320```
-
-##### Meta Quest 3
-
-```
-scrcpy --tcpip=<IP.ADDRESS> --crop 2064:2208:2064:0 --stay-awake --disable-screensaver --no-audio --video-bit-rate 1M --display-buffer=200 --video-codec=h265 --max-fps=20
-```
-
-:::info
-If you're running system on Linux, by default scrcpy is running on `x11`. To enable wayland support, you should set the envrionment variable `SDL_VIDEODRIVER=wayland`
+:::tip
+Both methods require **Wireless ADB** to be enabled on your headset. The web platform connects to the headset via ADB and runs scrcpy automatically. See the [headset configuration guide](headset-config.md) to enable Wireless ADB.
 :::
 
-</details>
+## Option 1: Automatic Casting (Recommended)
 
-#### scrcpy v3.X
+The SIMPLE web platform can automatically cast the headset display.
 
-This new major release introduced a new feature to angled the point of view in the headset. Therefore it's possible to use this command to achieve a almost similar view as the online streaming :
+### Prerequisites
 
+- Wireless ADB enabled on the headset
+- Headset connected to the same WiFi network as the computer
+
+### Using the Stream Page
+
+1. Ensure the headset is connected to the web platform
+2. Open your browser and navigate to:
+   ```
+   http://localhost:8000/streamPlayerScreen
+   ```
+3. The headset stream should appear automatically
+
+<!-- TODO: Add screenshot of streamPlayerScreen page -->
+<!-- Screenshot description: The web platform streaming page showing the headset video feed with controls. -->
+
+### Troubleshooting
+
+- **No stream?** Ensure Wireless ADB is enabled and headset is on the same WiFi network
+- **Poor quality?** Try adjusting the headset's WiFi position or check network latency
+
+---
+
+## Option 2: Manual Casting
+
+If you need more control, you can cast manually using scrcpy.
+
+### Prerequisites
+
+- ADB installed and configured on your computer
+- scrcpy v3 or later installed
+- Wireless ADB enabled on the headset
+- Headset connected to the same WiFi network as the computer
+
+### Step 1: Enable Wireless ADB
+
+Connect your headset to your computer via USB, then:
+
+```bash
+adb tcpip 5555
 ```
-scrcpy --tcpip=<IP.ADDRESS> --angle 20 --crop 1508:1708:300:200 --stay-awake --disable-screensaver --no-audio --video-bit-rate 1M --video-buffer=200 --video-codec=h265 --max-fps=20
+
+Or use the [Oculus Wireless ADB](https://github.com/thedroidgeek/oculus-wireless-adb/releases) app on your headset to enable ADB.
+
+### Step 2: Start Streaming
+
+```bash
+scrcpy --tcpip=<HEADSET_IP> --angle 20 --crop 1508:1708:300:200 --stay-awake --disable-screensaver --no-audio --video-bit-rate 1M --video-buffer=200 --video-codec=h265 --max-fps=20
+```
+
+Replace `<HEADSET_IP>` with your headset's IP address (e.g., `192.168.68.103`).
+
+### Command Options Explained
+
+| Parameter | Description |
+|-----------|-------------|
+| `--tcpip` | Connect to headset over WiFi |
+| `--angle 20` | Tilt the view by 20 degrees |
+| `--crop` | Crop to show headset-style view |
+| `--stay-awake` | Prevent headset from sleeping |
+| `--video-codec h265` | Use H.265 for better quality |
+| `--max-fps 20` | Limit to 20 fps for stability |
+
+### Crop Values for Different Headsets
+
+| Headset | Crop Value | Crop Angle | Notes |
+|---------|------------|------------|-------|
+| Quest 2 (Full) | Use without crop | N/A | |
+| Quest 2 (Left eye) | `1632:1220:100:320` | N/A | |
+| Quest 3 (Recommended) | `2064:2208:2064:0` | `20` | Quest 3 screens are tilted by default - using this crop makes viewing much easier |
+
+:::info
+Quest 3 has tilted displays by default. Using the recommended crop values above significantly improves the viewing experience.
+:::
+
+### Linux Wayland Support
+
+On Linux, set this environment variable before running scrcpy:
+
+```bash
+export SDL_VIDEODRIVER=wayland
 ```

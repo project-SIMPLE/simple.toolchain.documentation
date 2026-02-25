@@ -1,4 +1,8 @@
-# Rac VR
+---
+sidebar_position: 1
+---
+
+# Rac-VR Demo
 
 ## Installation
 
