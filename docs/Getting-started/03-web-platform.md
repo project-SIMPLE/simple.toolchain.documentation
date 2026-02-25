@@ -55,7 +55,7 @@ copy .env.example .env
 2. Edit the `.env` file with your settings
 
 :::tip
-For detailed information about all environment variables, see the [.env reference](docs/Technical/env_reference.md)
+For detailed information about all environment variables, see the [.env reference](docs/Technical/For-Developers/env_reference.md)
 :::
 
 ## Install Dependencies

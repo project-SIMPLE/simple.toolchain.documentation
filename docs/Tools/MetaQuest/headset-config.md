@@ -21,7 +21,7 @@ On your headset:
 1. Go to **Settings** → **Wi-Fi** → Arrow next to your network → **Edit** → **Advanced**
 2. Set the following:
    - **IP Assignment:** Static
-   - **IP Address:** `192.168.68.x` (choose x based on [headset color constants](docs/Technical/constants.md))
+   - **IP Address:** `192.168.68.x` (choose x based on [headset color constants](docs/Technical/For-Developers/Backend/backend_modules.md#headset_color))
    - **Gateway:** `192.168.68.1`
    - **Network Prefix Length:** `24`
    - **DNS 1:** `1.1.1.1`
@@ -76,7 +76,7 @@ adb tcpip 5555
 Your headset can now connect remotely to the web platform.
 
 :::tip
-Add headset IPs to `HEADSETS_IPS` in your `.env` file for faster automatic connections. See the [.env reference](docs/Technical/env_reference.md#Headset_ips).
+Add headset IPs to `HEADSETS_IPS` in your `.env` file for faster automatic connections. See the [.env reference](docs/Technical/For-Developers/env_reference.md#Headset_ips).
 :::
 
 ## Troubleshooting

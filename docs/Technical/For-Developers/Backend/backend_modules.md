@@ -1,6 +1,6 @@
 # Backend modules of the application
 
-![Backend functional diagram](../../../static/img/Backend/Backend_diagram.png)
+![Backend functional diagram](../../../../static/img/Backend/Backend_diagram.png)
 
 
 
@@ -291,16 +291,57 @@ interface WebSocketContextType {
 
 **Responsibilities**:
 
-- Loads environment variables from `.env`  
-- Validates system dependencies (ADB availability)  
-- Platform-specific configuration (Windows/Linux/macOS)  
-- Configures LogTape logging system  
+- Loads environment variables from `.env`
+- Validates system dependencies (ADB availability)
+- Platform-specific configuration (Windows/Linux/macOS)
+- Configures LogTape logging system
 - Creates and initializes Controller
 
 **Initialization Sequence**:
 
-1. Environment variable loading  
-2. System capability detection  
-3. Logger configuration  
-4. Controller instantiation  
+1. Environment variable loading
+2. System capability detection
+3. Logger configuration
+4. Controller instantiation
 5. Server startup
+
+---
+
+## Constants Reference
+
+These constants are defined in `Constants.ts` and shared across the backend.
+
+### GAMA_ERROR_MESSAGES
+
+```ts
+export const GAMA_ERROR_MESSAGES = [
+    "SimulationStatusError",
+    "SimulationErrorDialog",
+    "SimulationError",
+    "RuntimeError",
+    "GamaServerError",
+    "MalformedRequest",
+    "UnableToExecuteRequest"
+];
+```
+
+Used by `GamaConnector` when listening to response messages from the GAMA server. If the `type` field of a received message matches any entry in this array, the connector treats it as an error and throws accordingly.
+
+### HEADSET_COLOR
+
+```ts
+export const HEADSET_COLOR: Record<string,string> = {
+    "101": "bg-blue-300",
+    "102": "bg-red-300",
+    "103": "bg-red-500",
+    "104": "bg-red-300",
+    "105": "bg-black",
+    "106": "bg-white",
+    "110": "bg-[#416250]",
+    "190": "red",
+    "21":  "bg-blue-500",
+    "15":  "bg-blue-600"
+};
+```
+
+Maps the last octet(s) of a headset's IP address to a Tailwind CSS class applied as a colored border around the video stream in `ScrcpyServer`. The color name is extracted from the middle of the Tailwind value and used to resolve the corresponding icon at `public/images/headset_<color>.png`.

@@ -22,7 +22,7 @@ Virtual Universes are 3D simulations that run on the GAMA platform. This guide e
 The default location is: `simple.webplatform/learning-packages`
 
 :::info
-This path is configured by `LEARNING_PACKAGE_PATH` in your `.env` file. See the [.env reference](docs/Technical/env_reference.md) for details.
+This path is configured by `LEARNING_PACKAGE_PATH` in your `.env` file. See the [.env reference](docs/Technical/For-Developers/env_reference.md) for details.
 :::
 
 ## Expected Structure

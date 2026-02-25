@@ -45,7 +45,7 @@ Edit `.env` and set at minimum:
 - `LEARNING_PACKAGE_PATH="./learning-packages"`
 - Your GAMA connection settings (if using GAMA)
 
-See the [.env reference](docs/Technical/env_reference.md) for all options.
+See the [.env reference](docs/Technical/For-Developers/env_reference.md) for all options.
 
 ### 4. Install and Run
 
