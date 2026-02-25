@@ -1,9 +1,9 @@
 ---
 slug: /
-sidebar_position: 1
+sidebar_position: 0
 ---
 
-# Welcome
+# Welcome to SIMPLE
 
 Welcome to the documentation for the SIMPLE project! This resource is designed to help you navigate and make the most of our project, providing detailed information and guidance every step of the way. 
 

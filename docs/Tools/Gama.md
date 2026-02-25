@@ -1,6 +1,6 @@
 ---
 title: GAMA Platform
-position: 1
+sidebar_position: 1
 ---
 
 # Prerequisites
