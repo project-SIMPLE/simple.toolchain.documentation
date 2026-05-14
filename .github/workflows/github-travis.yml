@@ -28,16 +28,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Download toolkit READMEs
-        run: |
-          wget https://github.com/project-SIMPLE/simple.toolchain/raw/refs/heads/2024-06/GAMA%20Plugin/README.md -O ${{ runner.temp }}/gaml.extension.unity.md
-          sed -i '1s/^/---\ntitle: Install GAMA Plugin\n---\n/' ${{ runner.temp }}/gaml.extension.unity.md
-          mv ${{ runner.temp }}/gaml.extension.unity.md $GITHUB_WORKSPACE/docs/Getting-started
-          #
-          wget https://github.com/project-SIMPLE/simple.toolchain/raw/refs/heads/2024-06/Unity%20Template/README.md -O ${{ runner.temp }}/simple.template.unity.md
-          sed -i '1s/^/---\ntitle: Install Unity Template\n---\n/' ${{ runner.temp }}/simple.template.unity.md
-          mv ${{ runner.temp }}/simple.template.unity.md $GITHUB_WORKSPACE/docs/Getting-started
-
       - name: Build website
         run: npm run build
 

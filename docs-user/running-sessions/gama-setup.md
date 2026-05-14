@@ -45,7 +45,7 @@ Ensure these settings match your WebPlatform's `.env` file:
 - `GAMA_IP_ADDRESS` (default: `localhost`) — change this if GAMA runs on a different machine than the WebPlatform.
 - `GAMA_WS_PORT` (default: `1000`)
 
-See the [.env Reference](/advanced/webplatform/env-reference) for details.
+See the [.env Reference](/webplatform/configuration) for details.
 :::
 
 ## Install the SIMPLE Plugin
@@ -62,7 +62,7 @@ The SIMPLE plugin adds VR capabilities to GAMA (`abstract_unity_linker`, `abstra
 
 After restarting, a **UnityVR** menu appears in the GAMA IDE.
 
-For more detail on the plugin's GAML API, see the [GAMA Plugin overview](/toolchain/01-Home).
+For more detail on the plugin's GAML API, see the [GAMA Plugin overview](/gama/installation).
 
 ## Verify Connection
 

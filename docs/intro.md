@@ -16,31 +16,9 @@ The project is developed at IRD (Institut de Recherche pour le Développement), 
 
 ## System architecture
 
+![SIMPLE development environment](/img/FirstPageGAMAUnity.png)
+
 A SIMPLE session connects three software layers:
-
-```mermaid
-graph TD
- subgraph "Operator computer"
- GAMA["GAMA Platform\n(simulation engine)"]
- WP["WebPlatform\n(session orchestration)"]
- UI["Admin UI\n(browser)"]
- end
-
- subgraph "Student headsets"
- H1["Meta Quest headset 1\n(Unity VR app)"]
- H2["Meta Quest headset 2\n(Unity VR app)"]
- H3["Meta Quest headset N\n(Unity VR app)"]
- end
-
- GAMA -- "WebSocket :1000\n(GamaServer protocol)" --> WP
- WP -- "WebSocket :8001\n(monitor protocol)" --> UI
- WP -- "WebSocket :8080\n(player protocol)" --> H1
- WP -- "WebSocket :8080\n(player protocol)" --> H2
- WP -- "WebSocket :8080\n(player protocol)" --> H3
- WP -- "ADB / scrcpy" --> H1
- WP -- "ADB / scrcpy" --> H2
- WP -- "ADB / scrcpy" --> H3
-```
 
 | Component | Role |
 |---|---|
@@ -79,7 +57,7 @@ The GAMA plugin (`simple.toolchain/GAMA Plugin/`) extends the GAMA platform with
 
 Plugin version: **2.0.0** (artifact `gaml.extension.unity`). Requires GAMA ≥ 2025-01.
 
-See the [GAMA Plugin section](/toolchain/01-Home) for installation and the [GAML API reference](/toolchain/gaml-api) for the full API.
+See the [GAMA Plugin section](/gama/installation) for installation and the [GAML API reference](/gama/api) for the full API.
 
 ### Unity Template
 
@@ -91,7 +69,7 @@ The Unity template (`simple.toolchain/Unity Template VR/`) is a Unity 6 project 
 - Interaction prefabs (grab, select, teleport).
 - Code example scenes matching each GAML code example model.
 
-See the [Unity template guide](/toolchain/Unity-Installation-Guide) for setup.
+See the [Unity template guide](/unity/installation) for setup.
 
 ---
 
@@ -106,7 +84,7 @@ A **Virtual Universe (VU)** is the combination of a GAML model file and a Unity 
 
 The WebPlatform scans the `learning-packages/` directory for `settings.json` files and presents found VUs in the admin UI.
 
-See [Virtual Universe settings reference](/virtual-universes/settings) for the `settings.json` format.
+See [Virtual Universe settings reference](/webplatform/virtual-universes/settings) for the `settings.json` format.
 
 ---
 
@@ -120,11 +98,10 @@ M2L2 is a portable classroom-in-a-box hardware kit built around Mac minis, Meta 
 
 | Goal | Page |
 |---|---|
-| Set up the full dev stack | [Quick Start](/getting-started/01-quick-start) |
-| Install prerequisites (GAMA, plugin, Node.js, Unity) | [Prerequisites](/getting-started/02-dependencies) |
-| Install the WebPlatform | [Install the WebPlatform](/getting-started/03-web-platform) |
-| Set up the Unity template | [Unity Template Setup](/getting-started/05-unity-setup) |
-| Set up the Unity template | [Unity Installation Guide](/toolchain/Unity-Installation-Guide) |
-| Configure environment variables | [Environment Reference](/advanced/webplatform/env-reference) |
+| Set up the full dev stack | [Quick Start](/overview/quick-start) |
+| Install GAMA and the SIMPLE plugin | [GAMA Installation](/gama/installation) |
+| Install the WebPlatform | [Install the WebPlatform](/webplatform/installation) |
+| Install Unity and open the template | [Unity Installation](/unity/installation) |
+| Configure environment variables | [.env Reference](/webplatform/configuration) |
 | Understand the WebSocket protocol | [WebSocket API Reference](/advanced/webplatform/websocket-api) |
-| Browse the GAML API | [GAML API Reference](/toolchain/gaml-api) |
+| Browse the GAML API | [GAML API Reference](/gama/api) |

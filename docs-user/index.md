@@ -12,4 +12,5 @@ This section is for **operators and system administrators** who want to deploy S
 
 | Section | Contents |
 |---|---|
-| [Running Sessions](./running-sessions/) | Operator guide, GAMA setup, Meta Quest headset configuration |
+| [Running Sessions](/user/running-sessions) | Operator guide, GAMA setup, Meta Quest headset configuration |
+| [Demos](/user/demos/Rac-VR) | Step-by-step facilitation guides for running specific SIMPLE demos |

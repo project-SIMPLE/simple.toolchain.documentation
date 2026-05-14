@@ -1,5 +1,7 @@
 ---
 sidebar_position: 3
+title: Configure Meta Quest Headsets
+description: Set a static IP address and enable wireless ADB on Meta Quest headsets for use with the SIMPLE WebPlatform.
 ---
 
 # Configure Meta Quest Headsets
@@ -80,7 +82,7 @@ adb tcpip 5555
 Your headset can now connect remotely to the web platform.
 
 :::tip
-Add headset IPs to `HEADSETS_IP` in your `.env` file for faster automatic connections. See the [.env reference](/advanced/webplatform/env-reference#headsets_ip).
+Add headset IPs to `HEADSETS_IP` in your `.env` file for faster automatic connections. See the [.env reference](/webplatform/configuration#headsets_ip).
 :::
 
 ## Troubleshooting

@@ -162,7 +162,7 @@ Scans learning package directories and builds the catalog of available Virtual U
 - Resolves relative `model_file_path` values to absolute paths.
 - Maintains a flat `models: Model[]` list (indexed by `model_index`) and a nested `monitorNestedModels` structure for the frontend.
 
-**Settings format**: see [Virtual Universe settings reference](/virtual-universes/settings).
+**Settings format**: see [Virtual Universe settings reference](/webplatform/virtual-universes/settings).
 
 **Error handling in packaged mode**: If no learning packages are found, the process exits with code 1.
 

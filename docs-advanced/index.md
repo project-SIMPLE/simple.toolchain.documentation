@@ -12,4 +12,4 @@ This section is for **platform developers** who need to understand, modify, or e
 
 | Section | Contents |
 |---|---|
-| [WebPlatform](./webplatform/) | Architecture, WebSocket API, backend modules, frontend components, `.env` reference, packaging |
+| [WebPlatform](/advanced/webplatform) | Architecture, WebSocket API, backend modules, frontend components, `.env` reference, packaging |

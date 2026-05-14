@@ -13,4 +13,4 @@ This section covers everything needed to run a SIMPLE session end-to-end.
 |---|---|
 | [Operator Guide](./operators.md) | Start GAMA, prepare headsets, launch and monitor a session |
 | [GAMA Setup](./gama-setup.md) | Install and configure the GAMA platform for use with SIMPLE |
-| [Meta Quest Headsets](./meta-quest/) | Configure static IPs, enable wireless ADB, cast screens, and troubleshoot |
+| [Meta Quest Headsets](/user/running-sessions/meta-quest/tools) | Configure static IPs, enable wireless ADB, cast screens, and troubleshoot |

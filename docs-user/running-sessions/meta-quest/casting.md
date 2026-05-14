@@ -1,5 +1,7 @@
 ---
 sidebar_position: 4
+title: Casting Headset to Screen
+description: Display a Meta Quest headset's live view on another screen using the WebPlatform's automatic casting or scrcpy manually.
 ---
 
 # Casting Headset to Screen

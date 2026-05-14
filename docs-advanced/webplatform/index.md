@@ -25,6 +25,6 @@ The WebPlatform (`simple.webplatform/`, version 3.0.0) is the session orchestrat
 | [WebSocket API](./websocket-api.md) | All WebSocket message types (monitor, headset, GAMA) |
 | [Packaging](./packaging.md) | Building and distributing the self-contained executable |
 
-For environment variable configuration, see [.env Reference](./env-reference.md).
+For environment variable configuration, see [.env Reference](/webplatform/configuration).
 
 For running a session end-to-end, see [Operator Guide](/user/running-sessions/operators).
