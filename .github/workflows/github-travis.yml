@@ -38,12 +38,6 @@ jobs:
           sed -i '1s/^/---\ntitle: Install Unity Template\n---\n/' ${{ runner.temp }}/simple.template.unity.md
           mv ${{ runner.temp }}/simple.template.unity.md $GITHUB_WORKSPACE/docs/Getting-started
 
-      - name: Download documentation.wiki
-        run: |
-          git clone https://github.com/project-SIMPLE/simple.toolchain.wiki.git ${{ runner.temp }}/wiki
-          mv ${{ runner.temp }}/wiki/Home.md ${{ runner.temp }}/wiki/01-Home.md
-          mv ${{ runner.temp }}/wiki/* $GITHUB_WORKSPACE/docs/Toolchain
-
       - name: Build website
         run: npm run build
 

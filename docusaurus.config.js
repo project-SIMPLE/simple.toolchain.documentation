@@ -25,6 +25,7 @@ const config = {
   trailingSlash: false,
 
   markdown: {
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: "warn"
     }
@@ -47,10 +48,10 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          id: "developer",
+          path: "docs",
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/project-SIMPLE/documentation/tree/main/",
         },
         blog: false,
@@ -60,7 +61,29 @@ const config = {
       }),
     ],
   ],
-  plugins: ['docusaurus-plugin-goatcounter'],
+  plugins: [
+    'docusaurus-plugin-goatcounter',
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "advanced",
+        path: "docs-advanced",
+        routeBasePath: "advanced",
+        sidebarPath: require.resolve("./sidebars-advanced.js"),
+        editUrl: "https://github.com/project-SIMPLE/documentation/tree/main/",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "user",
+        path: "docs-user",
+        routeBasePath: "user",
+        sidebarPath: require.resolve("./sidebars-user.js"),
+        editUrl: "https://github.com/project-SIMPLE/documentation/tree/main/",
+      },
+    ],
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -75,14 +98,28 @@ const config = {
         items: [
           {
             type: "docSidebar",
-            sidebarId: "docSidebar",
+            sidebarId: "developerSidebar",
+            docsPluginId: "developer",
             position: "left",
-            label: "Documentation",
+            label: "Developer Guide",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "advancedSidebar",
+            docsPluginId: "advanced",
+            position: "left",
+            label: "Advanced",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "userSidebar",
+            docsPluginId: "user",
+            position: "left",
+            label: "Final User",
           },
           {
             href: "https://github.com/project-SIMPLE",
             html: '<i class="fab fa-github" style="font-size: 24px;"></i>',
-            //label: 'GitHub repository',
             position: "right",
           },
         ],
@@ -138,7 +175,7 @@ const config = {
         code: 'doc-project-simple',
       },
     }),
-  themes: [require.resolve("@easyops-cn/docusaurus-search-local")],
+  themes: [require.resolve("@easyops-cn/docusaurus-search-local"), '@docusaurus/theme-mermaid'],
   onBrokenLinks: 'warn',
 };
 
