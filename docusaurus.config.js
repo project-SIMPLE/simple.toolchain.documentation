@@ -165,11 +165,11 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Project SIMPLE, Inc. Built with Docusaurus.`,
       },
       prism: {
-        additionalLanguages: ["csharp"], // "gaml"],
-        defaultLanguage: "java",
+        additionalLanguages: ["csharp", "java"],
+        defaultLanguage: "gaml",
 
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require("@gama-platform/prism-gaml/themes/light"),
+        darkTheme: require("@gama-platform/prism-gaml/themes/dark"),
       },
       goatcounter: {
         code: 'doc-project-simple',
