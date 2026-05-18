@@ -7,7 +7,41 @@ description: Internal architecture of the SIMPLE WebPlatform — its components,
 
 # WebPlatform Architecture
 
-The WebPlatform (`simple.webplatform/`) is a TypeScript/Node.js application. In production it ships as a self-contained binary. In development it runs with `npm start`, which concurrently launches the Express/uWebSockets backend and the Vite dev server.
+The WebPlatform (`simple.webplatform/`) is a TypeScript/Node.js application. In production it ships as a self-contained binary. In development it runs with `npm start`, which concurrently launches the uWebSockets.js backend (via `tsx`) and the Vite dev server.
+
+---
+
+## Data flow
+
+A SIMPLE session routes data through three distinct channels simultaneously:
+
+```mermaid
+sequenceDiagram
+    participant GAMA as GAMA Server
+    participant WP as WebPlatform
+    participant H as VR Headset (Unity)
+    participant UI as Admin UI (Browser)
+
+    UI->>WP: launch_experiment (Monitor WS :8001)
+    WP->>GAMA: load + play (GAMA WS :1000)
+    GAMA-->>WP: CommandExecutedSuccessfully
+    WP-->>UI: json_state (experiment_state: RUNNING)
+
+    H->>WP: connection {id, heartbeat} (Headset WS :8080)
+    WP->>GAMA: do create_player("PlayerA")
+    WP-->>H: json_state {connected, in_game}
+    WP-->>UI: json_state (player list updated)
+
+    loop Every simulation step
+        GAMA-->>WP: SimulationOutput
+        WP-->>H: json_output {contents}
+    end
+
+    H->>WP: ask / expression (player interaction)
+    WP->>GAMA: expression / ask forwarded
+```
+
+The WebPlatform acts as a protocol bridge: it speaks the GAMA Server WebSocket protocol outbound, the SIMPLE headset protocol inbound, and the SIMPLE monitor protocol to the admin UI. The three protocols are independent and asynchronous.
 
 ---
 

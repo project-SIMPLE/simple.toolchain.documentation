@@ -1,6 +1,6 @@
 {
   "label": "WebPlatform",
-  "position": 2,
+  "position": 4,
   "link": {
     "type": "generated-index",
     "description": "Technical reference for the SIMPLE WebPlatform — architecture, configuration, WebSocket API, and packaging."

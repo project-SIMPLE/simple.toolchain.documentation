@@ -176,7 +176,6 @@ const config = {
       },
     }),
   themes: [require.resolve("@easyops-cn/docusaurus-search-local"), '@docusaurus/theme-mermaid'],
-  onBrokenLinks: 'warn',
 };
 
 module.exports = config;

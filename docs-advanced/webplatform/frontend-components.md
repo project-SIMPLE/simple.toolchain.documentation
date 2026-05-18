@@ -11,6 +11,42 @@ The admin UI is a React application (Vite build, Tailwind CSS, react-i18next). I
 
 ---
 
+## Admin UI overview
+
+The admin UI has two main views, toggled via the sidebar or by clicking a simulation card.
+
+### Selector Simulation
+
+The landing page. Displays all detected Virtual Universes as cards, each identified by its splashscreen image and name (from `settings.json`). Clicking a card navigates to the Simulation Manager for that simulation.
+
+Additional sections visible on this page:
+- **Headsets connected** — shows each connected headset with its ID, status color, and controls (disconnect, restart). Only visible when at least one headset is connected.
+- **Get Simulations Informations** (debug) — a button that prints the full detected catalog to the browser console.
+
+### Simulation Manager
+
+The session control panel, shown after selecting a simulation. Contains:
+- **GAMA connection indicator** — grey "Try Connection" button if GAMA is unreachable; green status when connected.
+- **Experiment controls** — Launch, Pause, Resume, and Stop buttons. Launch is disabled until GAMA is connected.
+- **Headset list** — each connected headset as a row with status indicator, disconnect button, and restart button.
+- **Screen control** — switches the monitor view between the GAMA display mirror and the headset stream grid.
+
+![WebPlatform admin UI with one connected headset](https://github.com/user-attachments/assets/19f1565c-aa4f-4f39-bd1d-c68d054bd767)
+
+### Headset status indicators
+
+| Color | Meaning |
+|---|---|
+| Grey | Headset WebSocket connected; not yet added to the GAMA simulation |
+| Green | Headset in the simulation (`in_game: true`) |
+| Red | Headset WebSocket disconnected |
+
+### Language support
+
+The UI is fully internationalized via react-i18next. The language selector in the header switches between English, French, Vietnamese, and Thai. The selection persists across page loads.
+
+---
+
 ## Page components
 
 ### SelectorSimulation
@@ -47,13 +83,7 @@ Individual headset row within `SimulationManager`.
 - Disconnect button.
 - Restart connection button.
 
-**Status indicators**:
-
-| Color | Label | Meaning |
-|---|---|---|
-| Green | Connected | Headset connected via WebSocket and ADB |
-| Green | In game | Headset connected and student is inside the VR app |
-| Red | Disconnected | WebSocket connection severed |
+**Status indicators**: same as the Admin UI overview table — grey (connected, waiting for simulation), green (in simulation), red (disconnected).
 
 ---
 

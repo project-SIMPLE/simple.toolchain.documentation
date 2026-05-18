@@ -13,7 +13,7 @@ The WebPlatform can be packaged as a self-contained binary that requires no Node
 
 ## Prerequisites
 
-- Node.js ≥ 24
+- Node.js ≥ 22
 - npm
 
 ---

@@ -156,6 +156,8 @@ Broadcast to all connected monitor clients whenever GAMA or player state changes
  "player": {
  "PlayerA": {
  "id": "PlayerA",
+ "ping_interval": 5000,
+ "is_alive": true,
  "connected": true,
  "in_game": true,
  "date_connection": "14:32"
@@ -177,7 +179,7 @@ In GAMALESS mode (`ENV_GAMALESS=true`), `gama` is an empty object `{}`.
 
 #### `get_simulation_by_index`
 
-Response to a `get_simulation_by_index` or `send_simulation` request. Sent only to the requesting client.
+Response to a `get_simulation_by_index` or `send_simulation` request. Sent only to the requesting client. The `simulation` field is the full `settings.json` content for the selected VU (with `model_file_path` resolved to an absolute path).
 
 ```json
 {
@@ -190,10 +192,12 @@ Response to a `get_simulation_by_index` or `send_simulation` request. Sent only 
  "experiment_name": "Launch",
  "minimal_players": "1",
  "maximal_players": "6",
- "model_index": 0
+ "selected_monitoring": "gama_screen"
  }
 }
 ```
+
+`selected_monitoring` is optional; omit it to use the default display mode.
 
 #### Catalog response (to `get_simulation_informations`)
 
@@ -228,6 +232,27 @@ Forwarded to all monitor clients when the display mode changes.
  "display_type": "stream"
 }
 ```
+
+#### Auto-push on monitor connect
+
+When a monitor client connects, the WebPlatform automatically sends two messages without any request:
+
+1. `json_state` (as documented above) — current GAMA and player state.
+2. If a VU is currently selected, the full `settings.json` of the active model sent **without a type envelope**:
+
+```json
+{
+ "type": "json_settings",
+ "name": "My Simulation",
+ "splashscreen": "./splash.png",
+ "model_file_path": "/absolute/path/to/model.gaml",
+ "experiment_name": "Launch",
+ "minimal_players": "1",
+ "maximal_players": "6"
+}
+```
+
+The frontend uses this to restore the selected simulation card when the admin UI reconnects after a reload.
 
 ---
 
@@ -337,11 +362,15 @@ Sent to a headset whenever its state changes (connection, in-game status). Conta
  "type": "json_state",
  "id_player": "PlayerA",
  "id": "PlayerA",
+ "ping_interval": 5000,
+ "is_alive": true,
  "connected": true,
  "in_game": false,
  "date_connection": "14:32"
 }
 ```
+
+`ping_interval` is the heartbeat interval negotiated at connection (milliseconds). `is_alive` reflects the server-side liveness flag — it will be `false` if the server just sent a ping and is waiting for a pong.
 
 #### `json_output`
 
@@ -361,6 +390,28 @@ Simulation data from GAMA, targeted at this specific player. The `contents` fiel
 ## GAMA WebSocket (outbound client)
 
 The WebPlatform connects as a WebSocket **client** to the GAMA server at `ws://<GAMA_IP_ADDRESS>:<GAMA_WS_PORT>`.
+
+### GAML model requirements
+
+The WebPlatform uses the expression channel to call actions in the GAMA experiment. For the connection lifecycle to work, every GAML experiment used with SIMPLE **must** declare at least these two actions in the experiment block:
+
+```gaml
+action create_player(string id_player) {
+    // called when a headset connects and joins the simulation
+}
+
+action remove_player(string id_player) {
+    // called when a headset disconnects or is removed
+}
+```
+
+Omitting either action causes a GAMA compilation error when the WebPlatform calls them. Additional actions (for player interactions, map control, etc.) are defined per-model. See the [GAML API Reference](/gama/api) for the full abstract species definition.
+
+:::tip
+Use `string` for all action parameters called remotely. GAMA avoids type-casting errors when the argument is serialized as a JSON string.
+:::
+
+---
 
 ### Messages: WebPlatform → GAMA
 
@@ -383,7 +434,11 @@ The WebPlatform connects as a WebSocket **client** to the GAMA server at `ws://<
 }
 ```
 
-#### Send expression (player action or ask)
+#### Send expression
+
+The WebPlatform sends expressions to GAMA in two contexts, which produce slightly different payloads.
+
+**Player lifecycle** (`create_player` / `remove_player`) — no `content` field:
 
 ```json
 {
@@ -392,6 +447,19 @@ The WebPlatform connects as a WebSocket **client** to the GAMA server at `ws://<
  "expr": "do create_player(\"PlayerA\");"
 }
 ```
+
+**Forwarded player expression** (from a headset `expression` message) — includes a `content` label:
+
+```json
+{
+ "type": "expression",
+ "content": "Send an expression",
+ "exp_id": "<experiment-id>",
+ "expr": "do my_action(\"PlayerA\");"
+}
+```
+
+The `content` field is a static label added by `GamaConnector.jsonSendExpression()`. GAMA ignores it; it is safe to omit in client implementations.
 
 ### Messages: GAMA → WebPlatform
 
