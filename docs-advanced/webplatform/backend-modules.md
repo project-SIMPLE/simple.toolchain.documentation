@@ -17,14 +17,14 @@ For the WebSocket protocol these modules expose, see the [WebSocket API Referenc
 
 ```mermaid
 graph TD
- IDX["index.ts"] --> CTRL["Controller"]
- IDX --> SS["StaticServer"]
- CTRL --> MS["MonitorServer\n(ws :8001)"]
- CTRL --> PM["PlayerManager\n(ws :8080)"]
- CTRL --> GC["GamaConnector\n(client → GAMA :1000)"]
- CTRL --> GM["ModelManager"]
- CTRL --> ADB["AdbManager"]
- CTRL --> UPS["UpsManager"]
+    IDX["index.ts"] --> CTRL["Controller"]
+    IDX --> SS["StaticServer"]
+    CTRL --> MS["MonitorServer\n(ws :8001)"]
+    CTRL --> PM["PlayerManager\n(ws :8080)"]
+    CTRL --> GC["GamaConnector\n(client → GAMA :1000)"]
+    CTRL --> GM["ModelManager"]
+    CTRL --> ADB["AdbManager"]
+    CTRL --> UPS["UpsManager"]
 ```
 
 ---
@@ -93,14 +93,14 @@ playerList: Map<string, Player>
 
 ```typescript
 interface Player {
- id: string; // player name (from "connection" message)
- ws: uWS.WebSocket<unknown>; // live WebSocket handle
- ping_interval: number; // heartbeat interval in ms
- is_alive: boolean; // cleared on ping, set on pong
- timeout?: NodeJS.Timeout; // heartbeat timer handle
- connected: boolean;
- in_game: boolean;
- date_connection: string; // "HH:MM" format
+  id: string; // player name (from "connection" message)
+  ws: uWS.WebSocket<unknown>; // live WebSocket handle
+  ping_interval: number; // heartbeat interval in ms
+  is_alive: boolean; // cleared on ping, set on pong
+  timeout?: NodeJS.Timeout; // heartbeat timer handle
+  connected: boolean;
+  in_game: boolean;
+  date_connection: string; // "HH:MM" format
 }
 ```
 
@@ -128,12 +128,12 @@ WebSocket **client** that connects to the GAMA server at `ws://<GAMA_IP_ADDRESS>
 
 ```typescript
 interface GamaState {
- connected: boolean;
- experiment_state: string; // NONE | NOTREADY | RUNNING | PAUSED
- loading: boolean;
- content_error: string;
- experiment_id: string;
- experiment_name: string;
+  connected: boolean;
+  experiment_state: string; // NONE | NOTREADY | RUNNING | PAUSED
+  loading: boolean;
+  content_error: string;
+  experiment_id: string;
+  experiment_name: string;
 }
 ```
 
@@ -232,13 +232,13 @@ Express HTTP server that serves the compiled React frontend from `dist/`. Only s
 
 ```typescript
 const GAMA_ERROR_MESSAGES = [
- "SimulationStatusError",
- "SimulationErrorDialog",
- "SimulationError",
- "RuntimeError",
- "GamaServerError",
- "MalformedRequest",
- "UnableToExecuteRequest"
+  "SimulationStatusError",
+  "SimulationErrorDialog",
+  "SimulationError",
+  "RuntimeError",
+  "GamaServerError",
+  "MalformedRequest",
+  "UnableToExecuteRequest"
 ];
 ```
 

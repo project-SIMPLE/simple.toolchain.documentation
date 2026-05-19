@@ -14,12 +14,12 @@ SIMPLE requires three software components running at the same time. This page ex
 
 ```mermaid
 graph LR
- GAMA["GAMA Platform\n(simulation engine)"]
- WP["WebPlatform\n(session orchestration)"]
- UNITY["Unity app\n(VR or editor)"]
+    GAMA["GAMA Platform\n(simulation engine)"]
+    WP["WebPlatform\n(session orchestration)"]
+    UNITY["Unity app\n(VR or editor)"]
 
- GAMA -- "WebSocket :1000" --> WP
- WP -- "WebSocket :8080" --> UNITY
+    GAMA -- "WebSocket :1000" --> WP
+    WP -- "WebSocket :8080" --> UNITY
 ```
 
 | Component | What it does | Where it runs |

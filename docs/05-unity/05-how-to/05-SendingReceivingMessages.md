@@ -22,12 +22,12 @@ In Unity, a serialized class in Unity has to be defined to serialize (decrypt) t
 
 public class GAMAMessage
 {
- public int cycle;
+    public int cycle;
 
- public static GAMAMessage CreateFromJSON(string jsonString)
- {
- return JsonUtility.FromJson<GAMAMessage>(jsonString);
- }
+    public static GAMAMessage CreateFromJSON(string jsonString)
+    {
+        return JsonUtility.FromJson<GAMAMessage>(jsonString);
+    }
 
 }
 ```
@@ -38,24 +38,24 @@ Then the message can be received in the SimulationManager class:
 public class SendReceiveMessageExample : SimulationManager
 {
 
- GAMAMessage message = null;
+    GAMAMessage message = null;
 
-//allow to serialize the message as GAMAMessage object
-protected override void ManageOtherMessages(string content)
- {
- message = GAMAMessage.CreateFromJSON(content);
- }
+    // allow to serialize the message as GAMAMessage object
+    protected override void ManageOtherMessages(string content)
+    {
+        message = GAMAMessage.CreateFromJSON(content);
+    }
 
-//action activated at the end of the update phase (every frame)
- protected override void OtherUpdate()
- {
- // if a message was received, display in the console the content of the message
- if (message != null)
- {
- Debug.Log("received from GAMA: cycle " + message.cycle);
- message = null;
- }
- }
+    // action activated at the end of the update phase (every frame)
+    protected override void OtherUpdate()
+    {
+        // if a message was received, display in the console the content of the message
+        if (message != null)
+        {
+            Debug.Log("received from GAMA: cycle " + message.cycle);
+            message = null;
+        }
+    }
 }
 ```
 
@@ -66,10 +66,10 @@ For example, we define in GAMA, in the unity_linker species a new action called 
 
 ```java
 species unity_linker parent: abstract_unity_linker {
-	//action that will be called by the Unity player to send a message to the GAMA simulation
-	action receive_message (string id, string mes) {
-		write "Player " + id + " send the message: " + mes;
-	}
+  //action that will be called by the Unity player to send a message to the GAMA simulation
+  action receive_message (string id, string mes) {
+    write "Player " + id + " send the message: " + mes;
+  }
 }
 ```
 
@@ -77,18 +77,18 @@ Then, in the SimulationManager of Unity, we ask the unity_linker to call this ac
 
 ```csharp
 protected override void OtherUpdate()
- {
+{
 
- if (IsGameState(GameState.GAME))
- {
- string mes = "A message from Unity at time: " + Time.time;
- //call the action "receive_message" from the unity_linker agent with two arguments: the id of the player and a message
- Dictionary<string, string> args = new Dictionary<string, string> {
- {"id",ConnectionManager.Instance.getUseMiddleware() ? ConnectionManager.Instance.GetConnectionId() : ("\"" + ConnectionManager.Instance.GetConnectionId() + "\"") },
- {"mes", mes }};
+    if (IsGameState(GameState.GAME))
+    {
+        string mes = "A message from Unity at time: " + Time.time;
+        // call the action "receive_message" from the unity_linker agent with two arguments: the id of the player and a message
+        Dictionary<string, string> args = new Dictionary<string, string> {
+            {"id", ConnectionManager.Instance.getUseMiddleware() ? ConnectionManager.Instance.GetConnectionId() : ("\"" + ConnectionManager.Instance.GetConnectionId() + "\"") },
+            {"mes", mes }};
 
- Debug.Log("sent to GAMA: " + mes);
- ConnectionManager.Instance.SendExecutableAsk("receive_message", args);
- }
+        Debug.Log("sent to GAMA: " + mes);
+        ConnectionManager.Instance.SendExecutableAsk("receive_message", args);
+    }
 }
 ```

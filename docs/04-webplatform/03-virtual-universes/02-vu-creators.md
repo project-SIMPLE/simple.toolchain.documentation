@@ -29,7 +29,7 @@ A minimal GAML experiment for use with SIMPLE uses the `VR_Experiment` type:
 
 ```gaml
 experiment Launch type: VR_Experiment {
- // experiment body
+  // experiment body
 }
 ```
 
@@ -41,12 +41,12 @@ Every VU folder must have a `settings.json` at its root. The minimal configurati
 
 ```json
 {
- "type": "json_settings",
- "name": "My Simulation",
- "model_file_path": "./models/MyModel.gaml",
- "experiment_name": "Launch",
- "minimal_players": "1",
- "maximal_players": "6"
+  "type": "json_settings",
+  "name": "My Simulation",
+  "model_file_path": "./models/MyModel.gaml",
+  "experiment_name": "Launch",
+  "minimal_players": "1",
+  "maximal_players": "6"
 }
 ```
 
@@ -69,7 +69,7 @@ my-simulation/
 ├── settings.json
 ├── splash.png
 └── models/
- └── MyModel.gaml
+    └── MyModel.gaml
 ```
 
 Place this folder inside `learning-packages/` (or the directory set in `LEARNING_PACKAGE_PATH`). The WebPlatform picks it up on next startup.

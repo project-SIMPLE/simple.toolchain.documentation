@@ -55,7 +55,7 @@ The SIMPLE plugin adds VR capabilities to GAMA (`abstract_unity_linker`, `abstra
 1. In GAMA, go to **Support → Install new plugins...**
 2. Click **Work with** and enter the update site URL:
   ```
- https://project-simple.github.io/simple.toolchain/
+  https://project-simple.github.io/simple.toolchain/
   ```
 3. Press **Enter**. Select **SIMPLE Unity plugin** from the list.
 4. Click **Next** and follow the prompts to install, then restart GAMA.

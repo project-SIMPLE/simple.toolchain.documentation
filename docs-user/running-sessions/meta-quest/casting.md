@@ -26,7 +26,7 @@ The SIMPLE web platform can automatically cast the headset display.
 1. Ensure the headset is connected to the web platform
 2. Open your browser and navigate to:
   ```
- http://localhost:8000/streamPlayerScreen
+  http://localhost:8000/streamPlayerScreen
   ```
 3. The headset stream should appear automatically
 

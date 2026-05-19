@@ -25,13 +25,13 @@ We need to add a `blocked` attribute to the roads and update their visual aspect
 
 ```gaml
 species road {
- // ... existing attributes ...
- bool blocked <- false;
+  // ... existing attributes ...
+  bool blocked <- false;
 
- aspect default {
- // Roads turn red if blocked, white otherwise
- draw (shape + 5) color: blocked ? #red : #white;
- }
+  aspect default {
+    // Roads turn red if blocked, white otherwise
+    draw (shape + 5) color: blocked ? #red : #white;
+  }
 }
 ```
 ![TutorialGAMARoad](https://github.com/user-attachments/assets/2b5a2e04-80cc-4e81-83d0-195a65573437)
@@ -47,9 +47,9 @@ Add or update the following reflex in your global section:
 ```gaml
 // Reflex to update the speed of the roads according to the weights
 reflex update_road_speed {
- // If blocked, weight is multiplied by 100,000, effectively making it impassable
- road_weights <- road as_map (each::(each.shape.perimeter / each.speed_coeff * (each.blocked ? 100000.0 : 1.0)));
- road_network <- road_network with_weights road_weights;
+  // If blocked, weight is multiplied by 100,000, effectively making it impassable
+  road_weights <- road as_map (each::(each.shape.perimeter / each.speed_coeff * (each.blocked ? 100000.0 : 1.0)));
+  road_network <- road_network with_weights road_weights;
 }
 ```
 
@@ -74,13 +74,13 @@ We need to add an action that Unity will trigger to toggle the blocked state.
 map<string,road> roads <- road as_map (each.name :: each);
 
 action block_road(string id) {
-	road b <- roads[id];
-	if (b != nil) {
-		ask b {
-			// Toggle blocked state
-			blocked <- !blocked;
-		}
-	}
+  road b <- roads[id];
+  if (b != nil) {
+    ask b {
+      // Toggle blocked state
+      blocked <- !blocked;
+    }
+  }
 }
 ```
 
@@ -132,9 +132,9 @@ This method triggers when the VR pointer **starts touching** an object. It provi
 ```csharp
 protected override void HoverEnterInteraction(HoverEnterEventArgs ev)
 {
- GameObject obj = ev.interactableObject.transform.gameObject;
- if (obj.tag.Equals("road"))
- ChangeColor(obj, Color.blue); // Visual feedback
+    GameObject obj = ev.interactableObject.transform.gameObject;
+    if (obj.tag.Equals("road"))
+        ChangeColor(obj, Color.blue); // Visual feedback
 }
 ```
 
@@ -149,12 +149,12 @@ This method triggers when the VR pointer **leaves** the object. It resets the co
 ```csharp
 protected override void HoverExitInteraction(HoverExitEventArgs ev)
 {
- GameObject obj = ev.interactableObject.transform.gameObject;
- if (obj.tag.Equals("road"))
- {
- bool isSelected = SelectedObjects.Contains(obj);
- ChangeColor(obj, isSelected ? Color.red : Color.gray);
- }
+    GameObject obj = ev.interactableObject.transform.gameObject;
+    if (obj.tag.Equals("road"))
+    {
+        bool isSelected = SelectedObjects.Contains(obj);
+        ChangeColor(obj, isSelected ? Color.red : Color.gray);
+    }
 }
 ```
 
@@ -169,26 +169,26 @@ This method triggers when the user presses the **Trigger button** while pointing
 ```csharp
 protected override void SelectInteraction(SelectEnterEventArgs ev)
 {
- if (remainingTime <= 0.0)
- {
- GameObject obj = ev.interactableObject.transform.gameObject;
- if (obj.tag.Equals("road"))
- {
- Dictionary<string, string> args = new Dictionary<string, string> {
- {"id", obj.name }
- };
- // Trigger the GAMA action
- ConnectionManager.Instance.SendExecutableAsk("block_road", args);
+    if (remainingTime <= 0.0)
+    {
+        GameObject obj = ev.interactableObject.transform.gameObject;
+        if (obj.tag.Equals("road"))
+        {
+            Dictionary<string, string> args = new Dictionary<string, string> {
+                {"id", obj.name }
+            };
+            // Trigger the GAMA action
+            ConnectionManager.Instance.SendExecutableAsk("block_road", args);
 
- // Toggle selection state and color in Unity
- bool newSelection = !SelectedObjects.Contains(obj);
- if (newSelection) SelectedObjects.Add(obj);
- else SelectedObjects.Remove(obj);
+            // Toggle selection state and color in Unity
+            bool newSelection = !SelectedObjects.Contains(obj);
+            if (newSelection) SelectedObjects.Add(obj);
+            else SelectedObjects.Remove(obj);
 
- ChangeColor(obj, newSelection ? Color.red : Color.gray);
- remainingTime = timeWithoutInteraction; // 1s cooldown
- }
- }
+            ChangeColor(obj, newSelection ? Color.red : Color.gray);
+            remainingTime = timeWithoutInteraction; // 1s cooldown
+        }
+    }
 }
 ```
 

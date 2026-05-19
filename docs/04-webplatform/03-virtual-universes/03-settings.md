@@ -15,13 +15,13 @@ Every Virtual Universe (VU) folder must contain a `settings.json` file at its ro
 
 ```json
 {
- "type": "json_settings",
- "name": "Quang Binh Flood Simulation",
- "splashscreen": "./splash.png",
- "model_file_path": "./models/FloodingVR.gaml",
- "experiment_name": "Launch",
- "minimal_players": "1",
- "maximal_players": "6"
+  "type": "json_settings",
+  "name": "Quang Binh Flood Simulation",
+  "splashscreen": "./splash.png",
+  "model_file_path": "./models/FloodingVR.gaml",
+  "experiment_name": "Launch",
+  "minimal_players": "1",
+  "maximal_players": "6"
 }
 ```
 

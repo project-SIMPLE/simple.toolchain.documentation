@@ -6,7 +6,7 @@ _**Link to the example model**_: [LinkToUnity/Models/Code Examples/Multi player 
 
 The general idea is to manage the interactions between players through GAMA.
 
-* When a player « modify » the world, it sends a message to GAMA, then GAMA sends a message to all players to inform about this modification.
+* When a player « modify » the world, it sends a message to GAMA, then GAMA sends a message to all players to inform about this modification.
 * Possibility to use a Unity Properties defined in GAMA to represent the other players through the use of the variable "player_unity_properties" of the Unity Linker.
 
 
@@ -20,21 +20,21 @@ As an example, we define an interaction where we let the players modify the colo
 
 ```java
 species unity_linker parent: abstract_unity_linker {
-	[…]
-	//action that will be called from unity with two argument: the id of the pylon selected, the player that change the color of the pylon
-	action change_color(string id, string player) {
-		//pylon that was selected
-		pylon the_pylon <- pylon first_with (each.name = id) ;
-		//player that triggers the action
-		unity_player the_player <- unity_player first_with (each.name = player) ;
+  […]
+  //action that will be called from unity with two argument: the id of the pylon selected, the player that change the color of the pylon
+  action change_color(string id, string player) {
+    //pylon that was selected
+    pylon the_pylon <- pylon first_with (each.name = id) ;
+    //player that triggers the action
+    unity_player the_player <- unity_player first_with (each.name = player) ;
 
-		if (the_pylon != nil) {
-			// change the color of the pylon agent
-			the_pylon.color <- the_player.color;
-			//send a massage to all the players to change the color of the given pylon for all the players
-			do send_message players: unity_player as list mes: ["id"::id, "color"::[the_pylon.color.red,the_pylon.color.green,the_pylon.color.blue, the_pylon.color.alpha]];
-		}
-	}
+    if (the_pylon != nil) {
+      // change the color of the pylon agent
+      the_pylon.color <- the_player.color;
+      //send a massage to all the players to change the color of the given pylon for all the players
+      do send_message players: unity_player as list mes: ["id"::id, "color"::[the_pylon.color.red,the_pylon.color.green,the_pylon.color.blue, the_pylon.color.alpha]];
+    }
+  }
 }
 ```
 
@@ -45,50 +45,50 @@ species unity_linker parent: abstract_unity_linker {
 [System.Serializable]
 public class ChangeColorMessage
 {
- public string id;
- public List<int> color;
+    public string id;
+    public List<int> color;
 
- public static ChangeColorMessage CreateFromJSON(string jsonString)
- {
- return JsonUtility.FromJson<ChangeColorMessage>(jsonString);
- }
+    public static ChangeColorMessage CreateFromJSON(string jsonString)
+    {
+        return JsonUtility.FromJson<ChangeColorMessage>(jsonString);
+    }
 }
 ```
 
 
-**In Unity**: we add a new behavior in the method « other update » of the Simulation Manager to serialize the message and update the corresponding pylon color.
+**In Unity**: we add a new behavior in the method « other update » of the Simulation Manager to serialize the message and update the corresponding pylon color.
 
 ```csharp
-//action activated at the end of the update phase (every frame)
- protected override void OtherUpdate() {
- if (message != null) {
- Color c = new Color32(BitConverter.GetBytes(message.color[0])[0], BitConverter.GetBytes(message.color[1])[0],
- BitConverter.GetBytes(message.color[2])[0], BitConverter.GetBytes(message.color[3])[0]);
+// action activated at the end of the update phase (every frame)
+protected override void OtherUpdate() {
+    if (message != null) {
+        Color c = new Color32(BitConverter.GetBytes(message.color[0])[0], BitConverter.GetBytes(message.color[1])[0],
+            BitConverter.GetBytes(message.color[2])[0], BitConverter.GetBytes(message.color[3])[0]);
 
- […]
- GameObject obj = SelecableObjects[message.id];
- SimulationMultiPlayerExample.ChangeColor(obj, c);
- […]
- message = null;
- }
- }
+        […]
+        GameObject obj = SelecableObjects[message.id];
+        SimulationMultiPlayerExample.ChangeColor(obj, c);
+        […]
+        message = null;
+    }
+}
 ```
 
 **In Unity**: we define what will happens when a pylon is selected, i.e. a message is sent to GAMA to change the color of the pylon.
 
 ```csharp
 protected override void SelectInteraction(SelectEnterEventArgs ev) {
- if (remainingTime <= 0.0)
- {
- GameObject obj = ev.interactableObject.transform.gameObject;
- if (("selectable").Equals(obj.tag)) {
- Dictionary<string, string> args = new Dictionary<string, string> {
- {"id", obj.name },
- {"player",ConnectionManager.Instance.GetConnectionId()}};
+    if (remainingTime <= 0.0)
+    {
+        GameObject obj = ev.interactableObject.transform.gameObject;
+        if (("selectable").Equals(obj.tag)) {
+            Dictionary<string, string> args = new Dictionary<string, string> {
+                {"id", obj.name },
+                {"player", ConnectionManager.Instance.GetConnectionId()}};
 
-ConnectionManager.Instance.SendExecutableAsk("change_color", args);
- remainingTime = timeWithoutInteraction;
- }
- }
+            ConnectionManager.Instance.SendExecutableAsk("change_color", args);
+            remainingTime = timeWithoutInteraction;
+        }
+    }
 }
 ```

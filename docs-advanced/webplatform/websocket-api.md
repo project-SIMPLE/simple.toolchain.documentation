@@ -73,8 +73,8 @@ Select a specific Virtual Universe by its index in the flat model list and recei
 
 ```json
 {
- "type": "get_simulation_by_index",
- "simulationIndex": 0
+  "type": "get_simulation_by_index",
+  "simulationIndex": 0
 }
 ```
 
@@ -86,8 +86,8 @@ Alternative to `get_simulation_by_index`. Select a simulation using the `model_i
 
 ```json
 {
- "type": "send_simulation",
- "simulation": { "model_index": 2 }
+  "type": "send_simulation",
+  "simulation": { "model_index": 2 }
 }
 ```
 
@@ -97,8 +97,8 @@ Manually add a connected headset to the running simulation. Normally headsets ar
 
 ```json
 {
- "type": "add_player_headset",
- "id": "player-ip-or-id"
+  "type": "add_player_headset",
+  "id": "player-ip-or-id"
 }
 ```
 
@@ -108,8 +108,8 @@ Remove a headset from the simulation and disconnect it.
 
 ```json
 {
- "type": "remove_player_headset",
- "id": "player-id"
+  "type": "remove_player_headset",
+  "id": "player-id"
 }
 ```
 
@@ -121,8 +121,8 @@ Switch the display mode shown on all monitor clients.
 
 ```json
 {
- "type": "screen_control",
- "display_type": "stream"
+  "type": "screen_control",
+  "display_type": "stream"
 }
 ```
 
@@ -144,25 +144,25 @@ Broadcast to all connected monitor clients whenever GAMA or player state changes
 
 ```json
 {
- "type": "json_state",
- "gama": {
- "connected": true,
- "experiment_state": "RUNNING",
- "loading": false,
- "content_error": "",
- "experiment_id": "abc123",
- "experiment_name": "My Simulation"
- },
- "player": {
- "PlayerA": {
- "id": "PlayerA",
- "ping_interval": 5000,
- "is_alive": true,
- "connected": true,
- "in_game": true,
- "date_connection": "14:32"
- }
- }
+  "type": "json_state",
+  "gama": {
+    "connected": true,
+    "experiment_state": "RUNNING",
+    "loading": false,
+    "content_error": "",
+    "experiment_id": "abc123",
+    "experiment_name": "My Simulation"
+  },
+  "player": {
+    "PlayerA": {
+      "id": "PlayerA",
+      "ping_interval": 5000,
+      "is_alive": true,
+      "connected": true,
+      "in_game": true,
+      "date_connection": "14:32"
+    }
+  }
 }
 ```
 
@@ -183,17 +183,17 @@ Response to a `get_simulation_by_index` or `send_simulation` request. Sent only 
 
 ```json
 {
- "type": "get_simulation_by_index",
- "simulation": {
- "type": "json_settings",
- "name": "Flood Model",
- "splashscreen": "./splash.png",
- "model_file_path": "/absolute/path/to/model.gaml",
- "experiment_name": "Launch",
- "minimal_players": "1",
- "maximal_players": "6",
- "selected_monitoring": "gama_screen"
- }
+  "type": "get_simulation_by_index",
+  "simulation": {
+    "type": "json_settings",
+    "name": "Flood Model",
+    "splashscreen": "./splash.png",
+    "model_file_path": "/absolute/path/to/model.gaml",
+    "experiment_name": "Launch",
+    "minimal_players": "1",
+    "maximal_players": "6",
+    "selected_monitoring": "gama_screen"
+  }
 }
 ```
 
@@ -205,20 +205,20 @@ The server sends the raw JSON string of the nested catalog structure. Each entry
 
 ```json
 [
- {
- "type": "json_settings",
- "name": "Single-player demo",
- "splashscreen": "./splash.png",
- "model_index": 0
- },
- {
- "type": "catalog",
- "name": "Flood scenarios",
- "entries": [
- { "type": "json_settings", "name": "Quang Binh", "model_index": 1 },
- { "type": "json_settings", "name": "Mekong Delta", "model_index": 2 }
- ]
- }
+  {
+    "type": "json_settings",
+    "name": "Single-player demo",
+    "splashscreen": "./splash.png",
+    "model_index": 0
+  },
+  {
+    "type": "catalog",
+    "name": "Flood scenarios",
+    "entries": [
+      { "type": "json_settings", "name": "Quang Binh", "model_index": 1 },
+      { "type": "json_settings", "name": "Mekong Delta", "model_index": 2 }
+    ]
+  }
 ]
 ```
 
@@ -228,8 +228,8 @@ Forwarded to all monitor clients when the display mode changes.
 
 ```json
 {
- "type": "screen_control",
- "display_type": "stream"
+  "type": "screen_control",
+  "display_type": "stream"
 }
 ```
 
@@ -242,13 +242,13 @@ When a monitor client connects, the WebPlatform automatically sends two messages
 
 ```json
 {
- "type": "json_settings",
- "name": "My Simulation",
- "splashscreen": "./splash.png",
- "model_file_path": "/absolute/path/to/model.gaml",
- "experiment_name": "Launch",
- "minimal_players": "1",
- "maximal_players": "6"
+  "type": "json_settings",
+  "name": "My Simulation",
+  "splashscreen": "./splash.png",
+  "model_file_path": "/absolute/path/to/model.gaml",
+  "experiment_name": "Launch",
+  "minimal_players": "1",
+  "maximal_players": "6"
 }
 ```
 
@@ -268,9 +268,9 @@ First message sent by a headset after establishing the WebSocket connection. Reg
 
 ```json
 {
- "type": "connection",
- "id": "PlayerA",
- "heartbeat": 5000
+  "type": "connection",
+  "id": "PlayerA",
+  "heartbeat": 5000
 }
 ```
 
@@ -285,8 +285,8 @@ Sent by a headset to verify its connection is alive. The WebPlatform responds wi
 
 ```json
 {
- "type": "ping",
- "id": "PlayerA"
+  "type": "ping",
+  "id": "PlayerA"
 }
 ```
 
@@ -304,8 +304,8 @@ Send a GAML expression to be evaluated in the running GAMA simulation on behalf 
 
 ```json
 {
- "type": "expression",
- "expr": "do my_action(player: $id);"
+  "type": "expression",
+  "expr": "do my_action(player: $id);"
 }
 ```
 
@@ -315,10 +315,10 @@ Send a GAML `ask` statement to GAMA on behalf of this player.
 
 ```json
 {
- "type": "ask",
- "action": "my_action",
- "args": "{\"key\": \"value\"}",
- "agent": "unity_linker[0]"
+  "type": "ask",
+  "action": "my_action",
+  "args": "{\"key\": \"value\"}",
+  "agent": "unity_linker[0]"
 }
 ```
 
@@ -348,8 +348,8 @@ Response to a headset-initiated `ping`.
 
 ```json
 {
- "type": "pong",
- "id": "PlayerA"
+  "type": "pong",
+  "id": "PlayerA"
 }
 ```
 
@@ -359,14 +359,14 @@ Sent to a headset whenever its state changes (connection, in-game status). Conta
 
 ```json
 {
- "type": "json_state",
- "id_player": "PlayerA",
- "id": "PlayerA",
- "ping_interval": 5000,
- "is_alive": true,
- "connected": true,
- "in_game": false,
- "date_connection": "14:32"
+  "type": "json_state",
+  "id_player": "PlayerA",
+  "id": "PlayerA",
+  "ping_interval": 5000,
+  "is_alive": true,
+  "connected": true,
+  "in_game": false,
+  "date_connection": "14:32"
 }
 ```
 
@@ -378,10 +378,10 @@ Simulation data from GAMA, targeted at this specific player. The `contents` fiel
 
 ```json
 {
- "type": "json_output",
- "contents": [
- { "key": "value" }
- ]
+  "type": "json_output",
+  "contents": [
+    { "key": "value" }
+  ]
 }
 ```
 
@@ -419,9 +419,9 @@ Use `string` for all action parameters called remotely. GAMA avoids type-casting
 
 ```json
 {
- "type": "load",
- "model": "/absolute/path/to/model.gaml",
- "experiment": "ExperimentName"
+  "type": "load",
+  "model": "/absolute/path/to/model.gaml",
+  "experiment": "ExperimentName"
 }
 ```
 
@@ -429,8 +429,8 @@ Use `string` for all action parameters called remotely. GAMA avoids type-casting
 
 ```json
 {
- "type": "play" | "pause" | "stop",
- "exp_id": "<experiment-id>"
+  "type": "play" | "pause" | "stop",
+  "exp_id": "<experiment-id>"
 }
 ```
 
@@ -442,9 +442,9 @@ The WebPlatform sends expressions to GAMA in two contexts, which produce slightl
 
 ```json
 {
- "type": "expression",
- "exp_id": "<experiment-id>",
- "expr": "do create_player(\"PlayerA\");"
+  "type": "expression",
+  "exp_id": "<experiment-id>",
+  "expr": "do create_player(\"PlayerA\");"
 }
 ```
 
@@ -452,10 +452,10 @@ The WebPlatform sends expressions to GAMA in two contexts, which produce slightl
 
 ```json
 {
- "type": "expression",
- "content": "Send an expression",
- "exp_id": "<experiment-id>",
- "expr": "do my_action(\"PlayerA\");"
+  "type": "expression",
+  "content": "Send an expression",
+  "exp_id": "<experiment-id>",
+  "expr": "do my_action(\"PlayerA\");"
 }
 ```
 

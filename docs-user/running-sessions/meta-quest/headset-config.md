@@ -49,8 +49,8 @@ Wireless ADB allows the web platform to communicate with the headset over WiFi.
 2. Connect your headset to your computer via USB
 3. Install the app:
   ```bash
- adb install tdg.oculuswirelessADB-1.3.apk
- adb shell pm grant tdg.oculuswirelessadb android.permission.WRITE_SECURE_SETTINGS
+  adb install tdg.oculuswirelessADB-1.3.apk
+  adb shell pm grant tdg.oculuswirelessadb android.permission.WRITE_SECURE_SETTINGS
   ```
 
 (Optional) Speed up connections:
@@ -62,7 +62,7 @@ adb tcpip 5555
 
 1. Ensure only one headset is connected to your computer:
   ```bash
- adb devices
+  adb devices
   ```
 
 <!-- TODO: Add screenshot of adb devices output with a single headset connected -->
@@ -70,7 +70,7 @@ adb tcpip 5555
 
 2. If multiple devices appear, disconnect them:
   ```bash
- adb disconnect
+  adb disconnect
   ```
 3. On your headset, open **Library → Unknown Sources → Oculus Wireless ADB**
 4. Enable **TCPIP Mode**

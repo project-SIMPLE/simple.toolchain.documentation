@@ -24,12 +24,12 @@ Both components communicate through the [WebPlatform](/advanced/webplatform/arch
 
 ```mermaid
 graph LR
- GAMA["GAMA model\n(.gaml + SIMPLE plugin)"]
- WP["WebPlatform"]
- UNITY["Unity VR app\n(SIMPLE template)"]
+    GAMA["GAMA model\n(.gaml + SIMPLE plugin)"]
+    WP["WebPlatform"]
+    UNITY["Unity VR app\n(SIMPLE template)"]
 
- GAMA -- "ws :1000\nGamaServer protocol" --> WP
- WP -- "ws :8080\nplayer protocol" --> UNITY
+    GAMA -- "ws :1000\nGamaServer protocol" --> WP
+    WP -- "ws :8080\nplayer protocol" --> UNITY
 ```
 
 The GAMA plugin sends simulation output (geometry positions, terrain data, messages) through the WebPlatform to Unity. Unity sends player interactions (position, expressions, ask statements) back through the WebPlatform to GAMA.

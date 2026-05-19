@@ -68,8 +68,8 @@ my-deployment/
 ├── simple.webplatform-linux (or -win.exe / -macos)
 ├── .env
 └── learning-packages/
- └── my-virtual-universe/
- └── settings.json
+    └── my-virtual-universe/
+        └── settings.json
 ```
 
 Then run:
@@ -113,10 +113,10 @@ The packaged executable still requires `adb` to be installed on the host system 
 The application detects packaged mode via:
 ```typescript
 const IS_PLATFORM_PACKAGED =
- (process as any).pkg
- || process.env.PKG_EXECPATH
- || (!path.basename(process.argv[0]).includes('node')
- && !process.argv[1].startsWith("/snapshot"));
+  (process as any).pkg
+  || process.env.PKG_EXECPATH
+  || (!path.basename(process.argv[0]).includes('node')
+  && !process.argv[1].startsWith("/snapshot"));
 ```
 
 In packaged mode, the `StaticServer` starts automatically to serve the frontend, and the `ModelManager` exits if no `learning-packages` folder is found (rather than just logging a warning).

@@ -49,24 +49,24 @@ The WebPlatform acts as a protocol bridge: it speaks the GAMA Server WebSocket p
 
 ```mermaid
 graph TD
- IDX["index.ts\n(entry point)"]
- CTRL["Controller"]
- GM["ModelManager"]
- GC["GamaConnector"]
- PM["PlayerManager"]
- MS["MonitorServer"]
- ADB["AdbManager"]
- UPS["UpsManager"]
- SS["StaticServer"]
+    IDX["index.ts\n(entry point)"]
+    CTRL["Controller"]
+    GM["ModelManager"]
+    GC["GamaConnector"]
+    PM["PlayerManager"]
+    MS["MonitorServer"]
+    ADB["AdbManager"]
+    UPS["UpsManager"]
+    SS["StaticServer"]
 
- IDX --> CTRL
- IDX --> SS
- CTRL --> GM
- CTRL --> GC
- CTRL --> PM
- CTRL --> MS
- CTRL --> ADB
- CTRL --> UPS
+    IDX --> CTRL
+    IDX --> SS
+    CTRL --> GM
+    CTRL --> GC
+    CTRL --> PM
+    CTRL --> MS
+    CTRL --> ADB
+    CTRL --> UPS
 ```
 
 ### index.ts — Entry point
@@ -131,15 +131,15 @@ Key frontend components:
 1. `index.ts` loads `.env`, initializes logging.
 2. If packaged, `StaticServer` starts serving the frontend.
 3. `Controller` constructor:
- a. Creates `MonitorServer` (WebSocket server starts, port 8001).
- b. Creates `PlayerManager` (WebSocket server starts, port 8080).
- c. Unless `ENV_GAMALESS`: creates `ModelManager` (scans learning packages) and `GamaConnector` (attempts first GAMA connection).
- d. If ADB available: creates `AdbManager`.
- e. Creates `UpsManager`.
+   a. Creates `MonitorServer` (WebSocket server starts, port 8001).
+   b. Creates `PlayerManager` (WebSocket server starts, port 8080).
+   c. Unless `ENV_GAMALESS`: creates `ModelManager` (scans learning packages) and `GamaConnector` (attempts first GAMA connection).
+   d. If ADB available: creates `AdbManager`.
+   e. Creates `UpsManager`.
 4. `Controller.initialize()`:
- a. `AdbManager.init()` — discovers and connects to headsets.
- b. `UpsManager.connect()` — attaches to UPS.
- c. Arms the 3-hour session timer.
+   a. `AdbManager.init()` — discovers and connects to headsets.
+   b. `UpsManager.connect()` — attaches to UPS.
+   c. Arms the 3-hour session timer.
 
 ---
 

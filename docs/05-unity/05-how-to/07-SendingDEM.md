@@ -28,7 +28,7 @@ It is also important to set the resolution of the height map. For rendering and 
 
 ### Step 3: Using the terrain for teleportation
 
-To use the terrain for teleportation, first, remove the « Ground » game object inside the Teleport Area (in the Scene). Then, add the terrain as a collider for the Teleportation area.
+To use the terrain for teleportation, first, remove the « Ground » game object inside the Teleport Area (in the Scene). Then, add the terrain as a collider for the Teleportation area.
 
 <img width="1251" alt="Terrain Teleportation" src="https://github.com/user-attachments/assets/28aca3ac-3978-49d7-9f73-98a36d35ad9a" />
 
@@ -37,20 +37,20 @@ To use the terrain for teleportation, first, remove the « Ground » game obje
 There are two ways to update the terrain values (height map) from GAMA that correspond to two actions of the Unity Linker agent. The first one can be used to setup all the value of the height map, and the second one is dedicated to update specific cells of the terrain.
 
 
-**Updating all the values of the terrain’s height map**
+**Updating all the values of the terrain's height map**
 We use for that the "update_terrain" action. The value of the height map can be either sent as a field or as a matrix. Note that for optimisation purposes, it is important to set the **max_values** as the maximal value can that be obtained during all the simulation.
 
 ```java
 do update_terrain (
-	player:last(unity_player), //player concerned
-	id:"Dem", //name of the Terrain in Unity
-	field:f, //it is possible to send the grid either as a field or as a matrix
-	resolution:65, //resolution of the target Terrain in Unity.
- max_value:max_value //optional : max possible value of the grid
+  player:last(unity_player), //player concerned
+  id:"Dem", //name of the Terrain in Unity
+  field:f, //it is possible to send the grid either as a field or as a matrix
+  resolution:65, //resolution of the target Terrain in Unity.
+  max_value:max_value //optional : max possible value of the grid
 );
 ```
 
-**Updating a subset of the values of the terrain’s height map**
+**Updating a subset of the values of the terrain's height map**
 
 We use for that the "set_terrain_values" action. The principle is to give the new values for the cells as a matrix and the index of this "sub-matrix" according to the global height map matrix.
 
@@ -58,10 +58,10 @@ We use for that the "set_terrain_values" action. The principle is to give the ne
 
 ```java
 do set_terrain_values(
-	player:last(unity_player), //player concerned
-	id:"Dem", //name of the Terrain in Unity
-	matrix: {1,1} matrix_with c.grid_value, //matrix containing the new values
-	index_x : c.grid_x, //index x (column) of the matrix in the total grid
-	index_y : c.grid_y //index y (row) of the matrix in the total grid
+  player:last(unity_player), //player concerned
+  id:"Dem", //name of the Terrain in Unity
+  matrix: {1,1} matrix_with c.grid_value, //matrix containing the new values
+  index_x : c.grid_x, //index x (column) of the matrix in the total grid
+  index_y : c.grid_y //index y (row) of the matrix in the total grid
 );
 ```

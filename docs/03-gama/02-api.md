@@ -17,7 +17,7 @@ A dedicated experiment type that automatically creates and manages the `unity_li
 
 ```gaml
 experiment MyVRExperiment type: unity {
- // optional: override unity_linker_species if you use a custom linker
+  // optional: override unity_linker_species if you use a custom linker
 }
 ```
 
@@ -37,7 +37,7 @@ The central agent that manages the connection between GAMA and Unity. Extend thi
 
 ```gaml
 species my_linker parent: abstract_unity_linker {
- // override init and reflex as needed
+  // override init and reflex as needed
 }
 ```
 
@@ -461,39 +461,39 @@ unity_property road_prop <- geometry_properties_no_interaction("road", "road", r
 model VRTrafficDemo
 
 global {
- int precision <- 10000;
+  int precision <- 10000;
 
- init {
- create road from: road_shapefile;
- create car number: 20;
- }
+  init {
+    create road from: road_shapefile;
+    create car number: 20;
+  }
 }
 
 species road { geometry shape; }
 species car skills: [moving] { point location; }
 
 species my_linker parent: abstract_unity_linker {
- unity_aspect car_prefab <- prefab_aspect("Prefabs/Car", 1.0, 0.5, 1.0, 90.0, precision);
- unity_interaction car_interaction <- new_geometry_interaction(true, true, false, []);
- unity_property car_prop <- geometry_properties("car", "vehicle", car_prefab, car_interaction, true);
+  unity_aspect car_prefab <- prefab_aspect("Prefabs/Car", 1.0, 0.5, 1.0, 90.0, precision);
+  unity_interaction car_interaction <- new_geometry_interaction(true, true, false, []);
+  unity_property car_prop <- geometry_properties("car", "vehicle", car_prefab, car_interaction, true);
 
- unity_aspect road_geom <- geometry_aspect(0.1, #grey, precision);
- unity_property road_prop <- geometry_properties_no_interaction("road", "road", road_geom);
+  unity_aspect road_geom <- geometry_aspect(0.1, #grey, precision);
+  unity_property road_prop <- geometry_properties_no_interaction("road", "road", road_geom);
 
- init {
- min_num_players <- 1;
- max_num_players <- 6;
- }
+  init {
+    min_num_players <- 1;
+    max_num_players <- 6;
+  }
 
- reflex send_data when: initialized {
- do add_geometries_to_send(geometries: car, property: car_prop, attributes: []);
- do send_world;
- }
+  reflex send_data when: initialized {
+    do add_geometries_to_send(geometries: car, property: car_prop, attributes: []);
+    do send_world;
+  }
 }
 
 species my_player parent: abstract_unity_player {}
 
 experiment VR type: unity {
- parameter "Number of cars" var: nb_cars <- 20 min: 5 max: 100;
+  parameter "Number of cars" var: nb_cars <- 20 min: 5 max: 100;
 }
 ```
