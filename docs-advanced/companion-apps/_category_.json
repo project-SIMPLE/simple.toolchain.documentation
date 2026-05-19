@@ -1,0 +1,8 @@
+{
+  "label": "Companion Apps",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Android apps installed automatically on Meta Quest headsets by the WebPlatform — source code references and technical details."
+  }
+}

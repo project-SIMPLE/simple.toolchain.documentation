@@ -1,7 +1,7 @@
 ---
 title: Contributing
 sidebar_label: Contributing
-sidebar_position: 6
+sidebar_position: 7
 description: Branch workflow, pull request conventions, code style, and testing guidance for SIMPLE contributors.
 ---
 

@@ -26,6 +26,7 @@ Deep technical reference for the `simple.webplatform` session server:
 | [WebSocket API](/advanced/webplatform/websocket-api) | You are implementing a custom client (non-Unity headset, custom monitor, test harness) |
 | [Backend Modules](/advanced/webplatform/backend-modules) | You are modifying or extending a specific backend module |
 | [Frontend Components](/advanced/webplatform/frontend-components) | You are modifying the admin UI React app |
+| [ADB Headset Management](/advanced/webplatform/adb-headset-management) | You need to understand or modify headset provisioning, the scrcpy pipeline, or the video WebSocket protocol |
 | [Packaging](/advanced/webplatform/packaging) | You need to produce a self-contained executable for deployment |
 
 Environment variable reference is in the main docs: [.env Reference](/webplatform/configuration).
@@ -40,3 +41,12 @@ Covers all three repositories — `simple.webplatform`, `simple.toolchain` (GAMA
 | [Building from Source](/advanced/building-from-source) | You need to build the GAMA plugin or Unity template from source |
 | [Release Process](/advanced/release-process) | You are cutting a release of any component |
 | [Contributing](/advanced/contributing) | You want to submit a patch or understand code conventions |
+
+### Companion apps
+
+Android apps automatically installed on Meta Quest headsets by the WebPlatform:
+
+| Page | When to read it |
+|---|---|
+| [Oculus Wireless ADB](/advanced/companion-apps/oculus-wireless-adb) | You need to understand what this third-party GUI app does and why it's installed |
+| [ADB Auto-Enable](/advanced/companion-apps/adb-auto-enable) | You are modifying or rebuilding the ADB watchdog service |

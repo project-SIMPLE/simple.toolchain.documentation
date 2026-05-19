@@ -184,19 +184,20 @@ Immutable representation of one Virtual Universe.
 
 ## AdbManager
 
-**File**: `src/api/android/adb/AdbManager.ts`
+**Files**: `src/api/android/adb/AdbManager.ts`, `DeviceFinder.ts`, `HeadsetSetup.ts`, `ScrcpyServer.ts`
 
-Manages ADB connections to Meta Quest headsets.
+Manages ADB connections to Meta Quest headsets. For the full pairing procedure, provisioning details, installed apps, and video streaming protocol, see [ADB Headset Management](./adb-headset-management.md).
 
-**Prerequisites**: `adb` must be installed and in PATH; `adb devices` must succeed.
+**Prerequisites**: `adb` must be installed and in PATH; `adb devices` must succeed. ADB is optional — the WebPlatform starts without it if unavailable.
 
 **Responsibilities**:
 
 - Connects to the local ADB server at `127.0.0.1:5037` via `@yume-chan/adb`.
-- Discovers headsets via `DeviceFinder` (explicit IPs from `HEADSETS_IP` or network scan via `evilscan`).
-- Sets device-level ADB settings (WiFi watchdog, sleep timeouts, OTA disable) via `HeadsetSetup`.
-- Launches screen mirroring (`ScrcpyServer`) per device.
-- Shuts down all headsets during the session timer cleanup sequence.
+- Discovers headsets via `DeviceFinder`: tries each IP in `HEADSETS_IP`, or scans the `/24` subnet automatically when `HEADSETS_IP` is unset and the server is on `192.168.68.x`.
+- Applies system settings and installs required apps via `HeadsetSetup` on every connection.
+- Starts a scrcpy screen mirroring session per device via `ScrcpyServer`.
+- Reconnects automatically when a device goes offline.
+- Shuts down all headsets (`reboot -p`) during the session timer cleanup sequence.
 
 ---
 

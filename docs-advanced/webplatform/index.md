@@ -15,4 +15,13 @@ The WebPlatform (`simple.webplatform`, version 3.0.0) is the session orchestrati
 - Mirrors headset screens in the browser using ADB and scrcpy.
 - Controls an APC UPS for M2L2 portable classroom deployments.
 
+| Page | When to read it |
+|---|---|
+| [Architecture](./architecture.md) | Module layout, startup sequence, data flow diagram |
+| [WebSocket API](./websocket-api.md) | All message types for Monitor, Headset, and GAMA channels |
+| [Backend Modules](./backend-modules.md) | Per-module responsibilities and data structures |
+| [ADB Headset Management](./adb-headset-management.md) | Pairing headsets, automatic provisioning, installed apps, scrcpy pipeline |
+| [Frontend Components](./frontend-components.md) | Admin UI React components |
+| [Packaging](./packaging.md) | Building the self-contained executable |
+
 For environment variable configuration, see [.env Reference](/webplatform/configuration). For running a session end-to-end, see the [Operator Guide](/user/running-sessions/operators).
