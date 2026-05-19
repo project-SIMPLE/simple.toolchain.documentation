@@ -90,7 +90,7 @@ See [Virtual Universe settings reference](/webplatform/virtual-universes/setting
 
 ## M2L2 — Portable Classroom
 
-M2L2 is a portable classroom-in-a-box hardware kit built around Mac minis, Meta Quest headsets, a WiFi access point, and an APC UPS. The WebPlatform integrates UPS monitoring and a 3-hour session timer that cleanly shuts down all headsets and the host computer when running on battery.
+M2L2 is a portable classroom-in-a-box hardware kit built around Mac minis, Meta Quest headsets, a WiFi access point, and an APC UPS. The WebPlatform integrates UPS monitoring (optimized for the **APC Back-UPS BX2200MI**) and a 3-hour session timer that cleanly shuts down all headsets and the host computer when running on battery.
 
 ---
 

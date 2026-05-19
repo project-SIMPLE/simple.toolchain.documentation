@@ -91,3 +91,6 @@ If code autocompletion is missing:
 2. Set "External Script Editor" to **Visual Studio Code**.
 3. Click **Regenerate project files**.
 4. Inside VS Code, ensure you have the **C# Dev Kit** extension installed.
+- [Configure your Unity scene](./setup)
+- [Understand the template architecture](./template-reference)
+- [Unity Development Troubleshooting](/08-troubleshooting/unity-template-issues)

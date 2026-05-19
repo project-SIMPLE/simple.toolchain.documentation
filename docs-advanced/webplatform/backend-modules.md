@@ -207,6 +207,10 @@ Manages ADB connections to Meta Quest headsets. For the full pairing procedure, 
 
 Monitors an APC UPS via USB HID (`node-hid`).
 
+:::warning
+The implementation is optimized and tested specifically for the **APC Back-UPS BX2200MI**. While other APC models using the same HID protocol may work, the platform logs a warning if the product name does not match, as battery charge and runtime calculations may differ between models.
+:::
+
 **Responsibilities**:
 
 - Connects to the first recognized APC UPS device.

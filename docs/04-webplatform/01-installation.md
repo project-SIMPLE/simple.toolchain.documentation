@@ -154,3 +154,4 @@ On the local network, the platform is also reachable via mDNS at `http://simple.
 
 - [Install a Virtual Universe](/webplatform/virtual-universes/install)
 - [Configure VR headsets](/user/running-sessions/meta-quest/headset-config)
+- [Developer Troubleshooting](/08-troubleshooting/)
