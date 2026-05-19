@@ -10,8 +10,8 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css"><link rel="stylesheet" href="/assets/css/styles.d5b4bb19.css">
-<script src="/assets/js/runtime~main.2889e3d9.js" defer="defer"></script>
-<script src="/assets/js/main.01406840.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.b973d98d.js" defer="defer"></script>
+<script src="/assets/js/main.462d6e74.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -115,6 +115,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="upsmanager">UpsManager<a href="#upsmanager" class="hash-link" aria-label="Direct link to UpsManager" title="Direct link to UpsManager" translate="no">​</a></h2>
 <p><strong>File</strong>: <code>src/api/infra/ups/UpsManager.ts</code></p>
 <p>Monitors an APC UPS via USB HID (<code>node-hid</code>).</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>The implementation is optimized and tested specifically for the <strong>APC Back-UPS BX2200MI</strong>. While other APC models using the same HID protocol may work, the platform logs a warning if the product name does not match, as battery charge and runtime calculations may differ between models.</p></div></div>
 <p><strong>Responsibilities</strong>:</p>
 <ul>
 <li class="">Connects to the first recognized APC UPS device.</li>
