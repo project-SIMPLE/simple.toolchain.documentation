@@ -76,4 +76,4 @@ Each VU folder **must** contain a `settings.json` file. See [Virtual Universe se
 - [Configure your VR headsets](/user/running-sessions/meta-quest/headset-config) for immersive sessions
 - [Run a session](/user/running-sessions/operators) end-to-end
 - [Understand the settings.json format](./settings)
-- [Troubleshooting VU Loading](/08-troubleshooting/webplatform-connectivity#virtual-universe-loading)
+- [Troubleshooting VU Loading](/08-troubleshooting/webplatform-connectivity.md)

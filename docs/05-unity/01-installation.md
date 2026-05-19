@@ -93,4 +93,4 @@ If code autocompletion is missing:
 4. Inside VS Code, ensure you have the **C# Dev Kit** extension installed.
 - [Configure your Unity scene](./setup)
 - [Understand the template architecture](./template-reference)
-- [Unity Development Troubleshooting](/08-troubleshooting/unity-template-issues)
+- [Unity Development Troubleshooting](/08-troubleshooting/unity-template-issues.md)
