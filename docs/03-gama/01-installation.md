@@ -46,8 +46,14 @@ The SIMPLE plugin adds VR-specific GAML species, operators, and the `VR_Experime
 
 <img width="1796" alt="Plugin" src="https://github.com/user-attachments/assets/923f923f-93e1-41de-8e6e-a0d7abeae414" />
 
-4. Select **SIMPLE Unity plugin** and click **Next**, then follow the prompts to finish installation.
-5. Restart GAMA when asked.
+4. Select **SIMPLE Unity plugin** and click **Next**.
+
+:::note
+GAMA may show a security warning about unsigned content. This is expected for all third-party GAMA plugins — click **Install anyway** to proceed.
+:::
+
+5. Follow the remaining prompts to finish installation.
+6. Restart GAMA when asked.
 
 After restarting, you should see a **UnityVR** menu in the GAMA IDE.
 

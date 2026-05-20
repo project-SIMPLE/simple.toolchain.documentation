@@ -39,7 +39,7 @@ We want to establish a "decision maker" view from the sky. We will use a specifi
 2. Select the **"Main Scene - Sky View Player"** template.
  ![Main Scene - Sky View Player](https://github.com/user-attachments/assets/6b407147-61eb-49b8-923c-1045cb040eac)
 3. Click **Create**.
-4. **Save** your current scene immediately (**File** > **Save**).
+4. **Save** your scene immediately: go to **File** > **Save As...**, navigate to `Assets/Scenes/`, give your scene a meaningful name (e.g., `Traffic-VR`), and click **Save**. Saving to `Assets/Scenes/` ensures you can reopen it later via **File** > **Open Scene**.
 
 ### 2. Verification: Scene Loading
 
@@ -68,8 +68,10 @@ Once the scene is loaded correctly, you must verify the external connection sett
 2. Locate the **Connection Manager** component in the Inspector.
 3. **Crucial:** Ensure that the **Fixed Properties** checkbox is **enabled**.
 
+**Fixed Properties** tells the template to use the IP address and port values you set here, rather than prompting the player at the startup menu. It does not mean the WebPlatform needs to be running at this point — you will start it later.
+
 :::danger
-If `Fixed Properties` is not checked, the connection to the middleware will not function correctly.
+If `Fixed Properties` is not checked, the connection to the WebPlatform will not function correctly.
 :::
 
 <img width="1466" alt="Fixed Properties" src="https://github.com/user-attachments/assets/37cd909d-8c66-4e72-86f8-7b377a1deee1" />

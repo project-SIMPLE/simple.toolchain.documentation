@@ -24,7 +24,7 @@ Before installing the editor, you must install the **Unity Hub**. This tool mana
 :::info
 **Required Version:** `Unity 6000.3.8f1`
 
-Please do not install a newer or older version unless explicitly instructed, as this may break project dependencies.
+Do not use a newer or older version. Even a minor patch release (e.g., `6000.3.9f1`) can alter the XR SDK and package dependency lockfile in ways that break the template.
 :::
 
 ### Method A: Direct Install via Hub (If available)

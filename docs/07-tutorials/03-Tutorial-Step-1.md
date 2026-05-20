@@ -9,9 +9,11 @@ description: Use the SIMPLE wizard in GAMA to generate a VR version of the traff
 
 ## Creation of the project
 
-
-Create a new GAMA project, then copy inside in this project the folders "models" and "includes" from "Toy Models/Traffic" of the model library. In the "model" folder, delete all the models except "Traffic and Pollution.gaml".
-To make testing easier later, set ‘fullscreen’ to false in the ‘carte’ display of the ‘traffic’ experiment (if it is not already set to false)
+1. In GAMA, go to **File** > **New** > **GAMA Project**. Give it a name (e.g., `TrafficVR`) and click **Finish**.
+2. In the **Navigator** panel on the left, expand **Toy Models** > **Traffic**. This is one of GAMA’s built-in example models.
+3. Copy the `models` and `includes` folders from `Toy Models/Traffic` into your new project: right-click each folder → **Copy**, then right-click your project → **Paste**.
+4. Inside `models/`, delete all `.gaml` files **except** `Traffic and Pollution.gaml`.
+5. Open `Traffic and Pollution.gaml` and set `fullscreen` to `false` in the `carte` display of the `traffic` experiment, if it is not already.
 
 ![Fullscreen to false](https://github.com/user-attachments/assets/e9bdaa91-89a0-4114-b27b-c51a19e89a92)
 
