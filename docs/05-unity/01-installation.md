@@ -2,7 +2,7 @@
 title: Unity Environment and Package Installation
 sidebar_label: Unity Installation
 sidebar_position: 1
-description: Install Unity 6 and add the SIMPLE Unity Plugin package to a Unity project.
+description: Install Unity 6000.3.2f1 and add the SIMPLE Unity Plugin package to a Unity project.
 ---
 
 # Unity Environment and Package Installation
@@ -18,17 +18,16 @@ SIMPLE Unity Plugin through Unity Package Manager.
 Before installing the package, prepare:
 
 - **Unity Hub**
-- **Unity 6.x**
+- **Unity 6000.3.2f1**
 - **Git**, required by Unity Package Manager when installing from a Git URL
 - **GAMA**
 - **simple.webplatform**, started separately from Unity
 
-The package manifest declares Unity `6000.0` as the minimum Unity version. The package
-tutorial is currently tested with Unity `6000.3.2f1`.
+Use Unity `6000.3.2f1` for the SIMPLE Unity Plugin workflow documented here.
 
 :::tip
-For a reproducible setup, use the same Unity 6 patch version across the team when
-testing or preparing a demo.
+For a reproducible setup, use the same Unity version across the team when testing or
+preparing a demo.
 :::
 
 ## 2. Install Unity Hub
@@ -41,7 +40,7 @@ testing or preparing a demo.
 
 1. Open Unity Hub.
 2. Go to **Installs** > **Install Editor**.
-3. Select a Unity 6 version compatible with the package.
+3. Select Unity `6000.3.2f1`.
 4. Continue to the module selection screen.
 
 If your required Unity version is not listed in Unity Hub, use the

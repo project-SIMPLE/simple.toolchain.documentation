@@ -85,7 +85,7 @@ Two complete demo models are included:
 
 ## Unity Template VR
 
-**Required version**: Unity `6000.3.8f1` (Unity 6 LTS). Required modules: Android Build Support, OpenJDK, Android SDK & NDK Tools.
+**Required version**: Unity `6000.3.2f1` (Unity 6 LTS). Required modules: Android Build Support, OpenJDK, Android SDK & NDK Tools.
 
 The template provides:
 

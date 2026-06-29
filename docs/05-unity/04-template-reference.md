@@ -18,7 +18,7 @@ download a full Unity template project.
 | Package name | `com.project-simple.unity-plugin` |
 | Display name | `SIMPLE Unity Plugin` |
 | Version | `1.0.0` |
-| Minimum Unity version | `6000.0` |
+| Unity version used by this documentation | `6000.3.2f1` |
 | Distribution | Git URL or local package disk path |
 
 Install URL:

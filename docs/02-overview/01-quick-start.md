@@ -38,7 +38,7 @@ All three must be running and connected for a session to work. Getting only the 
 |---|---|---|
 | GAMA + SIMPLE plugin | GAMA 2025.06 | [GAMA setup](/gama/installation) |
 | WebPlatform | Node.js ≥ 22 | [WebPlatform install](/webplatform/installation) |
-| Unity template | Unity 6000.3.8f1 | [Unity setup](/unity/setup) |
+| Unity template | Unity 6000.3.2f1 | [Unity setup](/unity/setup) |
 | Headset connectivity | ADB (optional for dev) | [ADB setup](/webplatform/installation#android-debug-bridge-adb) |
 
 ---

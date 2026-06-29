@@ -14,7 +14,7 @@ This tutorial shows how to build a complete virtual environment with interaction
 ## Requirements
 
 - GAMA 2025.06 with the SIMPLE plugin installed. See [GAMA Installation](/gama/installation).
-- Unity 6000.3.8f1 with Android Build Support. See [Unity Installation](/unity/installation).
+- Unity 6000.3.2f1 with Android Build Support. See [Unity Installation](/unity/installation).
 - The WebPlatform running. See [Install the WebPlatform](/webplatform/installation).
 
 ## Steps

@@ -61,7 +61,7 @@ See the [GAMA Plugin section](/gama/installation) for installation and the [GAML
 
 ### Unity Template
 
-The Unity template (`simple.toolchain/Unity Template VR/`) is a Unity 6 project (version `6000.3.8f1`) that provides:
+The Unity template (`simple.toolchain/Unity Template VR/`) is a Unity 6 project (version `6000.3.2f1`) that provides:
 
 - Pre-configured VR scenes for single-player and multi-player experiences.
 - A `ConnectionManager` component that connects to the WebPlatform.
