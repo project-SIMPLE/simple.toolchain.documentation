@@ -38,10 +38,8 @@ The SIMPLE plugin adds VR-specific GAML species, operators, and the `VR_Experime
 
 <img width="1065" alt="InstallPlugin" src="https://github.com/user-attachments/assets/e2df2f5d-a579-46df-8622-708be654a121" />
 
-2. In the dialog, click **Work with** and enter this update site URL:
-  ```
-  https://project-simple.github.io/simple.toolchain/
-  ```
+2. In the dialog, click **Work with** and enter the SIMPLE update site URL provided
+   for the current release.
 3. Press **Enter**. The plugin list loads.
 
 <img width="1796" alt="Plugin" src="https://github.com/user-attachments/assets/923f923f-93e1-41de-8e6e-a0d7abeae414" />

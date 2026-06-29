@@ -5,9 +5,8 @@ title: SIMPLE Tools
 
 # SIMPLE Tools
 
-This section used to document editor tools from the legacy Unity template workflow.
-The current SIMPLE Unity workflow is now based on the **SIMPLE Unity Plugin** package
-installed through Unity Package Manager.
+The SIMPLE Unity workflow is based on the **SIMPLE Unity Plugin** package installed
+through Unity Package Manager.
 
 The main entry point in Unity is:
 
@@ -17,9 +16,8 @@ GAMA > GAMA Panel
 
 ## What changed
 
-The previous documentation described separate geometry import/export editor windows.
-Those entries belonged to the legacy Unity template workflow. They are not the current
-package entry point.
+Geometry import/export is now documented through the package workflow rather than
+separate editor windows.
 
 In the package workflow:
 

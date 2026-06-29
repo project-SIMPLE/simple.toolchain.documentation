@@ -5,9 +5,9 @@ title: Sending Data from Unity to GAMA
 
 # Sending Data from Unity to GAMA
 
-The previous Unity template documentation described an editor window for exporting
-Unity GameObjects back to GAMA, mainly for geometry/shapefile-style workflows. That
-editor window is not part of the current SIMPLE Unity Plugin package workflow.
+For geometry/shapefile-style workflows, implement a project-specific exporter or send
+the required data back to GAMA at runtime. A dedicated geometry export editor window
+is not part of the current SIMPLE Unity Plugin package workflow.
 
 ## Current Package Workflow
 

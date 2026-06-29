@@ -2,7 +2,7 @@
 title: Building from Source
 sidebar_label: Building from Source
 sidebar_position: 3
-description: Step-by-step build instructions for the WebPlatform, GAMA Plugin, Unity Template, and documentation site.
+description: Step-by-step build instructions for the WebPlatform, GAMA Plugin, SIMPLE Unity Plugin, and documentation site.
 ---
 
 # Building from Source
@@ -92,42 +92,46 @@ Tycho builds the plugin for four platform configurations:
 
 ---
 
-## Unity Template VR
+## SIMPLE Unity Plugin
 
 ### Prerequisites
 
 | Requirement | Version | Notes |
 |---|---|---|
-| Unity Editor | **6000.3.0f1** | Exact version required — see warning below |
+| Unity Editor | **6000.3.2f1** | Reference version used by the SIMPLE Unity Plugin documentation |
 | Android Build Support | — | Install as a Unity module via Unity Hub |
 | Visual Studio Code | — | Recommended C# editor module |
 
-:::warning
-Unity Editor version `6000.3.0f1` is required exactly. Newer Unity 6 patch releases may break compatibility with the template's package dependencies. Install this specific version from the Unity Hub archive.
-:::
-
-### Obtaining the project
-
-The Unity Template is distributed as a ZIP of the `Unity Template VR/` project directory. Download it from the GitHub Releases page of the `simple.toolchain` repository, or clone the `Unity-6` branch:
+### Obtaining the package source
 
 ```bash
-git clone --branch Unity-6 https://github.com/project-SIMPLE/simple.toolchain.git
+git clone https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
 ```
 
-Then open `Unity Template VR/` as a project in Unity Hub.
+The repository is a Unity package. It is not opened as a standalone Unity project. To test local source changes, create or open a Unity project, then install the package from disk:
 
-### Windows-specific setup
+1. Open **Window > Package Manager**.
+2. Click **+**.
+3. Select **Add package from disk...**.
+4. Select the `package.json` file at the root of the cloned `SIMPLE-Unity-Plugin` repository.
 
-On Windows, `Assets/Plugins/websocket-sharp.dll` must be present. The repository already includes it. If it is missing after a manual file operation, download the DLL from the [websocket-sharp GitHub releases](https://github.com/sta/websocket-sharp) and copy it to `Assets/Plugins/`.
+For normal usage without editing package source, install the package from its Git URL instead:
+
+```text
+https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
+```
 
 ### Building the APK for Meta Quest
 
-1. Open the `Unity Template VR/` project in Unity Editor 6000.3.0f1.
-2. Open **Build > Build Profiles**.
-3. Select **Android** in the platform list.
-4. Click **Switch Platform** and wait for the asset import pipeline to complete.
-5. Connect your Meta Quest headset via USB with developer mode enabled.
-6. Click **Build and Run** to compile and deploy the APK.
+1. Create or open a Unity project with Unity Editor 6000.3.2f1.
+2. Install the SIMPLE Unity Plugin package.
+3. Open **GAMA > GAMA Panel** and click **Default Setup** to prepare the scene.
+4. Import optional samples from **Package Manager > SIMPLE Unity Plugin > Samples** if the project needs starter scenes or code examples.
+5. Open **Build > Build Profiles**.
+6. Select **Android** in the platform list.
+7. Click **Switch Platform** and wait for the asset import pipeline to complete.
+8. Connect your Meta Quest headset via USB with developer mode enabled.
+9. Click **Build and Run** to compile and deploy the APK.
 
 :::tip
 Developer mode must be enabled on the headset before deploying. See the [Meta Quest Developer Mode guide](/user/running-sessions/meta-quest/developer-mode) for setup instructions.
@@ -140,7 +144,6 @@ Developer mode must be enabled on the headset before deploying. See the [Meta Qu
 ### Development
 
 ```bash
-cd documentation
 npm install
 npm start
 ```

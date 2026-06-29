@@ -1,24 +1,53 @@
 ---
 sidebar_position: 2
-title: "Step 0: From GAMA Model to Virtual Universe"
-sidebar_label: "0. Initial project"
-description: Overview and requirements for the GAMA-to-VU traffic model tutorial.
+title: "Step 0: Middleware and GAMA Requirements"
+sidebar_label: "0. Requirements"
+description: Prepare GAMA and simple.webplatform before using the SIMPLE Unity Plugin.
 ---
 
-![Tutorial](https://github.com/user-attachments/assets/fb19740c-d470-4533-9a31-aebf5af1eb42)
+# Step 0: Middleware and GAMA Requirements
 
-## Objectives
+This chapter explains what must be running before Unity can preview or render a GAMA
+experiment.
 
-This tutorial shows how to build a complete virtual environment with interactions from an existing GAMA model. Starting from the traffic model included in the GAMA model library, vehicles travel on a road network from building to building. The greater the number of vehicles on a road relative to its capacity, the slower the vehicles move along the road. Each vehicle also emits pollutants into the air. The VR version allows you to navigate with a top-down manager's view and to close or open roads.
+## GAMA Requirements
 
-## Requirements
+Open the target model in GAMA and select the experiment you want Unity to receive.
 
-- GAMA 2025.06 with the SIMPLE plugin installed. See [GAMA Installation](/gama/installation).
-- Unity 6000.3.2f1 with Android Build Support. See [Unity Installation](/unity/installation).
-- The WebPlatform running. See [Install the WebPlatform](/webplatform/installation).
+For the tutorial workflow, the experiment can be:
 
-## Steps
+- open or selected when generating a static preview;
+- running when validating the live Play Mode workflow.
 
-1. [Step 1 — Generate the VR GAML model](./03-Tutorial-Step-1.md) — run the SIMPLE wizard in GAMA to scaffold the VR experiment
-2. [Step 2 — Set up the Unity scene](./04-Tutorial-Step-2.md) — configure the Unity template to receive traffic model geometry
-3. [Step 3 — Add interactions](./05-Tutorial-Step-3.md) — enable players to open and close roads from inside VR
+The package tutorial commonly uses the **Prey Predator** model because it contains
+static background species, dynamic agents, runtime updates, and species-specific
+visualization.
+
+## Middleware Requirements
+
+Start `simple.webplatform` before starting the Unity Play Mode connection or preview
+capture.
+
+From the WebPlatform project folder:
+
+```bash
+npm start
+```
+
+Default endpoints:
+
+```text
+Unity runtime / headset WebSocket: ws://localhost:8080/
+Monitor WebSocket: ws://localhost:8001/
+GAMA Server behind WebPlatform: ws://localhost:1000/
+```
+
+## Expected State
+
+Before continuing:
+
+- GAMA is open;
+- `simple.webplatform` is running;
+- Unity can connect to the middleware player WebSocket on port `8080`.
+
+Next: [Install the Unity package](./03-Tutorial-Step-1.md).

@@ -6,10 +6,7 @@ description: Install the SIMPLE Unity Plugin in a Unity project, prepare the sce
 
 # Unity Package Setup
 
-This page replaces the old Unity Template setup workflow.
-
-You no longer need to download the full `simple.toolchain` Unity project or open
-`Unity Template VR`. The current workflow is:
+The current workflow is:
 
 1. create or open a Unity project;
 2. install the SIMPLE Unity Plugin package;
@@ -30,7 +27,7 @@ Start from either:
 - an existing Unity project where you want to add GAMA integration.
 
 The package brings its own runtime scripts, editor tools, prefabs, and optional
-samples. The Unity project does not need to be cloned from the SIMPLE toolchain.
+samples.
 
 ## 2. Install the Package
 
@@ -88,7 +85,7 @@ The **GAMA Panel** also exposes advanced setup options:
 | `Generate All Example Scenes` | Generate all package-defined example scenes |
 
 The code example scenes are generated into the Unity project. They are not part of a
-separate template project.
+separate project download.
 
 ## 5. Start GAMA and the Middleware
 
@@ -162,7 +159,7 @@ rules in Edit Mode before running Play Mode again.
 
 ## Next steps
 
-- [Package Reference](./04-template-reference.md)
+- [Package Reference](./04-package-reference.md)
 - [Run a model from Unity](./05-how-to/01-Running-a-model-game.md)
 - [Configure preview and species settings](./05-how-to/13-EditorPreviewSpeciesSettings.md)
 - [Configure dynamic colors](./05-how-to/14-DynamicColors.md)

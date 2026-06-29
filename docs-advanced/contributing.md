@@ -7,7 +7,7 @@ description: Branch workflow, pull request conventions, code style, and testing 
 
 # Contributing
 
-Contributions to SIMPLE are welcome across all three components. Each component lives in its own subdirectory of the `simple.toolchain` or `simple.webplatform` repository.
+Contributions to SIMPLE are welcome across the WebPlatform, the GAMA plugin, the SIMPLE Unity Plugin, and the documentation site. Each component keeps its own build, review, and release workflow.
 
 ---
 
@@ -58,7 +58,7 @@ Bug reports and feature requests are managed via GitHub Issues. The `simple.webp
 - Source encoding is UTF-8 (enforced in the parent POM via `project.build.sourceEncoding`).
 - GAML source files reside in `gaml.extension.unity/gaml/` and model files in `gaml.extension.unity/models/`.
 
-### Unity Template VR
+### SIMPLE Unity Plugin
 
 - C# scripts follow Unity's standard naming conventions (PascalCase for classes and public members, camelCase for private fields).
 - All `*Manager` scripts use the Singleton pattern. Never instantiate them manually — access them via `NameOfClassManager.Instance.SomeMethod()`.
@@ -81,6 +81,11 @@ cd "GAMA Plugin/eu.project-simple.parent"
 mvn verify
 ```
 
-### Unity Template VR
+### SIMPLE Unity Plugin
 
-The Unity Test Runner is referenced in the CI workflow (`game-ci/unity-builder@v4` on Ubuntu runners). Running tests locally requires a valid Unity license configured in the editor.
+For package changes, verify the workflow in a clean Unity 6000.3.2f1 project:
+
+1. Install the local package with **Package Manager > Add package from disk...**.
+2. Run **GAMA > GAMA Panel > Default Setup**.
+3. Generate a preview from a running GAMA experiment.
+4. Enter Play Mode and confirm the Unity scene connects through the WebPlatform.

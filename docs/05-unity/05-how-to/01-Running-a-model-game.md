@@ -9,8 +9,7 @@ description: Run a GAMA experiment in Unity through the SIMPLE Unity Plugin pack
 This guide describes the package-based workflow.
 
 The Unity project should contain the SIMPLE Unity Plugin package and a scene prepared
-with **GAMA > GAMA Panel > Default Setup**. You do not need to download the old
-`Unity Template VR` project.
+with **GAMA > GAMA Panel > Default Setup**.
 
 ## Prerequisites
 
@@ -51,10 +50,10 @@ GAMA Server behind webplatform: ws://localhost:1000/
 ```
 
 :::note
-The standard package preview workflow does not require the old Unity template,
-middleware catalogue, `settings.json`, or `LEARNING_PACKAGE_PATH` flow. Those may
-still be relevant for full WebPlatform catalogue sessions, but they are not the
-default package tutorial path.
+The standard package preview workflow does not require the middleware catalogue,
+`settings.json`, or `LEARNING_PACKAGE_PATH` flow. Those may still be relevant for
+full WebPlatform catalogue sessions, but they are not the default package tutorial
+path.
 :::
 
 ## 2. Prepare GAMA

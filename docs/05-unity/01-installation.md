@@ -9,9 +9,8 @@ description: Install Unity 6000.3.2f1 and add the SIMPLE Unity Plugin package to
 
 This page explains how to prepare Unity for the SIMPLE Unity Plugin.
 
-The current Unity workflow no longer requires downloading a complete Unity project from
-`simple.toolchain`. Start from an empty or existing Unity project, then install the
-SIMPLE Unity Plugin through Unity Package Manager.
+Start from an empty or existing Unity project, then install the SIMPLE Unity Plugin
+through Unity Package Manager.
 
 ## 1. Requirements
 
@@ -150,5 +149,5 @@ If Unity complains about missing Android tools:
 ## Next steps
 
 - [Set up a Unity scene](./setup)
-- [Understand the package structure](./template-reference)
+- [Understand the package structure](./package-reference)
 - [Run a model from Unity](./05-how-to/01-Running-a-model-game.md)

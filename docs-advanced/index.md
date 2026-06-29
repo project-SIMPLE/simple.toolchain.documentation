@@ -33,12 +33,12 @@ Environment variable reference is in the main docs: [.env Reference](/webplatfor
 
 ### Developer guide
 
-Covers all three repositories — `simple.webplatform`, `simple.toolchain` (GAMA plugin + Unity template), and this documentation site:
+Covers the main SIMPLE components: WebPlatform, GAMA plugin, SIMPLE Unity Plugin, and this documentation site.
 
 | Page | When to read it |
 |---|---|
 | [Repository Structure](/advanced/repository-structure) | You are orienting yourself: which repo has what, where to clone |
-| [Building from Source](/advanced/building-from-source) | You need to build the GAMA plugin or Unity template from source |
+| [Building from Source](/advanced/building-from-source) | You need to build the GAMA plugin or use the Unity package from local source |
 | [Contributing](/advanced/contributing) | You want to submit a patch or understand code conventions |
 
 ### Companion apps

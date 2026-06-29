@@ -31,14 +31,15 @@ Check your GAMA version at **Help → About GAMA**. If it is older than 2025-06,
 
 ---
 
-## Update site unreachable (no internet / corporate proxy)
+## Update site unreachable
 
-If the P2 update site (`https://project-simple.github.io/simple.toolchain/`) is unreachable, download the site ZIP from the [simple.toolchain GitHub Releases](https://github.com/project-SIMPLE/simple.toolchain/releases) and use it as a local update site:
+If the P2 update site is unreachable, use the offline update site ZIP provided for
+the current SIMPLE release:
 
-1. Download the ZIP asset (named something like `simple.toolchain-site-X.Y.Z.zip`).
+1. Download the update site ZIP asset.
 2. In GAMA, go to **Support → Install new plugins...**.
 3. Click **Work with** and enter the path to the extracted ZIP:
    ```
-   jar:file:/path/to/simple.toolchain-site-X.Y.Z.zip!/
+   jar:file:/path/to/simple-update-site.zip!/
    ```
 4. Select **SIMPLE Unity plugin** and proceed with the install.

@@ -85,6 +85,9 @@ Sending high-resolution shapefiles or thousands of agents to Unity can consume s
 
 ## Objects appear in Unity but are millions of meters away
 
-This is a `precision` mismatch. GAMA multiplies all geometry coordinates by `precision` (default `10000`) before sending them as integers. The Unity template divides by the same factor on receipt. If the two values differ, agents appear displaced by several orders of magnitude.
+This is a `precision` mismatch. GAMA multiplies all geometry coordinates by
+`precision` before sending them. The SIMPLE Unity Plugin applies the corresponding
+conversion on receipt. If the two values differ, agents appear displaced by several
+orders of magnitude.
 
 Check that your linker's `precision` variable matches the `coordinateConverter` factor in your Unity scene's `ConnectionManager`. If you customized `precision` in GAML, apply the same value on the Unity side.

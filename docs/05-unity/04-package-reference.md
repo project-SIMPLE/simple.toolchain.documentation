@@ -9,7 +9,7 @@ description: Reference for the SIMPLE Unity Plugin package structure, samples, e
 
 The SIMPLE Unity Plugin is distributed as a Unity Package Manager package. Its role is
 to add GAMA/WebPlatform integration to a Unity project without requiring users to
-download a full Unity template project.
+download a complete Unity project.
 
 ## Package Identity
 
@@ -33,7 +33,7 @@ https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
 |---|---|
 | `Runtime/` | Runtime code compiled into the Unity player |
 | `Editor/` | Unity Editor tools such as the GAMA Panel, setup tools, preview tools, inspectors, and prefab import helpers |
-| `Samples~/` | Optional sample scenes and templates importable from Package Manager |
+| `Samples~/` | Optional sample scenes and starter content importable from Package Manager |
 | `Documentation~/` | Package-local tutorial and technical notes |
 
 ## Runtime Content
@@ -130,8 +130,7 @@ The GAMA Panel can also generate code example scenes into:
 Assets/Scenes/Code Examples
 ```
 
-These generated scenes are project files, not files that users must download from
-the old `simple.toolchain` Unity template.
+These generated scenes are project files created inside the user's Unity project.
 
 ## Main Runtime Classes
 

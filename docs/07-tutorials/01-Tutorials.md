@@ -2,24 +2,44 @@
 sidebar_position: 1
 title: Tutorial Overview
 sidebar_label: Overview
-description: Step-by-step tutorial building a VR version of the GAMA traffic model.
+description: Step-by-step tutorial for using the SIMPLE Unity Plugin with GAMA.
 ---
 
-# Tutorial: From GAMA Model to Virtual Universe
+# Tutorial: SIMPLE Unity Plugin with GAMA
 
-This tutorial walks through building a complete VR simulation from an existing GAMA model. Starting from the traffic model in the GAMA library, you will generate a VR version using the SIMPLE wizard, set up the Unity scene, and add player interactions.
+This tutorial is the main learning path for using the SIMPLE Unity Plugin with GAMA
+through `simple.webplatform`.
 
-## What you will build
+The goal is to start from a Unity project, install the package, run a live GAMA
+experiment in Play Mode, then use the Unity Editor preview to inspect and tune the
+scene before running the live simulation again.
 
-The result is a VR traffic simulation where a player navigates a city from a top-down view and can open or close roads. It demonstrates:
+## What You Will Do
 
-- Generating a VR GAML model from an existing model using the SIMPLE wizard
-- Configuring the Unity scene to receive GAMA geometry data
-- Adding player interactions that affect the running simulation
+You will:
 
-## Steps
+- prepare GAMA and `simple.webplatform`;
+- install the SIMPLE Unity Plugin in Unity;
+- prepare a Unity scene with the GAMA Panel;
+- run a GAMA experiment in Unity Play Mode;
+- personalize imported species;
+- generate a static preview from GAMA;
+- configure dynamic colors from GAMA attributes.
 
-1. [Overview and requirements](./02-Tutorial-From-GAMA-to-VU.md) — what the tutorial covers and what you need installed
-2. [Step 1 — Generate the VR GAML model](./03-Tutorial-Step-1.md) — run the SIMPLE wizard in GAMA to scaffold the VR experiment
-3. [Step 2 — Set up the Unity scene](./04-Tutorial-Step-2.md) — open the Unity template and configure it to receive traffic model geometry
-4. [Step 3 — Add interactions](./05-Tutorial-Step-3.md) — enable players to open and close roads from inside VR
+## Tutorial Flow
+
+1. [Middleware and GAMA requirements](./02-Tutorial-From-GAMA-to-VU.md)
+2. [Install the Unity package](./03-Tutorial-Step-1.md)
+3. [Run the GAMA experiment in Play Mode](./04-Tutorial-Step-2.md)
+4. [Personalize agents during Play Mode](./05-Tutorial-Step-3.md)
+5. [Generate and configure the Unity preview](./06-Tutorial-Step-4.md)
+6. [Dynamic colors from GAMA attributes](./07-Tutorial-Step-5.md)
+
+## Before You Start
+
+You need:
+
+- Unity `6000.3.2f1`;
+- GAMA with the SIMPLE plugin installed;
+- `simple.webplatform` running;
+- the SIMPLE Unity Plugin package available through Unity Package Manager.

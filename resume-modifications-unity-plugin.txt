@@ -1,20 +1,20 @@
-Resume des modifications de la documentation Unity
+Resume des modifications de la documentation SIMPLE Unity Plugin
 
 Objectif
-Remplacer la documentation basee sur l'ancien projet Unity complet ("Unity Template VR")
-par une documentation adaptee au nouveau SIMPLE Unity Plugin installe comme package
-Unity Package Manager.
+Remplacer la documentation basee sur un projet Unity complet a telecharger par une
+documentation adaptee au SIMPLE Unity Plugin installe comme package Unity Package
+Manager.
 
 Ce qui a ete remplace
-- L'ancien workflow "telecharger/cloner simple.toolchain puis ouvrir Unity Template VR"
-  a ete remplace par un workflow "creer ou ouvrir un projet Unity, puis installer le
+- Le workflow "telecharger un projet Unity complet puis l'ouvrir dans Unity Hub" a
+  ete remplace par un workflow "creer ou ouvrir un projet Unity, puis installer le
   package SIMPLE Unity Plugin".
 - Les instructions d'installation pointent maintenant vers Unity Package Manager avec
   l'URL Git du package :
   https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
-- La page "Unity Template Setup" a ete remplacee par une page de setup package :
+- La page de setup Unity a ete remplacee par une page de setup package :
   GAMA > GAMA Panel > Default Setup.
-- L'ancienne reference du template a ete transformee en reference du package :
+- La reference Unity a ete transformee en reference du package :
   Runtime, Editor, Samples~ et Documentation~.
 
 Ce qui a ete modifie
@@ -24,8 +24,8 @@ Ce qui a ete modifie
   Directional Light, Teleport Area/Ground, FPSPlayer, Connection Manager et Game Manager.
 - Les samples sont presentes comme des contenus optionnels importables depuis le
   Package Manager, et non comme un projet Unity complet a telecharger.
-- Les how-to ont ete ajustes pour eviter les anciens chemins du type
-  Assets/Scripts/Gama Provider et les anciens liens vers simple.toolchain.
+- Les how-to ont ete ajustes pour utiliser les menus et API actuels du package :
+  GAMA Panel, Generate Preview from GAMA, ConnectionManager et SimulationManager.
 - La version Unity de reference a ete harmonisee partout en Unity 6000.3.2f1.
 
 Ce qui a ete ajoute

@@ -71,7 +71,7 @@ window, and a manual middleware player step.
 
 The package workflow centralizes this in the GAMA Panel:
 
-- no separate Unity template project is required;
+- no separate Unity project download is required;
 - no legacy geometry import menu is used;
 - the preview is generated directly from the current GAMA/WebPlatform connection;
 - the same species settings can be reused by live runtime agents.

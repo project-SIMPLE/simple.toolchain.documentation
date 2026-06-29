@@ -1,25 +1,29 @@
 ---
-title: Unity Template Issues
+title: Unity Plugin Issues
 sidebar_label: Unity Issues
 sidebar_position: 5
 ---
 
-# Unity Template Issues
+# Unity Plugin Issues
 
-Common hurdles when working with the Unity template.
+Common hurdles when working with the SIMPLE Unity Plugin package.
 
 ---
 
 ## The "Managers" are missing
 
-The SIMPLE Unity template relies on a `Managers` object being present in the scene, containing the `ConnectionManager` and `SimulationManager` components.
+The SIMPLE Unity Plugin setup creates manager objects in the active scene. These
+objects contain the `ConnectionManager` and `SimulationManager` components required
+for runtime communication.
 
 **Symptoms:**
 - `NullReferenceException` when accessing `SimulationManager.Instance`.
 - No connection attempts logged in the Unity console.
 
 **Solution:**
-Always start your scene from one of the [Scene Templates](/unity/template-reference#scene-templates) provided in the template, or drag the **Connection Manager** and **Game Manager** prefabs into your hierarchy.
+Open **GAMA > GAMA Panel** and run **Default Setup** in the active scene. If you use a
+custom scene, verify that the scene contains a `Connection Manager` and a `Game
+Manager`.
 
 ---
 
@@ -27,7 +31,7 @@ Always start your scene from one of the [Scene Templates](/unity/template-refere
 
 If GAMA is sending data but objects don't appear in Unity, or appear as pink boxes:
 
-1. **Resources Folder:** Ensure your prefabs are located inside a folder named `Resources`. Unity's `Resources.Load()` (used internally by the template) can only find assets in these specific folders.
+1. **Resources Folder:** Ensure your prefabs are located inside a folder named `Resources`. Unity's `Resources.Load()` can only find assets in these specific folders.
 2. **Prefab Name Mismatch:** The `prefabPath` parameter in GAML's `prefab_aspect` must exactly match the path relative to the `Resources` folder (e.g., `"Prefabs/Car"`).
 
 ---
@@ -76,11 +80,26 @@ If you can see the UI but cannot interact with it:
 
 ---
 
-## Windows build crashes with `DllNotFoundException: websocket-sharp`
+## Package installation fails from Git URL
 
-The Unity template requires `Assets/Plugins/websocket-sharp.dll` for Windows builds. This file is included in the repository but can be lost when copying the project manually (e.g. when extracting the release ZIP without preserving the full directory tree).
+If Unity Package Manager cannot install the package from Git:
 
-Verify that `Assets/Plugins/websocket-sharp.dll` exists in your project before building. If it is missing, re-extract the template ZIP from the [GitHub Release](https://github.com/project-SIMPLE/simple.toolchain/releases) and copy the file back.
+1. Check that Git is installed and available from the command line:
+
+   ```bash
+   git --version
+   ```
+
+2. Open **Window > Package Manager**.
+3. Use **Add package from git URL...**.
+4. Paste:
+
+   ```text
+   https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
+   ```
+
+If this still fails, install the package from local disk by selecting the package
+repository's `package.json`.
 
 ---
 

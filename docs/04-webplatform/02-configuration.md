@@ -93,7 +93,8 @@ GAMA_WS_PORT=6868
 | **Default** | `8080` |
 | **Required** | No |
 
-Port of the WebSocket server that VR headsets (Unity apps) connect to. The Unity template reads this value from the `ConnectionManager` configuration in the scene.
+Port of the WebSocket server that Unity runtime clients connect to. The SIMPLE Unity
+Plugin reads this value through the `ConnectionManager` configuration in the scene.
 
 ```dotenv
 HEADSET_WS_PORT=8080
