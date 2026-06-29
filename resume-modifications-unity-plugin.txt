@@ -1,0 +1,41 @@
+Resume des modifications de la documentation Unity
+
+Objectif
+Remplacer la documentation basee sur l'ancien projet Unity complet ("Unity Template VR")
+par une documentation adaptee au nouveau SIMPLE Unity Plugin installe comme package
+Unity Package Manager.
+
+Ce qui a ete remplace
+- L'ancien workflow "telecharger/cloner simple.toolchain puis ouvrir Unity Template VR"
+  a ete remplace par un workflow "creer ou ouvrir un projet Unity, puis installer le
+  package SIMPLE Unity Plugin".
+- Les instructions d'installation pointent maintenant vers Unity Package Manager avec
+  l'URL Git du package :
+  https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
+- La page "Unity Template Setup" a ete remplacee par une page de setup package :
+  GAMA > GAMA Panel > Default Setup.
+- L'ancienne reference du template a ete transformee en reference du package :
+  Runtime, Editor, Samples~ et Documentation~.
+
+Ce qui a ete modifie
+- Les pages Unity expliquent maintenant que simple.webplatform et GAMA sont lances
+  separement, et que Unity se connecte au middleware via WebSocket.
+- La documentation precise les objets crees par le setup :
+  Directional Light, Teleport Area/Ground, FPSPlayer, Connection Manager et Game Manager.
+- Les samples sont presentes comme des contenus optionnels importables depuis le
+  Package Manager, et non comme un projet Unity complet a telecharger.
+- Les how-to ont ete ajustes pour eviter les anciens chemins du type
+  Assets/Scripts/Gama Provider et les anciens liens vers simple.toolchain.
+- La version Unity de reference a ete harmonisee partout en Unity 6000.3.2f1.
+
+Ce qui a ete ajoute
+- Une page sur le workflow de preview Unity :
+  Generate Preview from GAMA, configuration des especes, prefabs, couleurs, scale,
+  offsets et visibilite.
+- Une page sur les couleurs dynamiques pilotees par les attributs envoyes par GAMA.
+- Une explication plus claire du role du package :
+  ajouter l'integration GAMA/WebPlatform a un projet Unity existant ou vide.
+
+Verification
+- Le site Docusaurus compile correctement avec :
+  npm run build
