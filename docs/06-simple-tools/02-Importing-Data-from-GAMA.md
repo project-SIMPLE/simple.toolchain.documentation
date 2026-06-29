@@ -1,23 +1,86 @@
+---
+sidebar_position: 2
+title: Importing Data from GAMA
+---
+
 # Importing Data from GAMA
 
-The Unity template allows you import data from GAMA into Unity and use them to create gameobjects. It works in the same way as VR templates, with static data being sent: the user will need to define Unity properties in a GAMA model, and define which agents/geometries with which Unity properties she/he wishes to send data. The particularity of this tool is that it allows this import to be carried out from the Unity editor, thus preserving the geometries sent in the scene.
+With the SIMPLE Unity Plugin, importing GAMA data into Unity is handled from the
+package's GAMA Panel.
 
-![ExportDataFromGAMAToUnity](https://github.com/user-attachments/assets/3276df03-8ed3-461b-9135-925b059eb6a9)
+The current package workflow uses:
 
-Using this tool requires to follow 4 steps:
+```text
+GAMA > GAMA Panel > Generate Preview from GAMA
+```
 
-1. **First step**: open the model « Plugins models/LinkToUnity/Models/Utilities/SendGeometriesToUnity.gaml », and modify it to select the data to send to Unity as well as the unity properties attached to them. All the geometries that will be sent to GAMA have to be added by using the **add_background_data_with_names** action.
+This creates a static Unity preview from the experiment opened or selected in GAMA.
+The preview lets you inspect GAMA geometries and agents in the Unity Editor before
+running the live simulation.
 
-![LoadingGeometries - GAMA](https://github.com/user-attachments/assets/bfa3af16-3be2-4226-b7e4-1c6bf4d3704f)
+## Requirements
 
-2. **Second step**: run the experiment SendGeometriesToUnity.
+Before importing data:
 
-3. **Third step**: In Unity, "_GAMA menu_ -> _Load Geometries from GAMA_", define the parameter and click on **Import**
+1. Install the SIMPLE Unity Plugin in the Unity project.
+2. Prepare the scene with **GAMA > GAMA Panel > Default Setup**.
+3. Start `simple.webplatform`.
+4. Open GAMA.
+5. Open or select the experiment to preview.
 
-![LoadingGeometries - panel](https://github.com/user-attachments/assets/54456238-05bc-4abc-9a25-679de75f6ea5)
+The GAMA model must send data using the SIMPLE Unity integration actions expected by
+the package, such as geometries, Unity properties, and optional attributes.
 
-4. **Fourth step**: click « **Ok** » on the pop-up that appears and immediately add the player to the middleware. If you are too slow to add the player, it will be disconnected and the data will not be imported.
+## Generate the Preview
 
-![LoadGeometriesFromUnity - popup](https://github.com/user-attachments/assets/84b7b475-9bc2-4e8b-820b-cc7ce9a2f0a8)
+In Unity:
 
-![LoadGeometriesFromUnity - middleware](https://github.com/user-attachments/assets/7ba4ede8-ff9d-402b-9c2c-d22ec055bfd1)
+1. Open **GAMA > GAMA Panel**.
+2. Click **Generate Preview from GAMA**.
+3. Wait until the preview is built in the scene.
+
+Unity creates preview objects under:
+
+```text
+[GAMA] Static Experiment Preview
+```
+
+Detected species also appear in the GAMA Panel and in the Simulation Manager
+Inspector.
+
+## What You Can Configure
+
+For each detected species, you can configure:
+
+| Setting | Purpose |
+|---|---|
+| Prefab override | Replace the default geometry with a Unity prefab |
+| Color override | Force a stable species color |
+| Scale multiplier | Make agents easier to see without changing GAMA data |
+| Position offset | Adjust the visual position |
+| Rotation offset | Adjust the visual orientation |
+| Visibility | Hide or show species |
+| Dynamic color | Drive per-agent color from GAMA attributes |
+
+These settings can then be reused during Play Mode.
+
+## Difference with the Old Tool
+
+The previous documentation required a dedicated utility model, a separate Unity import
+window, and a manual middleware player step.
+
+The package workflow centralizes this in the GAMA Panel:
+
+- no separate Unity template project is required;
+- no legacy geometry import menu is used;
+- the preview is generated directly from the current GAMA/WebPlatform connection;
+- the same species settings can be reused by live runtime agents.
+
+## Next Step
+
+After generating the preview, run the scene in Play Mode to validate that live agents
+are created under:
+
+```text
+[GAMA] Runtime Live Agents
+```

@@ -1,24 +1,90 @@
-# Exporting Data from Unity
+---
+sidebar_position: 3
+title: Sending Data from Unity to GAMA
+---
 
-The Unity template allows you to export gameobjects from Unity to Gama from the Unity Editor.
+# Sending Data from Unity to GAMA
 
-![ExportDataFromUnityToGama](https://github.com/user-attachments/assets/d05e57c8-d778-402e-8f00-a7b76b88ac27)
+The previous Unity template documentation described an editor window for exporting
+Unity GameObjects back to GAMA, mainly for geometry/shapefile-style workflows. That
+editor window is not part of the current SIMPLE Unity Plugin package workflow.
 
-Using this tool requires to follow 4 steps:
+## Current Package Workflow
 
-1. **First step**: open the model « Plugins models/LinkToUnity/Models/Utilities/ImportGemetriesFromUnity.gaml ».
+With the SIMPLE Unity Plugin, Unity sends data back to GAMA during runtime through the
+middleware connection.
 
-![LoadingGeometries - GAMA](https://github.com/user-attachments/assets/38ac5d39-17ed-4251-99de-f73b1ab1f464)
+Use this approach for:
 
-2. **Second step**: run the experiment LoadGeometriesFromUnity.
+- object selections;
+- player positions;
+- interaction events;
+- scenario-specific commands;
+- values that should trigger GAMA actions.
 
-3. **Third step**: In Unity, "_GAMA menu_ -> _Export Geometries to GAMA_", define the parameter and click on **Export Geometries**
+The main runtime API is exposed by `ConnectionManager`.
 
-![LoadingGeometries - panel](https://github.com/user-attachments/assets/73ebe50b-cce0-481c-943b-51f8a4ee6466)
+## Send an Executable Ask
 
-4. **Fourth step**: click « **Ok** » on the pop-up that appears and immediately add the player to the middleware. If you are too slow to add the player, it will be disconnected and the data will not be exported.
+Use `SendExecutableAsk` when Unity should call a GAMA action on the configured target
+agent.
 
-![LoadGeometriesFromUnity - popup](https://github.com/user-attachments/assets/5fd95fd5-86f5-4b42-800e-14b0c5bf4fcc)
+Example:
 
-![LoadGeometriesFromUnity - middleware](https://github.com/user-attachments/assets/4985bc8a-ac0e-49f7-aeba-87c78fca538a)
+```csharp
+using System.Collections.Generic;
+using UnityEngine;
 
+public class SendSelectionToGama : MonoBehaviour
+{
+    public void SendSelectedObject(GameObject selectedObject)
+    {
+        if (ConnectionManager.Instance == null || selectedObject == null)
+        {
+            return;
+        }
+
+        var args = new Dictionary<string, string>
+        {
+            { "id", selectedObject.name }
+        };
+
+        ConnectionManager.Instance.SendExecutableAsk("select_object", args);
+    }
+}
+```
+
+On the GAMA side, define the corresponding action and handle the argument sent by
+Unity.
+
+## Send an Executable Expression
+
+Use `SendExecutableExpression` for simple GAML expressions:
+
+```csharp
+ConnectionManager.Instance.SendExecutableExpression("do_something <- true;");
+```
+
+Use this carefully. For structured runtime communication, `SendExecutableAsk` is
+usually easier to validate and maintain.
+
+## Legacy Geometry Export
+
+If the goal is specifically to export Unity-edited geometries as GIS data or
+shapefiles, treat that as a legacy or custom workflow.
+
+The current package documentation does not expose a direct replacement for the legacy
+geometry export editor window. For this use case, either:
+
+- implement a dedicated exporter in the Unity project;
+- send the required geometry information to GAMA through runtime asks and let GAMA
+  write the output data.
+
+## Recommended Direction
+
+For new projects, keep GAMA as the source of simulation data and use Unity mainly for:
+
+- visualizing GAMA agents;
+- configuring species appearance;
+- sending player interactions back to GAMA;
+- previewing and testing the visual representation of the simulation.

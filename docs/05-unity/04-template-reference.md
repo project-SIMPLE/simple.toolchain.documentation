@@ -34,7 +34,6 @@ https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
 | `Runtime/` | Runtime code compiled into the Unity player |
 | `Editor/` | Unity Editor tools such as the GAMA Panel, setup tools, preview tools, inspectors, and prefab import helpers |
 | `Samples~/` | Optional sample scenes and templates importable from Package Manager |
-| `Tests/` | Unity Test Framework assemblies for runtime and editor validation |
 | `Documentation~/` | Package-local tutorial and technical notes |
 
 ## Runtime Content
@@ -82,8 +81,8 @@ more easily from the Inspector.
 
 ## Scene Objects Created by Default Setup
 
-The default setup builds a minimal scene for GAMA communication. The editor tests
-validate that it creates the following objects:
+The default setup builds a minimal scene for GAMA communication with the following
+objects:
 
 | Object | Role |
 |---|---|
@@ -168,16 +167,3 @@ between:
 - the static Editor preview;
 - Play Mode runtime agents;
 - the Simulation Manager Inspector.
-
-## Tests
-
-The package contains Unity Test Framework assemblies:
-
-| Test area | Purpose |
-|---|---|
-| `Tests/Runtime` | Runtime test assembly |
-| `Tests/Editor` | Editor test assembly |
-
-The current editor test validates that `GAMAMenu.SetupScene()` rebuilds a minimal
-GAMA-ready scene from an existing scene and creates the required manager/player
-objects.
