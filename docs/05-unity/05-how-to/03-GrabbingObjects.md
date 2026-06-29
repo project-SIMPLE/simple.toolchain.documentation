@@ -1,6 +1,8 @@
 # Grabbing objects
 
-_**Link to the example model**_: [LinkToUnity/Models/Code Examples/User Interaction.gaml](https://github.com/project-SIMPLE/simple.toolchain/blob/2024-06/GAMA%20Plugin/gaml.extension.unity/models/LinkToUnity/Models/Code%20Examples/User%20Interaction.gaml)
+_**Example model**_: use the matching GAMA code example for user interactions.
+The Unity package contains the Unity-side package and samples; the `.gaml` models are
+maintained on the GAMA/SIMPLE side.
 
 ![grab-ezgif com-optimize](https://github.com/user-attachments/assets/8b1c9614-6a7f-4cd8-a535-985529425e7a)
 

@@ -1,6 +1,8 @@
 # Managing Water from GAMA
 
-_**Link to the example model**_: [LinkToUnity/Models/Code Examples/Send Water data.gaml](https://github.com/project-SIMPLE/simple.toolchain/blob/2024-06/GAMA%20Plugin/gaml.extension.unity/models/LinkToUnity/Models/Code%20Examples/Send%20Water%20data.gaml)
+_**Example model**_: use the matching GAMA code example for sending water data.
+The Unity package contains the Unity-side package and samples; the `.gaml` models are
+maintained on the GAMA/SIMPLE side.
 
 ![ezgif com-optimize](https://github.com/user-attachments/assets/b34029f6-19bc-4bae-801e-e4b416efce74)
 

@@ -1,6 +1,8 @@
 # Sending attribute values linked to agents/geometries from GAMA
 
-_**Link to the example model**_: [LinkToUnity/Models/Code Examples/Send Dynamic data.gaml](https://github.com/project-SIMPLE/simple.toolchain/blob/2024-06/GAMA%20Plugin/gaml.extension.unity/models/LinkToUnity/Models/Code%20Examples/Send%20Dynamic%20data.gaml)
+_**Example model**_: use the matching GAMA code example for sending dynamic data.
+The Unity package contains the Unity-side package, samples, and scripts; the `.gaml`
+models are maintained on the GAMA/SIMPLE side.
 
 The SIMPLE toolkit allows to send the values of attributes linked to geometries/agents
 
@@ -34,7 +36,14 @@ reflex send_agents when: not empty(unity_player) {
 
 ```
 
-In Unity, we have first to add the attribute (with its type) in the Attributes class (Assets/Scripts/Gama Provider/Serialization). The name of the attribute variable have to be the same and the key in the *add_geometries_to_send* action.
+In the current package, the `Attributes` class is provided by:
+
+```text
+Packages/com.project-simple.unity-plugin/Runtime/Serialization/Attributes.cs
+```
+
+The package already stores arbitrary attributes received from GAMA. For the common
+`type` attribute, the class still exposes a `type` field:
 
 ```csharp
 [System.Serializable]
@@ -45,7 +54,9 @@ public class Attributes
 ```
 
 
-Then, in Unity's SimulationManager class (or any class that inherits from SimulationManager), we override the ManageAttributes method. In this example, we change the color of the corresponding game object according to the value of the _type_ attribute.
+Then, in a Unity script that inherits from `SimulationManager`, override
+`ManageAttributes`. In this example, we change the color of the corresponding game
+object according to the value of the _type_ attribute.
 
 ```csharp
 public class ReceiveDynamicDataExample : SimulationManager
@@ -77,3 +88,6 @@ public class ReceiveDynamicDataExample : SimulationManager
     }
 }
 ```
+
+For visual mappings that only change colors, prefer the package's dynamic color
+settings when possible. See [Dynamic Colors](./14-DynamicColors.md).

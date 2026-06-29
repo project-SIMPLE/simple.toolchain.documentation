@@ -1,6 +1,8 @@
 # Constraining movement of players from GAMA
 
-_**Link to the example model**_: [LinkToUnity/Models/Code Examples/Limit Player Movement.gaml](https://github.com/project-SIMPLE/simple.toolchain/blob/2024-06/GAMA%20Plugin/gaml.extension.unity/models/LinkToUnity/Models/Code%20Examples/Limit%20Player%20Movement.gaml)
+_**Example model**_: use the matching GAMA code example for limiting player movement.
+The Unity package contains the Unity-side package and samples; the `.gaml` models are
+maintained on the GAMA/SIMPLE side.
 
 ![ezgif com-optimize-2](https://github.com/user-attachments/assets/7fea5c10-3ff6-4f4b-93df-11412cdb43aa)
 

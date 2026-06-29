@@ -1,126 +1,168 @@
 ---
 sidebar_position: 3
-title: Unity Template Setup
-description: Open the SIMPLE Unity template, configure the WebPlatform IP, and run a test session in the editor.
+title: Unity Package Setup
+description: Install the SIMPLE Unity Plugin in a Unity project, prepare the scene, and validate the GAMA connection.
 ---
 
-# Unity Template Setup
+# Unity Package Setup
 
-This page covers opening the SIMPLE Unity template for the first time and connecting it to a running WebPlatform instance for development testing.
+This page replaces the old Unity Template setup workflow.
+
+You no longer need to download the full `simple.toolchain` Unity project or open
+`Unity Template VR`. The current workflow is:
+
+1. create or open a Unity project;
+2. install the SIMPLE Unity Plugin package;
+3. prepare the active scene from the **GAMA Panel**;
+4. run GAMA and `simple.webplatform`;
+5. validate the connection in Play Mode or with the Editor preview.
 
 :::note
-Before starting, complete the [Unity installation](./installation) (Unity 6000.3.8f1 with Android Build Support modules).
+Before starting, complete the [Unity installation](./installation) and install the
+SIMPLE Unity Plugin through Unity Package Manager.
 :::
 
----
+## 1. Create or Open a Unity Project
 
-## 1. Get the template
+Start from either:
 
-Download the Unity template from the [SIMPLE toolchain repository](https://github.com/project-SIMPLE/simple.toolchain/archive/refs/heads/Unity-6.zip) and extract it to a local folder.
+- a new empty Unity project;
+- an existing Unity project where you want to add GAMA integration.
+
+The package brings its own runtime scripts, editor tools, prefabs, and optional
+samples. The Unity project does not need to be cloned from the SIMPLE toolchain.
+
+## 2. Install the Package
+
+In Unity:
+
+1. Open **Window > Package Manager**.
+2. Click **+**.
+3. Select **Add package from git URL...**.
+4. Enter:
+
+```text
+https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
+```
+
+For local package development, use **Add package from disk...** and select the
+package repository's `package.json`.
+
+## 3. Prepare the Scene
+
+Open:
+
+```text
+GAMA > GAMA Panel
+```
+
+In the **Scene Configuration** tab, click:
+
+```text
+Default Setup
+```
+
+This rebuilds the active scene with the objects required by the package. After the
+setup, the scene should contain at least:
+
+- `Directional Light`
+- `Teleport Area/Ground`
+- `FPSPlayer`
+- `ManagersSolo/Connection Manager`
+- `ManagersSolo/Game Manager`
 
 :::warning
-**Windows only:** Verify that `Assets/Plugins/` contains a file named `websocket-sharp.dll`. If it is missing, download it from the [websocket-sharp repository](https://github.com/sta/websocket-sharp) and place it in `Assets/Plugins/` inside the project.
+`Default Setup` rebuilds the active scene and removes existing root objects. Run it
+in an empty scene or save your work before using it in an existing scene.
 :::
 
-Alternatively, clone the repository:
+## 4. Optional Setup Modes
+
+The **GAMA Panel** also exposes advanced setup options:
+
+| Option | Use case |
+|---|---|
+| `Setup (VR Simulator)` | Prepare a scene for editor-side VR input testing |
+| `Setup (Headset Ready)` | Prepare project settings for headset builds |
+| `Generate Selected Example Scene` | Generate one code example scene under `Assets/Scenes/Code Examples` |
+| `Generate All Example Scenes` | Generate all package-defined example scenes |
+
+The code example scenes are generated into the Unity project. They are not part of a
+separate template project.
+
+## 5. Start GAMA and the Middleware
+
+The Unity package connects to `simple.webplatform`. It does not start or modify the
+middleware for you.
+
+For the current package tutorial, use the `dev` branch of `simple.webplatform`:
 
 ```bash
-git clone --branch Unity-6 https://github.com/project-SIMPLE/simple.toolchain.git
+git clone -b dev --single-branch https://github.com/project-SIMPLE/simple.webplatform.git
 ```
 
-The Unity project is in `simple.toolchain/Unity Template VR/`.
+Then start the middleware according to the `simple.webplatform` README, commonly:
 
----
-
-## 2. Open the project
-
-1. Open **Unity Hub**.
-2. Click **Open** → **Add project from disk**.
-3. Select the `Unity Template VR/` folder.
-4. Unity Hub will warn if the editor version does not match — install `6000.3.8f1` if needed (see [Unity installation](./installation)).
-5. Open the project and wait for Unity to import all assets (this may take several minutes on first open).
-
----
-
-## 3. Run in the editor (development testing)
-
-You can test the GAMA ↔ WebPlatform ↔ Unity connection without a physical headset using the Unity Editor.
-
-### Switch to Android platform first
-
-Unity must have **Android** as the active build target even for editor testing, so the project scripts initialize correctly:
-
-1. Go to **File → Build Profiles**.
-2. Select **Android** and click **Switch Platform**.
-
-### Open a scene
-
-For a quick test, open one of the **Code Examples** scenes:
-
-```
-Assets/Scenes/Code Examples/
+```bash
+npm start
 ```
 
-Or open the startup menu scene:
+Default endpoints:
 
+```text
+Unity runtime / headset WebSocket: ws://localhost:8080/
+Monitor WebSocket: ws://localhost:8001/
+GAMA Server behind webplatform: ws://localhost:1000/
 ```
-Assets/Scenes/Menu/Startup Menu
+
+Open GAMA and open or run the target experiment. The package tutorial currently uses
+the **Prey Predator** tutorial model as a validation scenario.
+
+## 6. Validate Play Mode
+
+With GAMA and `simple.webplatform` running:
+
+1. Return to Unity.
+2. Make sure the scene was prepared with **GAMA > GAMA Panel > Default Setup**.
+3. Press **Play**.
+
+When the connection works, Unity creates live runtime agents under:
+
+```text
+[GAMA] Runtime Live Agents
 ```
 
-### Set the WebPlatform IP
+The imported agents are grouped by species in the Unity hierarchy.
 
-When you press **Play**, the Startup Menu scene loads first and shows an **IP Menu**. Enter the IP address of the machine running the WebPlatform:
+## 7. Generate an Editor Preview
 
-- If the WebPlatform runs on the same machine: use `localhost` or `127.0.0.1`.
-- If it runs on another machine on the same network: use that machine's local IP address.
+The package also provides a faster visual iteration workflow.
 
-The Unity app connects to `ws://<IP>:8080` (the `HEADSET_WS_PORT` configured in your `.env`).
+Open:
 
-### Enable the XR Device Simulator (optional)
+```text
+GAMA > GAMA Panel
+```
 
-To simulate VR controller input without a headset:
+Then click:
 
-1. In the **Project** panel, find `Assets/Scenes/` and open your target scene.
-2. In the **Hierarchy**, look for an **XR Device Simulator** GameObject. If it is disabled, enable it.
-3. Press **Play**. You can now simulate head and controller movement with the mouse and keyboard.
+```text
+Generate Preview from GAMA
+```
 
-:::tip
-The XR Device Simulator documentation is at [docs.unity3d.com — XR Device Simulator](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@latest/manual/xr-device-simulator.html).
-:::
+Unity connects to the middleware, receives GAMA data, and creates a static preview
+under:
 
----
+```text
+[GAMA] Static Experiment Preview
+```
 
-## 4. Build and deploy to a Meta Quest headset
-
-When you are ready to test on hardware:
-
-1. Make sure the headset is in developer mode and connected via USB or Wireless ADB.
-2. Go to **File → Build Profiles → Android**.
-3. Click **Build and Run**. Unity builds the APK and installs it directly on the connected headset.
-
-The installed app appears in **Library → Unknown Sources** on the headset.
-
-:::info
-To configure the WebPlatform IP on the headset, use the **IP Menu** that appears at startup. On subsequent launches, the previously entered IP is remembered.
-:::
-
----
-
-## 5. Verify the connection
-
-With GAMA and the WebPlatform both running:
-
-1. Launch the Unity app (in editor or on headset).
-2. Enter the WebPlatform IP in the IP Menu and confirm.
-3. The app transitions to a waiting screen — it is now connected to the WebPlatform.
-4. In the WebPlatform admin UI (`http://localhost:8000`), the headset (or editor instance) appears in the headset list.
-5. Select a Virtual Universe and click **Launch**. GAMA starts the experiment; Unity receives the simulation data and enters the VR scene.
-
----
+This lets you tune species colors, prefabs, scale, visibility, and dynamic color
+rules in Edit Mode before running Play Mode again.
 
 ## Next steps
 
-- [Template Reference](./04-template-reference.md) — scenes, prefabs, and C# API (ConnectionManager, SimulationManager)
-- [Operator Guide](/user/running-sessions/operators) — running a full session end-to-end
-- [GAML API Reference](/gama/api) — writing the GAMA side of your VU
-- [Virtual Universe Creator Guide](/webplatform/virtual-universes/vu-creators) — structuring your VU folder and `settings.json`
+- [Package Reference](./04-template-reference.md)
+- [Run a model from Unity](./05-how-to/01-Running-a-model-game.md)
+- [Configure preview and species settings](./05-how-to/13-EditorPreviewSpeciesSettings.md)
+- [Configure dynamic colors](./05-how-to/14-DynamicColors.md)

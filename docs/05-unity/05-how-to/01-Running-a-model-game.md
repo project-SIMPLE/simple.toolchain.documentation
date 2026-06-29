@@ -1,128 +1,154 @@
 ---
 sidebar_position: 1
 title: Running a Model
-description: Run a SIMPLE VR session in the Unity Editor or deploy it to a Meta Quest headset.
+description: Run a GAMA experiment in Unity through the SIMPLE Unity Plugin package.
 ---
 
-# Running the Model / Game
+# Running a GAMA Model in Unity
+
+This guide describes the package-based workflow.
+
+The Unity project should contain the SIMPLE Unity Plugin package and a scene prepared
+with **GAMA > GAMA Panel > Default Setup**. You do not need to download the old
+`Unity Template VR` project.
 
 ## Prerequisites
 
-Before starting, ensure you have:
-1. A **GAMA model** adapted for VR.
-2. A **Unity project** with a scene containing the necessary prefabs to connect to GAMA.
+Before starting, make sure you have:
 
-:::tip
-See the [**Tutorial: From GAMA to Virtual Universe**](/tutorials/Tutorial-From-GAMA-to-VU) for details on designing the GAMA model and Unity project.
-:::
+1. a GAMA experiment that sends data to Unity;
+2. `simple.webplatform` running;
+3. the SIMPLE Unity Plugin installed in Unity;
+4. a Unity scene prepared with **GAMA > GAMA Panel > Default Setup**.
 
----
+The package tutorial currently uses the **Prey Predator** model as a validation
+scenario because it contains static background species, dynamic agents, runtime
+updates, and species-specific visualization.
 
-## Middleware Setup (Required)
+## 1. Start the Middleware
 
-Regardless of whether you run the game in the Editor or on a Headset, the middleware must be running **before** you start the Unity application.
+The Unity package connects to `simple.webplatform`; it does not start the middleware
+automatically.
 
-1. **Download:** Get the middleware [here](https://github.com/project-SIMPLE/simple.webplatform/archive/refs/heads/main.zip).
-2. **Configuration Files:** The SIMPLE tool generates two files when creating a VR Gaml file:
- * `settings.json`: Model execution conditions.
- * `.env`: Configuration for the modeler's workspace.
-3. **Installation:**
- * Copy the generated `.env` file (located in your project folder) into the **root folder** of the middleware.
- * For detailed installation instructions, refer to the [Middleware Wiki](https://github.com/project-SIMPLE/GamaServerMiddleware).
+For the current package workflow, use the `dev` branch:
 
----
+```bash
+git clone -b dev --single-branch https://github.com/project-SIMPLE/simple.webplatform.git
+```
 
-## Option A: Running from Unity (Play Mode)
+Then start the middleware from the `simple.webplatform` folder:
 
-This method is best for development and testing.
+```bash
+npm start
+```
 
-### Step 1: Start the Environment
-1. **Run GAMA.**
-2. **Run the Middleware.** (See [Getting Started](https://github.com/project-SIMPLE/simple.webplatform?tab=readme-ov-file#getting-started-%EF%B8%8F)).
- <img width="682" alt="Middleware Terminal" src="https://github.com/user-attachments/assets/c214e66f-8395-43dd-9d8c-20ae274c742f" />
-3. Open your browser and go to: [http://localhost:8000/](http://localhost:8000/).
-4. **Select the Game:** Click on your project name in the web interface (e.g., `traffic_model_VR`).
+Default endpoints:
 
-<img width="1454" alt="Middleware Interface" src="https://github.com/user-attachments/assets/b2d72c71-565a-454d-81ac-2b1e6d3342c8" />
+```text
+Unity runtime / headset WebSocket: ws://localhost:8080/
+Monitor WebSocket: ws://localhost:8001/
+GAMA Server behind webplatform: ws://localhost:1000/
+```
 
 :::note
-Ensure your `.env` file is correctly configured (either automatically via the generated file or manually using the `EXTRA_LEARNING_PACKAGE_PATH` variable).
+The standard package preview workflow does not require the old Unity template,
+middleware catalogue, `settings.json`, or `LEARNING_PACKAGE_PATH` flow. Those may
+still be relevant for full WebPlatform catalogue sessions, but they are not the
+default package tutorial path.
 :::
 
-### Step 2: Play in Unity
-1. Open the relevant Scene in Unity (it must contain a **Connection Manager** and a **Game Manager**).
- * *Example:* `Scenes/Code Examples/Receive Static Data`.
-2. Click the ▶ **Play** button.
+## 2. Prepare GAMA
 
-![Unity Play Button](https://github.com/user-attachments/assets/836a87b0-eef2-4d48-be25-397c0872c5a4)
+Open GAMA and open the target experiment.
 
----
+For Play Mode validation, run the experiment in GAMA before pressing Play in Unity.
+For Editor preview generation, the experiment only needs to be open or selected in
+GAMA.
 
-### Using the XR Device Simulator
-If you do not have a headset connected to the PC, you can simulate VR inputs using the keyboard and mouse.
+## 3. Prepare Unity
 
-#### 1. Setup
-1. In the **Project Explorer**, search for `simulator`.
- <img width="1250" alt="Search Simulator" src="https://github.com/user-attachments/assets/d9df7889-302f-4082-995f-e43318d7c019" />
-2. Drag and drop the **XR Device Simulator** prefab into your hierarchy.
- <img width="1250" alt="Drag Simulator" src="https://github.com/user-attachments/assets/366e04c3-7c13-4b42-a50e-8aa87f362cba" />
+In Unity:
 
-#### 2. Configuration
-To move faster in the scene, adjust the sensitivity in the Inspector:
-* Look for **Keyboard X / Y / Z Translate Speed**.
-* Set values to **20** for faster navigation.
+1. Open the scene you want to use.
+2. Open **GAMA > GAMA Panel**.
+3. Click **Default Setup** if the scene has not been prepared yet.
 
-<img width="1250" alt="Simulator Settings" src="https://github.com/user-attachments/assets/69d1b674-82e1-4df3-a653-d1bbbde3f7a5" />
+The scene should contain:
 
-#### 3. Controls
-Once inside Play Mode, use the following controls:
+- `FPSPlayer`
+- `Teleport Area/Ground`
+- `ManagersSolo/Connection Manager`
+- `ManagersSolo/Game Manager`
 
-| Action | Controls |
-| :--- | :--- |
-| **Move Horizontal** | `W`/`A`/`S`/`D` (or `Z`/`Q`/`S`/`D` depending on layout) |
-| **Move Vertical** | `E` (Up) / `Q` or `A` (Down) |
-| **Look Around** | Hold **Right Mouse Button** + Move Mouse |
-| **Toggle Controller** | Press `Y` to toggle the Right Controller |
-| **Trigger Action** | Press `G` (while controller is active) |
+## 4. Run in Play Mode
 
-:::warning
-**Remove the Simulator before Building!**
-The XR Device Simulator is for editor testing only. You **must delete** it from the scene before building the application for a real headset.
-:::
+With GAMA and the middleware running:
 
----
+1. Return to Unity.
+2. Press **Play**.
+3. Wait for Unity to connect to `simple.webplatform`.
 
-## Option B: Running from a Headset (Standalone)
+When the connection works, runtime agents are created under:
 
-To run the simulation directly on a standalone headset (like a Meta Quest), follow these steps.
+```text
+[GAMA] Runtime Live Agents
+```
 
-### Step 1: Network Configuration
-1. Ensure your **PC** (running the WebPlatform) and your **Headset** are connected to the **same Wi-Fi network**.
-2. The WebPlatform IP is entered at runtime via the **IP Menu** that appears when the app launches on the headset — no build-time configuration is needed.
+Agents are grouped by species, for example:
 
-:::tip
-The IP Menu remembers the last address you entered. You only need to re-enter it if the WebPlatform moves to a different machine.
-:::
+```text
+[GAMA] Runtime Live Agents
+prey
+predator
+vegetation_cell
+```
 
-### Step 2: Build and Export
-1. Go to **File** > **Build Profiles**.
- <img width="1136" alt="Build Profiles" src="https://github.com/user-attachments/assets/c76b6ac6-7baa-4022-aef2-7baaf7725060" />
-2. Select **Android** and click **Switch Platform** (this may take a few minutes).
- <img width="793" alt="Switch Platform" src="https://github.com/user-attachments/assets/ea77b928-ce1e-483c-a100-4b6eb0296eb3" />
-3. Click **Open Scene List** and ensure your main scene is checked. If missing, open the scene and click **Add Open Scenes**.
- <img width="837" alt="Scene List" src="https://github.com/user-attachments/assets/ab095509-999f-40aa-b0bd-65777323417d" />
+At this point Unity is receiving live objects from GAMA and updating them while the
+experiment runs.
 
-### Step 3: Deploy to Headset
-1. Connect your headset to the PC via USB-C.
-2. Accept any USB debugging authorizations inside the headset.
- * *Note: Your headset must be in [Developer Mode](/user/running-sessions/meta-quest/developer-mode).*
-3. In Unity, click **Build and Run**.
-4. Select a folder to save the `.apk` file.
+## 5. Generate a Static Preview
 
-### Step 4: Launching on Headset
-* If the app doesn't launch automatically:
- 1. Put on the headset.
- 2. Go to your App Library.
- 3. Select the filter dropdown (usually says "All").
- 4. Select **Unknown Sources**.
- 5. Click on your application name.
+For visual iteration, use the Editor preview:
+
+1. Open **GAMA > GAMA Panel**.
+2. Click **Generate Preview from GAMA**.
+
+Unity creates a static preview under:
+
+```text
+[GAMA] Static Experiment Preview
+```
+
+Use this preview to configure prefabs, colors, scale, offsets, visibility, and dynamic
+color rules before running the live simulation again.
+
+## 6. Optional XR Device Simulator
+
+For editor-side VR input testing:
+
+1. Open **GAMA > GAMA Panel**.
+2. Expand **Advanced Options** in the scene configuration section.
+3. Click **Setup (VR Simulator)**.
+
+If Unity cannot find the XR Device Simulator prefab, import the XR Interaction Toolkit
+simulator sample in your Unity project, then run the setup again.
+
+## 7. Optional Headset Build
+
+For a Meta Quest or other Android headset:
+
+1. Install Android Build Support, OpenJDK, and Android SDK/NDK Tools with Unity.
+2. Open **File > Build Profiles**.
+3. Select **Android** and click **Switch Platform**.
+4. In **GAMA > GAMA Panel**, use **Setup (Headset Ready)**.
+5. Add the correct scenes to the build list.
+6. Click **Build and Run**.
+
+The headset and the machine running `simple.webplatform` must be on the same network.
+If you use the package menu scenes, the IP menu lets the user enter the WebPlatform
+host at runtime.
+
+## Next steps
+
+- [Configure preview and species settings](./13-EditorPreviewSpeciesSettings.md)
+- [Configure dynamic colors](./14-DynamicColors.md)

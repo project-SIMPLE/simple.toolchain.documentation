@@ -1,33 +1,45 @@
-# Complete game with menus
+# Complete Game with Menus
 
-3 Scenes with a menu are provided with the SIMPLE Unity Template:
-* **Startup Menu**: allows to define the starting page of the game, with the possibility to start the game, choose to use or not the middleware and to set the IP (loading of the IP Menu Scene).
-* **IP Menu**: allows to set the IP of the Computer running GAMA (or the middleware) through a virtual keyboard.
-* **End of Game Menu**: allows to restart the game and to display a last message to the player (i.e. final score, ranking, etc.)
+The SIMPLE Unity Plugin provides menu scenes as an optional Package Manager sample.
+
+Import the **Menu Scenes** sample from the package details panel to add:
+
+- **Startup Menu**: start page of the application, with access to the IP menu;
+- **IP Menu**: lets the user enter the IP address of the computer running
+  `simple.webplatform`;
+- **End of Game Menu**: displays an end message and allows the user to restart.
 
 <img width="561" alt="Menus" src="https://github.com/user-attachments/assets/24f704d9-195d-4fa7-ab7f-03195828a4c4" />
 
+## Build Settings
 
-To use them: add them (and check them) in the Build Settings. The « Startup Menu » scene should be first Scene (0 - you can drag and drop the Scene to change the order).
+After importing the sample scenes:
+
+1. Open **File > Build Profiles**.
+2. Open the scene list.
+3. Add the menu scenes.
+4. Put **Startup Menu** first in the list.
 
 <img width="832" alt="Build_withMenu" src="https://github.com/user-attachments/assets/eec4368b-f9cf-496f-8a24-89c612f30f6a" />
 
+If you use the **IP Menu** scene, make sure `Fixed Properties` is disabled on the
+`Connection Manager` so the runtime IP can be entered by the player.
 
-If your are using the « IP Menu » Scene, uncheck « Fixed Properties » in the Connection Manager.
+## End of Game
 
+To load the end-of-game menu, use the `end_of_game` action from the Unity Linker on
+the GAMA side:
 
-For loading the End of Scene Menu, just use the « end_of_game » action of the Unity Linker:
-
-```java
+```gaml
 reflex end_of_game when: empty(token) {
-	map<string, int> ranking <- rank();
-	string mes <- "";
-	loop i from: 1 to: int(max(ranking.values)) {
-		list<string> pls <- ranking.keys where (ranking[each] = i);
-		loop p over: pls {
-			mes <- mes + "\n " + i + ") " + p + " - score: " + score_players[p];
-		}
-	}
-	do end_of_game(mes);
+    map<string, int> ranking <- rank();
+    string mes <- "";
+    loop i from: 1 to: int(max(ranking.values)) {
+        list<string> pls <- ranking.keys where (ranking[each] = i);
+        loop p over: pls {
+            mes <- mes + "\n " + i + ") " + p + " - score: " + score_players[p];
+        }
+    }
+    do end_of_game(mes);
 }
 ```

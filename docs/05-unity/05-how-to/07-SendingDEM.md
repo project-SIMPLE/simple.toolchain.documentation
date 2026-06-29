@@ -1,6 +1,8 @@
 # Sending a Digital Elevation Model (DEM) from GAMA
 
-_**Link to the example model**_: [LinkToUnity/Models/Code Examples/Send DEM.gaml](https://github.com/project-SIMPLE/simple.toolchain/blob/2024-06/GAMA%20Plugin/gaml.extension.unity/models/LinkToUnity/Models/Code%20Examples/Send%20DEM.gaml)
+_**Example model**_: use the matching GAMA code example for sending DEM data.
+The Unity package contains the Unity-side package and samples; the `.gaml` models are
+maintained on the GAMA/SIMPLE side.
 
 ![Vidoterrain-ezgif com-optimize](https://github.com/user-attachments/assets/ea54503b-5099-4484-984d-ffd5c6581a29)
 

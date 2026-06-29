@@ -1,6 +1,8 @@
 # Multi-player games
 
-_**Link to the example model**_: [LinkToUnity/Models/Code Examples/Multi player game.gaml](https://github.com/project-SIMPLE/simple.toolchain/blob/2024-06/GAMA%20Plugin/gaml.extension.unity/models/LinkToUnity/Models/Code%20Examples/Multi%20player%20game.gaml)
+_**Example model**_: use the matching GAMA code example for multiplayer games.
+The Unity package contains the Unity-side package and samples; the `.gaml` models are
+maintained on the GAMA/SIMPLE side.
 
 ![ezgif com-optimize-4](https://github.com/user-attachments/assets/4c85bd78-17d3-4a61-9f3f-4870954e69c0)
 

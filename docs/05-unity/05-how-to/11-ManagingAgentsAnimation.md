@@ -1,6 +1,8 @@
 # Management of agents’ animation
 
-_**Link to the example model**_: [LinkToUnity/Models/Code Examples/Manage Animation for Agents.gaml](https://github.com/project-SIMPLE/simple.toolchain/blob/2024-06/GAMA%20Plugin/gaml.extension.unity/models/LinkToUnity/Models/Code%20Examples/Manage%20Animation%20for%20Agents.gaml)
+_**Example model**_: use the matching GAMA code example for managing agent animations.
+The Unity package contains the Unity-side package and samples; the `.gaml` models are
+maintained on the GAMA/SIMPLE side.
 
 ![ezgif com-optimize-3](https://github.com/user-attachments/assets/f34c7507-2b87-4687-b46b-3fa05d626d11)
 

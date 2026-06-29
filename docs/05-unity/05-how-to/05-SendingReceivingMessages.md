@@ -1,6 +1,8 @@
 # Sending and receiving messages from/to GAMA/Unity
 
-_**Link to the example model**_: [LinkToUnity/Models/Code Examples/Send Receive Messages.gaml](https://github.com/project-SIMPLE/simple.toolchain/blob/2024-06/GAMA%20Plugin/gaml.extension.unity/models/LinkToUnity/Models/Code%20Examples/Send%20Receive%20Messages.gaml)
+_**Example model**_: use the matching GAMA code example for sending and receiving messages.
+The Unity package contains the Unity-side package and samples; the `.gaml` models are
+maintained on the GAMA/SIMPLE side.
 
 The SIMPLE toolkit allows to send a message from GAMA to Unity and a message from Unity to GAMA.
 

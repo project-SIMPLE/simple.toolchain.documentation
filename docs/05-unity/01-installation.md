@@ -1,96 +1,155 @@
 ---
-title: Unity Installation Guide
+title: Unity Environment and Package Installation
 sidebar_label: Unity Installation
 sidebar_position: 1
-description: Install Unity 6000.3.8f1 with Android Build Support for SIMPLE development.
+description: Install Unity 6 and add the SIMPLE Unity Plugin package to a Unity project.
 ---
 
-# Installation Guide: Unity & Development Environment
+# Unity Environment and Package Installation
 
-This page documents the setup process for the project. Strict adherence to the versions listed below is required to avoid compatibility issues.
+This page explains how to prepare Unity for the SIMPLE Unity Plugin.
 
-## 1. Prerequisites: Unity Hub
+The current Unity workflow no longer requires downloading a complete Unity project from
+`simple.toolchain`. Start from an empty or existing Unity project, then install the
+SIMPLE Unity Plugin through Unity Package Manager.
 
-Before installing the editor, you must install the **Unity Hub**. This tool manages your Unity versions and project files.
+## 1. Requirements
+
+Before installing the package, prepare:
+
+- **Unity Hub**
+- **Unity 6.x**
+- **Git**, required by Unity Package Manager when installing from a Git URL
+- **GAMA**
+- **simple.webplatform**, started separately from Unity
+
+The package manifest declares Unity `6000.0` as the minimum Unity version. The package
+tutorial is currently tested with Unity `6000.3.2f1`.
+
+:::tip
+For a reproducible setup, use the same Unity 6 patch version across the team when
+testing or preparing a demo.
+:::
+
+## 2. Install Unity Hub
 
 1. Go to the [Unity Download Page](https://unity.com/download).
 2. Download and install **Unity Hub**.
-3. Launch the application and sign in with your Unity ID.
+3. Launch Unity Hub and sign in with your Unity ID.
 
----
+## 3. Install Unity Editor
 
-## 2. Installing Unity Editor
-
-:::info
-**Required Version:** `Unity 6000.3.8f1`
-
-Do not use a newer or older version. Even a minor patch release (e.g., `6000.3.9f1`) can alter the XR SDK and package dependency lockfile in ways that break the template.
-:::
-
-### Method A: Direct Install via Hub (If available)
 1. Open Unity Hub.
 2. Go to **Installs** > **Install Editor**.
-3. Check the "Official Releases" tab.
-4. If version `6000.3.8f1` is listed, select it and proceed to **Section 3**.
+3. Select a Unity 6 version compatible with the package.
+4. Continue to the module selection screen.
 
-### Method B: Via Download Archive (Recommended)
-If the version is not proposed by default in the Hub, you must use the archive link.
+If your required Unity version is not listed in Unity Hub, use the
+[Unity Download Archive](https://unity.com/releases/editor/archive).
 
-1. Visit the **[Unity Download Archive](https://unity.com/releases/editor/archive)**.
-2. Select the **Unity 6** tab and ensure you are looking at **LTS** releases.
+## 4. Select Unity Modules
 
-<img width="865" alt="Capture d’écran 2026-02-13 à 10 32 05" src="https://github.com/user-attachments/assets/347cb4fc-83ad-4ffd-96db-ab1d98354bb8" />
+For desktop-only testing, the default Unity editor modules are usually enough.
 
+For Meta Quest or Android headset builds, add:
 
+- **Android Build Support**
+- **OpenJDK**
+- **Android SDK & NDK Tools**
 
-3. Scroll down to find **Unity 6000.3.8f1**.
-4. Click the blue **Install** button next to that version and accept to open it with Unity Hub
-5. This will trigger the installation wizard inside your Unity Hub.
+For C# editing, install either:
 
----
+- **Visual Studio Code**
+- another Unity-compatible C# editor
 
-## 3. Module Configuration
+## 5. Install the SIMPLE Unity Plugin
 
-During the installation window (or by clicking the gear icon on an existing install -> *Add Modules*), you must select the following components:
+Open your Unity project, then:
 
-### Android Build Support
-You **must** expand the arrow next to "Android Build Support" and check the sub-tools:
+1. Open **Window > Package Manager**.
+2. Click the **+** button.
+3. Select **Add package from git URL...**.
+4. Paste:
 
-- [x] **Android Build Support**
- - [x] **OpenJDK**
- - [x] **Android SDK & NDK Tools**
+```text
+https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
+```
 
-### Development Tools
-- [x] **Visual Studio Code**
+To install a specific branch:
+
+```text
+https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git#branch-name
+```
+
+Unity downloads the package and installs its dependencies declared in
+`package.json`, including XR, Input System, Newtonsoft JSON, UGUI, and related
+Unity packages.
 
 :::note
-If Visual Studio Code is not listed in the "Dev Tools" section, install it manually from [code.visualstudio.com](https://code.visualstudio.com/).
+The package already contains its WebSocket transport under
+`Runtime/ThirdParty/NativeWebSocket`. Do not add another copy of NativeWebSocket
+unless you intentionally remove the vendored one.
 :::
 
----
+## 6. Install from Local Disk
 
-## 4. Troubleshooting
+For local package development:
 
-### "Android SDK/NDK path not found"
-If Unity complains about missing Android tools despite having installed the modules:
+1. Clone or open the `SIMPLE-Unity-Plugin` repository locally.
+2. In Unity, open **Window > Package Manager**.
+3. Click **+**.
+4. Select **Add package from disk...**.
+5. Select the package repository's `package.json`.
 
-1. Open the project in Unity.
-2. Go to **Edit** > **Preferences** (Windows) or **Unity** > **Settings** (Mac).
-3. Navigate to **External Tools**.
-4. Scroll to the **Android** section.
-5. **Uncheck** and then **Recheck** the boxes for:
- - "JDK Installed with Unity"
- - "Android SDK Tools Installed with Unity"
- - "Android NDK Installed with Unity"
-6. This forces Unity to refresh the internal file paths.
+Use this mode when editing the package itself before pushing changes to GitHub.
+
+## 7. Optional Samples
+
+The package exposes sample content through Package Manager. Open the package details
+panel and import only the samples you need:
+
+| Sample | Purpose |
+|---|---|
+| `VR Template` | Base VR scenes and prefabs for a GAMA-connected Unity project |
+| `Code Examples` | Example scenes for common GAMA and Unity integration flows |
+| `Menu Scenes` | Startup, IP configuration, and end-of-game menus |
+| `Scene Templates` | Reusable FPS and sky-view starter scenes |
+
+Samples are optional. The main package workflow can start from an empty Unity scene
+using **GAMA > GAMA Panel > Setup Scene**.
+
+## Troubleshooting
+
+### Git URL installation fails
+
+Check that Git is installed and available from the command line:
+
+```bash
+git --version
+```
+
+Then retry the Package Manager installation.
+
+### Android SDK or NDK path not found
+
+If Unity complains about missing Android tools:
+
+1. Open **Edit > Preferences** on Windows or **Unity > Settings** on macOS.
+2. Go to **External Tools**.
+3. In the Android section, uncheck and recheck:
+   - **JDK Installed with Unity**
+   - **Android SDK Tools Installed with Unity**
+   - **Android NDK Installed with Unity**
 
 ### VS Code IntelliSense not working
-If code autocompletion is missing:
 
-1. In Unity, go to **Edit** > **Preferences** > **External Tools**.
-2. Set "External Script Editor" to **Visual Studio Code**.
+1. In Unity, open **Edit > Preferences > External Tools**.
+2. Set **External Script Editor** to **Visual Studio Code**.
 3. Click **Regenerate project files**.
-4. Inside VS Code, ensure you have the **C# Dev Kit** extension installed.
-- [Configure your Unity scene](./setup)
-- [Understand the template architecture](./template-reference)
-- [Unity Development Troubleshooting](/08-troubleshooting/unity-template-issues.md)
+4. In VS Code, install the **C# Dev Kit** extension.
+
+## Next steps
+
+- [Set up a Unity scene](./setup)
+- [Understand the package structure](./template-reference)
+- [Run a model from Unity](./05-how-to/01-Running-a-model-game.md)
