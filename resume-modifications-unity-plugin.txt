@@ -1,9 +1,23 @@
-Resume des modifications de la documentation SIMPLE Unity Plugin
+Resume des modifications SIMPLE Unity Plugin
 
-Objectif
+Branche de documentation
+- Depot : project-SIMPLE/simple.toolchain.documentation
+- Branche utilisee : simple-unity-plugin
+- La branche main n'a pas ete modifiee pour ce resume.
+
+Objectif general
 Remplacer la documentation basee sur un projet Unity complet a telecharger par une
 documentation adaptee au SIMPLE Unity Plugin installe comme package Unity Package
 Manager.
+
+L'objectif est que l'utilisateur comprenne le nouveau workflow :
+1. creer ou ouvrir un projet Unity ;
+2. installer le SIMPLE Unity Plugin depuis Unity Package Manager ;
+3. lancer GAMA et simple.webplatform separement ;
+4. utiliser le GAMA Panel dans Unity pour configurer la scene, generer une preview
+   et lancer le Play Mode.
+
+Modifications principales de la documentation Unity
 
 Ce qui a ete remplace
 - Le workflow "telecharger un projet Unity complet puis l'ouvrir dans Unity Hub" a
@@ -35,6 +49,117 @@ Ce qui a ete ajoute
 - Une page sur les couleurs dynamiques pilotees par les attributs envoyes par GAMA.
 - Une explication plus claire du role du package :
   ajouter l'integration GAMA/WebPlatform a un projet Unity existant ou vide.
+
+Travail recent sur le SIMPLE Unity Plugin
+
+Objectif technique
+Rendre coherent le comportement entre :
+- la preview statique generee depuis GAMA dans l'Editor Unity ;
+- le Play Mode connecte a simple.webplatform ;
+- les reglages d'apparence faits depuis le GAMA Panel ou le Game Manager.
+
+Problemes traites
+
+1. Lancement Play Mode
+- Le Play Mode pouvait demarrer l'experiment GAMA de maniere instable.
+- Unity pouvait reutiliser un ancien etat de player ou une ancienne selection.
+- Le plugin identifie maintenant plus clairement le player runtime Unity.
+- Les anciens etats de Play Mode sont ignores quand ils ne correspondent plus a la
+  session courante.
+
+2. Application directe des reglages d'apparence
+- Les changements faits dans le Game Manager pendant le Play Mode ne se voyaient pas
+  toujours en direct.
+- Les couleurs, scales, prefabs, offsets, rotations et visibilites sont maintenant
+  reappliques sur les agents runtime existants.
+- Le but est que l'utilisateur puisse ajuster une espece en Play Mode sans devoir
+  relancer toute la simulation.
+
+3. Separation entre edits runtime et preview sauvegardee
+- Les modifications faites pendant le Play Mode ne doivent pas polluer la prochaine
+  preview.
+- Les changements runtime restent temporaires sauf s'ils sont explicitement sauves
+  comme reglages d'Editor preview.
+- Cela evite de reutiliser, lors d'une nouvelle preview, des overrides crees pendant
+  une ancienne session Play Mode.
+
+4. Baseline d'import et bouton Reset
+- Le plugin garde une baseline stable de l'apparence importee depuis GAMA.
+- Le bouton Reset restaure les valeurs de base importees au premier instant, pas les
+  valeurs temporaires modifiees pendant un Play Mode.
+- Cela concerne notamment la couleur, le scale, les offsets et la visibilite.
+
+5. Probleme d'etirement des nuages d'agents
+- Certaines especes, comme prey ou predator, peuvent etre representees par des
+  capsules fallback quand la geometrie GAMA n'est pas directement exploitable.
+- L'ancien comportement pouvait placer la geometrie visible sur un enfant decale
+  tandis que le parent restait ailleurs.
+- Quand l'echelle etait appliquee au mauvais niveau, Unity pouvait agrandir ou
+  contracter tout le nuage d'agents au lieu d'agrandir chaque agent autour de sa
+  propre position.
+
+Regle mise en place
+- Chaque agent root est place sur l'ancre GAMA de l'agent.
+- Les visuels fallback sont des enfants locaux places en (0, 0, 0).
+- Le scale d'espece est applique a la racine de chaque agent.
+- Le visuel fallback garde une taille locale de base stable.
+- Le meme modele est utilise en preview Editor et en Play Mode.
+
+6. Coherence des scales Preview / Play Mode
+- Le meme scale doit produire le meme resultat dans la preview et en Play Mode.
+- Exemple attendu :
+  prey = 3
+  predator = 3
+  vegetation_cell = 1
+- Si ces valeurs sont correctes dans la preview, elles doivent produire le meme rendu
+  en Play Mode.
+- Un bug recent venait du fait que la preview pouvait appliquer l'echelle une fois
+  sur l'agent root puis une deuxieme fois sur le fallback Visual.
+- La correction consiste a appliquer le scale au meme niveau dans les deux chemins.
+
+7. Diagnostics de spread
+- Des logs de diagnostic ont ete ajoutes pour comparer l'etendue attendue depuis les
+  coordonnees GAMA et l'etendue visible dans Unity.
+- Prefixes utiles :
+  [GAMA][PREVIEW][SPREAD]
+  [GAMA][PREVIEW][SPREAD][ACTIVE]
+- Ces diagnostics utilisent les renderer bounds, pas seulement les positions des
+  parents, afin de detecter les cas ou les objets visibles sont decales dans des
+  enfants Unity.
+
+Checklist de validation conseillee
+- Generer une preview depuis GAMA.
+- Verifier que les agents apparaissent sous :
+  [GAMA] Static Experiment Preview
+- Regler prey a 3 et verifier que chaque agent grossit sans etirer tout le nuage.
+- Regler predator a 3 et verifier le meme comportement.
+- Garder vegetation_cell a 1 et verifier que la grille garde sa taille attendue.
+- Lancer le Play Mode.
+- Verifier que les agents runtime apparaissent sous :
+  [GAMA] Runtime Live Agents
+- Comparer preview et Play Mode avec les memes valeurs de scale.
+- Arreter le Play Mode.
+- Regenerer une preview et verifier que les modifications temporaires du Play Mode
+  n'ont pas ete reutilisees comme defaults.
+
+Branches et commits importants cote plugin Unity
+- Branche de travail principale :
+  fix/playmode-launch-appearance-sync
+- Cette branche a ensuite ete alignee avec main cote depot SIMPLE-Unity-Plugin.
+
+Travaux inclus dans cette sequence :
+- Fix du lancement Play Mode et du refresh runtime des apparences.
+- Ignorance des anciens etats de player Play Mode.
+- Overrides Play Mode rendus transitoires.
+- Stabilisation du reconnect Play Mode et de la pause a la fermeture.
+- Stabilisation de la completion de preview.
+- Remplacement propre du cache preview pour prey/predator.
+- Stabilisation du scaling des polygones en preview edit mode.
+- Correction de l'etirement lie au scale des parents.
+- Ajout de diagnostics de spread.
+- Ancrage des fallbacks preview sur les racines agents.
+- Alignement du scale fallback runtime avec la preview.
+- Application du scale fallback preview sur les racines agents.
 
 Verification
 - Le site Docusaurus compile correctement avec :
