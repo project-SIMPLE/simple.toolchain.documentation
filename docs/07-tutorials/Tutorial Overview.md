@@ -26,11 +26,3 @@ To guide your testing and evaluate the quality of the work, you can use [this Go
 3. Personalize agents during Play Mode.
 4. Generate an Editor preview and configure species visual parameters.
 5. Drive dynamic visual properties from GAMA runtime attributes.
-
-## Before You Start
-
-You need:
-
-- Unity 6000.3.2f1;
-- GAMA;
-- `simple.webplatform` on branch **dev** using : `git clone -b dev --single-branch https://github.com/project-SIMPLE/simple.webplatform.git`;
