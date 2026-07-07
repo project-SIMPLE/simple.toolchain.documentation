@@ -21,7 +21,7 @@ Start Play Mode and wait until the GAMA agents appear in the Unity scene.
 In the **Hierarchy**, select the object that manages the GAMA connection and
 simulation settings:
 
-![Game Manager Hierarchy](/img/simple-unity-plugin/tutorial/game-manager-hierarchy.png)
+![Game Manager Hierarchy](/static/img/simple-unity-plugin/tutorial/game-manager-hierarchy.png)
 
 In the **Inspector** window, find the GAMA agent or species settings. Unity should show
 the species detected from the running GAMA experiment.
@@ -33,7 +33,7 @@ the species detected from the running GAMA experiment.
 
 For example, here we have the species `prey`, `predator`, and `vegetation_cell`:
 
-![Species in Inspector](/img/simple-unity-plugin/tutorial/inspector-species.png)
+![Species in Inspector](/static/img/simple-unity-plugin/tutorial/inspector-species.png)
 
 ## 3.2 Modify Species Attributes Live
 
@@ -44,9 +44,9 @@ This lets you quickly verify that Unity can override the visual appearance of a 
 For example, the prey and predator species can be given different prefabs,
 colors, and scales so the running experiment becomes readable from Unity.
 
-![Play Mode personalization example](/img/simple-unity-plugin/tutorial/03-play-mode-personalization-example.png)
+![Play Mode personalization example](/static/img/simple-unity-plugin/tutorial/03-play-mode-personalization-example.png)
 
-![Species Attributes](/img/simple-unity-plugin/tutorial/inspector-attributes.png)
+![Species Attributes](/static/img/simple-unity-plugin/tutorial/inspector-attributes.png)
 
 Using the Inspector, you can change the following attributes directly:
 
@@ -54,23 +54,23 @@ Using the Inspector, you can change the following attributes directly:
    
    To change it, click on the small circle icon on the right of the field:
    
-   ![Click Prefab Circle](/img/simple-unity-plugin/tutorial/prefab-override-circle.png)
+   ![Click Prefab Circle](/static/img/simple-unity-plugin/tutorial/prefab-override-circle.png)
    
    You will see a list of prefab previews (like Boy, Car, Cube, Ghost, Scooter). These are default prefabs downloaded into the project during the package installation (if you clicked "OK" when prompted to bring prefabs into the project).
    
-   ![Select Prefab Window](/img/simple-unity-plugin/tutorial/select-prefab-window.png)
+   ![Select Prefab Window](/static/img/simple-unity-plugin/tutorial/select-prefab-window.png)
    
    > [!NOTE]
    > **Missing Prefabs?**
    > If you don't see these prefabs in the list, you can import them at any time by going to the top Unity menu: **GAMA > Import Default Prefabs**.
    > 
-   > ![Import Prefabs Menu](/img/simple-unity-plugin/tutorial/gama-menu-import-prefabs.png)
+   > ![Import Prefabs Menu](/static/img/simple-unity-plugin/tutorial/gama-menu-import-prefabs.png)
    > 
    > Click **Import** when the prompt appears, and Unity will copy them into your project.
    > 
-   > ![Import Prefabs Prompt](/img/simple-unity-plugin/tutorial/import-prefabs-prompt.png)
+   > ![Import Prefabs Prompt](/static/img/simple-unity-plugin/tutorial/import-prefabs-prompt.png)
    > 
-   > ![Import Success](/img/simple-unity-plugin/tutorial/import-prefabs-success.png)
+   > ![Import Success](/static/img/simple-unity-plugin/tutorial/import-prefabs-success.png)
 2. **Color**: Quickly change the species color to separate them visually.
 3. **Scale Multiplier**: Make agents bigger or smaller so they are easier to see.
 4. **Position & Rotation Offset**: Adjust the 3D position and rotation of the instantiated prefab relative to the GAMA agent's center.
@@ -83,7 +83,7 @@ For example, you can quickly try exaggerated prefabs, colors, or scales to check
 that the override pipeline works, even if the result is not meant to be a final
 visual design.
 
-![Quick personalization example](/img/simple-unity-plugin/tutorial/03-quick-personalization-example.png)
+![Quick personalization example](/static/img/simple-unity-plugin/tutorial/03-quick-personalization-example.png)
 
 ## 3.4 Why This Is Not The Best Workflow
 
