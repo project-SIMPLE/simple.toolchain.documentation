@@ -20,7 +20,7 @@ Before continuing, make sure the **SIMPLE plugin** is installed in GAMA. Install
 > Without the SIMPLE Unity plugin, you will not be able to convert the experiment to **vr_xp**, and Unity will not receive the simulation data correctly.
 
 
-![Open a GAMA experiment](/img/simple-unity-plugin/tutorial/02-open-gama-experiment.png)
+![Open a GAMA experiment](/asset/img/simple-unity-plugin/tutorial/02-open-gama-experiment.png)
 _Example of the experiment that will be used throughout this tutorial_
 
 ## 0.2 Middleware Requirements
