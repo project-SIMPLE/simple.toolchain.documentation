@@ -87,7 +87,7 @@ In this tutorial, to display the numeric attribute `food`, you should follow the
 
 The numbered close-up below shows the important controls:
 
-![Dynamic food color settings legend](/img/simple-unity-plugin/tutorial/05-dynamic-color-food-settings-legend.png)
+![Dynamic food color settings legend](/static/img/simple-unity-plugin/tutorial/05-dynamic-color-food-settings-legend.png)
 
 In this example, the `vegetation_cell` species receives a numeric `food` attribute. The goal is:
 
@@ -113,14 +113,14 @@ With **Base Color** set to green, **Min Value** set to `0`, **Max Value** set to
 the `food` value directly to green intensity. This gives a first readable view
 of the grass food distribution.
 
-![Food dynamic color without invert](/img/simple-unity-plugin/tutorial/05-dynamic-color-preview-before-food.png)
+![Food dynamic color without invert](/static/img/simple-unity-plugin/tutorial/05-dynamic-color-preview-before-food.png)
 
 If **Invert** is enabled, the same `food` values are mapped in the opposite
 direction. This is useful when the first gradient reads backwards for the
 meaning of the attribute: for example, when low values should look visually
 stronger than high values.
 
-![Food dynamic color with invert enabled](/img/simple-unity-plugin/tutorial/05-dynamic-color-preview-food-result.png)
+![Food dynamic color with invert enabled](/static/img/simple-unity-plugin/tutorial/05-dynamic-color-preview-food-result.png)
 
 ## 5.3 Discrete Colors For States
 
