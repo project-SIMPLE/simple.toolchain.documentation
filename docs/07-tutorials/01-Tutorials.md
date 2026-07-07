@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
-title: "Tutorial Overview"
-sidebar_label: "Overview"
+title: "Tutorial Introduction"
+sidebar_label: "Introduction"
 description: Step-by-step tutorial for using the SIMPLE Unity Plugin with GAMA.
 ---
 
@@ -13,6 +13,9 @@ GAMA through `simple.webplatform`.
 The goal is to start from an empty Unity scene, run a live GAMA experiment in
 Play Mode, then introduce the Unity Editor preview as a faster way to inspect
 and tune the scene before running the live simulation again.
+
+To guide your testing and evaluate the quality of the work, you can use [this Google Doc]([url](https://docs.google.com/document/d/1fPcmjtJquJbMmZKtB6mw8tOPI5hL0mz_csZuU4jNMgs/edit?usp=sharing)) as a reference throughout the tutorial. It will help ensure that everyone evaluates the code and documentation using the same criteria, while also allowing you to share your feedback and suggestions in a structured way.
+
 
 ## Tutorial Flow
 
