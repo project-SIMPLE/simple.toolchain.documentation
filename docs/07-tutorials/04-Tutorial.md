@@ -17,11 +17,11 @@ launching the full live experiment every time.
 
 Open **GAMA > GAMA Panel > Generate Preview from GAMA**.
 
-![Generate Preview from GAMA button](/img/simple-unity-plugin/tutorial/03-generate-preview-button.png)
+![Generate Preview from GAMA button](/static/img/simple-unity-plugin/tutorial/03-generate-preview-button.png)
 
 During capture, the GAMA Panel shows that the preview is being built.
 
-![Preview building in the GAMA Panel](/img/simple-unity-plugin/tutorial/03-preview-building-panel.png)
+![Preview building in the GAMA Panel](/static/img/simple-unity-plugin/tutorial/03-preview-building-panel.png)
 
 GAMA may start or update the experiment while Unity receives the preview data.
 
@@ -32,7 +32,7 @@ Mode.
 
 The scene now contains the generated static preview.
 
-![Generated static preview scene](/img/simple-unity-plugin/tutorial/03-static-preview-scene-built.png)
+![Generated static preview scene](/static/img/simple-unity-plugin/tutorial/03-static-preview-scene-built.png)
 
 
 ## 4.3 Parameters You Can Modify In The Preview
@@ -40,7 +40,7 @@ The scene now contains the generated static preview.
 For each detected species, the preview exposes visual settings that can later be
 applied to Play Mode runtime agents:
 
-![Captured preview species settings](/img/simple-unity-plugin/tutorial/03-preview-captured-species-settings.png)
+![Captured preview species settings](/static/img/simple-unity-plugin/tutorial/03-preview-captured-species-settings.png)
 
 
 1. **Info**: details about the captured static preview data.
@@ -57,17 +57,17 @@ With the same model, start by checking that the static background
 species is visible. Here, only the vegetation grid is clearly displayed in the
 Unity preview.
 
-![Vegetation preview settings](/img/simple-unity-plugin/tutorial/04-preview-vegetation-settings.png)
+![Vegetation preview settings](/static/img/simple-unity-plugin/tutorial/04-preview-vegetation-settings.png)
 
 Then, increase the prey and predator scales in the previous panel so we can visualize them. Before assigning colors, they appear as grey points on top of the
 vegetation grid.
 
-![Grey prey and predator settings](/img/simple-unity-plugin/tutorial/04-preview-gray-agents-settings.png)
+![Grey prey and predator settings](/static/img/simple-unity-plugin/tutorial/04-preview-gray-agents-settings.png)
 
 Finally, assign stable colors to distinguish the two dynamic species. In this
 example, prey are blue and predators are red.
 
-![Colored prey and predator settings](/img/simple-unity-plugin/tutorial/04-preview-colored-agents-settings.png)
+![Colored prey and predator settings](/static/img/simple-unity-plugin/tutorial/04-preview-colored-agents-settings.png)
 
 > [!TIP]
 > Generating a new preview should clean previous generated preview/runtime
