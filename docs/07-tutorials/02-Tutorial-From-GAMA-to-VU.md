@@ -2,52 +2,40 @@
 sidebar_position: 2
 title: "Step 0: Middleware and GAMA Requirements"
 sidebar_label: "0. Requirements"
-description: Prepare GAMA and simple.webplatform before using the SIMPLE Unity Plugin.
+description: Prepare GAMA, simple.webplatform, and the Unity-compatible vr_xp experiment.
 ---
 
-# Step 0: Middleware and GAMA Requirements
+# 0. Middleware and GAMA requirements
 
-This chapter explains what must be running before Unity can preview or render a GAMA
-experiment.
+This chapter explains how to correctly expose the middleware and the GAMA model so Unity can preview and
+render the experiment.
 
-## GAMA Requirements
+## 0.1 GAMA Requirements
 
-Open the target model in GAMA and select the experiment you want Unity to receive.
+This tutorial requires a GAMA experiment converted into a Unity-compatible **vr_xp** experiment. This conversion is done with the **SIMPLE plugin**.
 
-For the tutorial workflow, the experiment can be:
+Before continuing, make sure the **SIMPLE plugin** is installed in GAMA. Installation instructions are available [here](https://doc.project-simple.eu/gama/installation).
 
-- open or selected when generating a static preview;
-- running when validating the live Play Mode workflow.
+> [!WARNING]
+> Without the SIMPLE Unity plugin, you will not be able to convert the experiment to **vr_xp**, and Unity will not receive the simulation data correctly.
 
-The package tutorial commonly uses the **Prey Predator** model because it contains
-static background species, dynamic agents, runtime updates, and species-specific
-visualization.
 
-## Middleware Requirements
+![Open a GAMA experiment](/img/simple-unity-plugin/tutorial/02-open-gama-experiment.png)
+_Example of the experiment that will be used throughout this tutorial_
 
-Start `simple.webplatform` before starting the Unity Play Mode connection or preview
-capture.
+## 0.2 Middleware Requirements
 
-From the WebPlatform project folder:
+Use the branch dev with : 
+git clone -b dev --single-branch https://github.com/project-SIMPLE/simple.webplatform.git
 
-```bash
-npm start
-```
+Open the Websocket connection thanks to [this tutorial](https://github.com/project-SIMPLE/simple.webplatform).
+
+![Open the middleware](/img/simple-unity-plugin/tutorial/02-open-middleware.png)
 
 Default endpoints:
 
 ```text
 Unity runtime / headset WebSocket: ws://localhost:8080/
 Monitor WebSocket: ws://localhost:8001/
-GAMA Server behind WebPlatform: ws://localhost:1000/
+GAMA Server behind webplatform: ws://localhost:1000/
 ```
-
-## Expected State
-
-Before continuing:
-
-- GAMA is open;
-- `simple.webplatform` is running;
-- Unity can connect to the middleware player WebSocket on port `8080`.
-
-Next: [Install the Unity package](./03-Tutorial-Step-1.md).

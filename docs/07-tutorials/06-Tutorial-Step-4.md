@@ -1,63 +1,81 @@
 ---
 sidebar_position: 6
-title: "Step 4: Generate the Preview"
+title: "Step 4: Generate and Configure the Unity Preview"
 sidebar_label: "4. Generate Preview"
-description: Generate a static Unity preview from GAMA and configure species settings.
+description: Generate a static preview from GAMA and configure species visuals in Edit Mode.
 ---
 
-# Step 4: Generate and Configure the Unity Preview
+# 4. Generate and Configure the Unity Preview
 
-After validating Play Mode, generate a static preview to inspect the scene in Unity
-Edit Mode.
+After validating the Play Mode, we'll generate a static preview to inspect the scene in
+Unity Edit Mode.
 
-The preview is useful because it lets you tune visual parameters without launching the
-full live experiment every time.
+The preview is useful because it lets you tune visual parameters without
+launching the full live experiment every time.
 
-## Generate the Preview
+## 4.1 Generate The Preview
 
-Open:
+Open **GAMA > GAMA Panel > Generate Preview from GAMA**.
 
-```text
-GAMA > GAMA Panel
-```
+![Generate Preview from GAMA button](/img/simple-unity-plugin/tutorial/03-generate-preview-button.png)
 
-Then click:
+During capture, the GAMA Panel shows that the preview is being built.
 
-```text
-Generate Preview from GAMA
-```
+![Preview building in the GAMA Panel](/img/simple-unity-plugin/tutorial/03-preview-building-panel.png)
 
-During capture, the GAMA Panel shows that the preview is being built. GAMA may start
-or update the experiment while Unity receives the preview data.
+GAMA may start or update the experiment while Unity receives the preview data.
 
-## Expected Result
+## 4.2 Expected Result
 
-The Unity scene should show the map and detected agents without entering Play Mode.
+The Unity scene should show the map and detected agents without entering Play
+Mode.
 
-The generated static preview appears under:
+The scene now contains the generated static preview.
 
-```text
-[GAMA] Static Experiment Preview
-```
+![Generated static preview scene](/img/simple-unity-plugin/tutorial/03-static-preview-scene-built.png)
 
-## Parameters You Can Modify
+
+## 4.3 Parameters You Can Modify In The Preview
 
 For each detected species, the preview exposes visual settings that can later be
 applied to Play Mode runtime agents:
 
-| Setting | Role |
-|---|---|
-| Info | Details about captured preview data |
-| Prefab | Replace the default GAMA geometry with a Unity prefab |
-| Color | Force a stable species color |
-| Scale | Change the visual size without changing GAMA data |
-| Visible | Show or hide the species |
-| Reset | Return the species to values received from GAMA |
-| Validate | Apply the settings to Unity agents |
+![Captured preview species settings](/img/simple-unity-plugin/tutorial/03-preview-captured-species-settings.png)
+
+
+1. **Info**: details about the captured static preview data.
+2. **Prefab**: replace the default GAMA geometry with a Unity prefab.
+3. **Color**: force a stable color for the species.
+4. **Scale**: change the visual size without changing the logical scale.
+5. **Visible**: show or hide the species in preview and runtime.
+6. **Reset**: return the species to the values received from GAMA.
+7. **Validate**: apply the settings to your Unity agents and close the panel.
+
+## 4.4 Preview Configuration Example
+
+With the same model, start by checking that the static background
+species is visible. Here, only the vegetation grid is clearly displayed in the
+Unity preview.
+
+![Vegetation preview settings](/img/simple-unity-plugin/tutorial/04-preview-vegetation-settings.png)
+
+Then, increase the prey and predator scales in the previous panel so we can visualize them. Before assigning colors, they appear as grey points on top of the
+vegetation grid.
+
+![Grey prey and predator settings](/img/simple-unity-plugin/tutorial/04-preview-gray-agents-settings.png)
+
+Finally, assign stable colors to distinguish the two dynamic species. In this
+example, prey are blue and predators are red.
+
+![Colored prey and predator settings](/img/simple-unity-plugin/tutorial/04-preview-colored-agents-settings.png)
+
+> [!TIP]
+> Generating a new preview should clean previous generated preview/runtime
+> objects before rebuilding the scene. This avoids visual superposition with
+> older example scenes or older previews.
 
 ## Result
 
-At the end of this chapter, the static preview should look close to the desired Unity
-scene, and the same species settings should be ready to reuse in Play Mode.
-
-Next: [Dynamic colors from GAMA attributes](./07-Tutorial-Step-5.md).
+At the end of this chapter, the static preview should look close to the desired
+Unity scene, and the same species settings should be ready to reuse in Play
+Mode.

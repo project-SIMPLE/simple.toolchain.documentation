@@ -5,25 +5,45 @@ sidebar_label: "1. Install Package"
 description: Install the SIMPLE Unity Plugin and prepare the Unity scene.
 ---
 
-# Step 1: Install the Unity Package
+# 1. Install the Unity Package
 
-This chapter shows how to install the SIMPLE Unity Plugin in a Unity project and
-prepare the scene for GAMA communication.
+This chapter will show you how to install the SIMPLE Unity Plugin in a Unity project and prepare the
+scene for GAMA communication.
 
-## Create or Open a Unity Project
+## 1.1 Create and Open a Unity Project
 
-Start by creating a new Unity project or opening an existing one.
+Start by creating a new Unity project.
 
-Use Unity `6000.3.2f1` for this tutorial.
+![Create a new Unity project](/img/simple-unity-plugin/tutorial/01-create-new-unity-project.png)
 
-## Install from GitHub
+Check the choosen Unity version and Create project (you don't have to choose a perticular kind of project).
 
-In Unity:
+![Unity version and project creation](/img/simple-unity-plugin/tutorial/01-unity-version-create-project.png)
 
-1. Open **Window > Package Manager**.
-2. Click the **+** button.
-3. Select **Add package from git URL...**.
-4. Enter:
+Wait until Unity finishes building the scene...
+
+![Wait while Unity builds the preview](/img/simple-unity-plugin/tutorial/03-wait-preview-building.png)
+
+After the project opens, you should be on the Unity home/editor screen.
+
+![Unity project home](/img/simple-unity-plugin/tutorial/01-unity-home.png)
+
+## 1.2 Install the Package...
+### ...From GitHub
+
+1. Open the Package Manager from Unity.
+
+![Open Package Manager from Unity](/img/simple-unity-plugin/tutorial/Capture%20d'%C3%A9cran%202026-0dfgedfgdfg6-18%20161333.png)
+
+![Package Manager add button](/img/simple-unity-plugin/tutorial/01-package-manager-add-button.png)
+
+
+3. Click the **+** button.
+
+
+5. Select **Add package from git URL...**.
+
+6. Enter:
 
 ```text
 https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
@@ -34,42 +54,43 @@ To install a specific branch:
 ```text
 https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git#branch-name
 ```
+![Add package from Git URL](/img/simple-unity-plugin/tutorial/01-package-manager-git-url.png)
 
-After installation, the package appears in Package Manager.
+7. After installation, the package should appear in the Package Manager.
 
-## Install from Local Disk
+![Package installed](/img/simple-unity-plugin/tutorial/01-package-installed.png)
+
+### ...From Local Disk
 
 For local development:
 
-1. Open **Window > Package Manager**.
-2. Click **+**.
-3. Select **Add package from disk...**.
-4. Select the package repository's `package.json`.
+1. After clicking on **+** select **Add package from disk...**
+2. Select the package `package.json` file from your local package folder.
 
-## Prepare the Unity Scene
+## 1.3 Setup The Unity Scene
 
-Open:
+1. Open **GAMA > GAMA Panel**
 
-```text
-GAMA > GAMA Panel
-```
+![Open a new GAMA tab](/img/simple-unity-plugin/tutorial/Capture%20d'%C3%A9cran%2020fsfsdfsz26-06-18%20161411.png)
 
-Then click:
+2. Click **Setup Scene**
 
-```text
-Default Setup
-```
+![Setup Scene button](/img/simple-unity-plugin/tutorial/Capture%20d'%C3%A9cran%202026-06-18%20161833.png)
 
-After setup, the scene should contain the objects needed to communicate with the
-middleware:
 
-- a player or camera rig;
-- a `Connection Manager`;
-- a `Game Manager`;
-- required roots for preview and runtime objects.
+3. After a quick build...
+![Unity project ready](/img/simple-unity-plugin/tutorial/01-unity-project-ready.png)
+
+...your scene should contain every object needed to communicate with the middleware.
+You can verify that the scene contains:
+   - a player or camera rig;
+   - a `Connection Manager`;
+   - a `Game Manager`;
+   - required scene roots for preview and runtime objects.
+   - 
+![Scene ready for middleware](/img/simple-unity-plugin/tutorial/01-scene-ready-for-middleware.png)
+
 
 ## Result
 
 At the end of this chapter, Unity is ready to communicate with the middleware.
-
-Next: [Run the GAMA experiment in Play Mode](./04-Tutorial-Step-2.md).
