@@ -37,7 +37,7 @@ After the project opens, you should be on the Unity home/editor screen.
 
 2. Click the **+** button.
 
-![Package Manager add button](/static/img/simple-unity-plugin/tutorial/01-package-manager-add-button.png)
+<img width="281" height="297" alt="01-package-manager-add-button" src="https://github.com/user-attachments/assets/7bef669b-40f9-48c4-b76c-91cb5211470f" />
 
 3. Select **Add package from git URL...**.
 
@@ -62,8 +62,9 @@ https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git#branch-name
 
 For local development:
 
-1. After clicking on **+** select **Add package from disk...**
-2. Select the package `package.json` file from your local package folder.
+1. After clicking on **+**
+2. Select **Add package from disk...**
+3. Select the package `package.json` file from your local package folder.
 
 ## 1.3 Setup The Unity Scene
 
