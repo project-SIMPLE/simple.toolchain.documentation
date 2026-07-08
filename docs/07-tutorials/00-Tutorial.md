@@ -39,3 +39,10 @@ Unity runtime / headset WebSocket: ws://localhost:8080/
 Monitor WebSocket: ws://localhost:8001/
 GAMA Server behind webplatform: ws://localhost:1000/
 ```
+
+## Steps
+
+1. [Step 1 — Install the Unity Package](./03-Tutorial-Step-1.md) — install the SIMPLE Unity Package in a Unity project and prepare the scene for GAMA communication.
+2. [Step 2 — Set up the Unity scene](./04-Tutorial-Step-2.md) — configure the Unity template to receive traffic model geometry
+3. [Step 3 — Add interactions](./05-Tutorial-Step-3.md) — enable players to open and close roads from inside VR
+
