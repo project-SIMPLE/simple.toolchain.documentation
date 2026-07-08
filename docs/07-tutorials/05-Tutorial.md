@@ -113,7 +113,7 @@ With **Base Color** set to green, **Min Value** set to `0`, **Max Value** set to
 the `food` value directly to green intensity. This gives a first readable view
 of the grass food distribution.
 
-![Food dynamic color without invert](/static/img/simple-unity-plugin/tutorial/05-dynamic-color-preview-before-food.png)
+<img width="1918" height="868" alt="05-dynamic-color-preview-before-food" src="https://github.com/user-attachments/assets/1d71c577-5ac7-4979-b25f-be613b6f6383" />
 
 If **Invert** is enabled, the same `food` values are mapped in the opposite
 direction. This is useful when the first gradient reads backwards for the
