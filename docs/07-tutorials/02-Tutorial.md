@@ -10,7 +10,7 @@ description: Launch the converted vr_xp GAMA experiment from Unity Play Mode.
 It is time to run the first GAMA experiment in Unity with this package. For this
 tutorial, use the **6th prey Predator** model located in the following hierarchy from GAMA.
 
-![Prey Predator 6 model location](/img/simple-unity-plugin/tutorial/02-prey-predator-7-location.png)
+![Prey Predator 6 model location](/static/img/simple-unity-plugin/tutorial/02-prey-predator-7-location.png)
 
 This experiment is used throughout the rest of the tutorial because it covers the
 main features provided by the package: static background species, dynamic agents,
@@ -29,15 +29,15 @@ Before running the model in Unity, convert the GAMA experiment with the SIMPLE U
 
 On the first **Definition of the VR experiment** screen, keep the default values and click **Next**.
 
-![VR experiment general parameters](/img/simple-unity-plugin/tutorial/02-vr-generation-general-parameters.png)
+![VR experiment general parameters](/static/img/simple-unity-plugin/tutorial/02-vr-generation-general-parameters.png)
 
 On the **Export species** screen, do not immediately click **Next**. Select a species on the left, then click the **+** button under **Aspect in Unity**.
 
-![Export species add one by one](/img/simple-unity-plugin/tutorial/02-vr-generation-export-species-add.png)
+![Export species add one by one](/static/img/simple-unity-plugin/tutorial/02-vr-generation-export-species-add.png)
 
 Keep the default property name and click **OK**.
 
-![Keep default Unity property name](/img/simple-unity-plugin/tutorial/02-vr-generation-property-name.png)
+![Keep default Unity property name](/static/img/simple-unity-plugin/tutorial/02-vr-generation-property-name.png)
 
 Repeat this for each species that must be visible in Unity, for example:
 
@@ -47,7 +47,7 @@ Repeat this for each species that must be visible in Unity, for example:
 
 At the end, these species should be marked as exported.
 
-![Final exported species selection](/img/simple-unity-plugin/tutorial/02-vr-generation-export-species-final.png)
+![Final exported species selection](/static/img/simple-unity-plugin/tutorial/02-vr-generation-export-species-final.png)
 
 The `generic_species` entry is abstract and is not required for the visual result. Exporting it is harmless, but it can also be ignored.
 
@@ -68,10 +68,10 @@ For more details, this step is explained [in this tutorial](https://doc.project-
 2. Start `simple.webplatform` with  `npm start`
 3. Open and run the **vr_xp** version of **Prey Predator 6** in GAMA.
 
-![Windows Overview](/img/simple-unity-plugin/tutorial/02-windows-overview-gama-unity.png)
+![Windows Overview](/static/img/simple-unity-plugin/tutorial/02-windows-overview-gama-unity.png)
 4. Press **Play** in Unity.
 
-![Unity Play Mode button](/img/simple-unity-plugin/tutorial/02-unity-play-mode-button-cropped.png)
+![Unity Play Mode button](/static/img/simple-unity-plugin/tutorial/02-unity-play-mode-button-cropped.png)
 
 Runtime agents are created under:
 
@@ -82,7 +82,7 @@ Runtime agents are created under:
 When Play Mode works, Unity receives live objects from GAMA and updates them
 while the experiment is running.
 
-![Runtime live overview](/img/simple-unity-plugin/tutorial/02-runtime-live-overview.png)
+![Runtime live overview](/static/img/simple-unity-plugin/tutorial/02-runtime-live-overview.png)
 
 ## 2.3 Expected Result
 
@@ -91,7 +91,7 @@ Unity objects from the agents received from the **Prey Predator 6** model.
 
 The imported agents are grouped by species in the Unity hierarchy.
 
-![Agents grouped by species](/img/simple-unity-plugin/tutorial/02-agents-grouped-by-species.png)
+![Agents grouped by species](/static/img/simple-unity-plugin/tutorial/02-agents-grouped-by-species.png)
 
 At this stage, the important result is that the connection works and that GAMA
 agents are imported into Unity while the experiment is running.
