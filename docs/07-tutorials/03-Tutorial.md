@@ -33,7 +33,8 @@ the species detected from the running GAMA experiment.
 
 For example, here we have the species `prey`, `predator`, and `vegetation_cell`:
 
-![Species in Inspector](/static/img/simple-unity-plugin/tutorial/inspector-species.png)
+![Uploading 02-agents-grouped-by-species.png…]()
+
 
 ## 3.2 Modify Species Attributes Live
 
