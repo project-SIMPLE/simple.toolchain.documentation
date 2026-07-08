@@ -35,7 +35,11 @@ Open the Websocket connection thanks to [this tutorial](https://github.com/proje
 ## Steps
 
 [Step 1 — Install the Unity Package](./01-Tutorial.md) — install the SIMPLE Unity Package in a Unity project and prepare the scene for GAMA communication.
+
 [Step 2 — Run the GAMA experiment in Play Mode](./02-Tutorial.md) — show that the imported GAMA species can be modified live from Unity while the simulation is running.
+
 [Step 3 — Personalize Agents During Play Mode](./03-Tutorial.md) — generate a static preview to inspect the scene in Unity Edit Mode
+
 [Step 4 — Generate and Configure the Unity Preview](./04-Tutorial.md) — After validating the Play Mode, we'll generate a static preview to inspect the scene in Unity Edit Mode.
+
 [Step 5 —Dynamic Colors From GAMA Attributes](./05-Tutorial.md) — configure dynamic colors in Unity Play Mode from the Inspector.
