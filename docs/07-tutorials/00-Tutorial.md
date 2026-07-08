@@ -32,14 +32,6 @@ Open the Websocket connection thanks to [this tutorial](https://github.com/proje
 
 ![Open the middleware](/static/img/simple-unity-plugin/tutorial/02-open-middleware.png)
 
-Default endpoints:
-
-```text
-Unity runtime / headset WebSocket: ws://localhost:8080/
-Monitor WebSocket: ws://localhost:8001/
-GAMA Server behind webplatform: ws://localhost:1000/
-```
-
 ## Steps
 
 1. [Step 1 — Install the Unity Package](./03-Tutorial-Step-1.md) — install the SIMPLE Unity Package in a Unity project and prepare the scene for GAMA communication.
