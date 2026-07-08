@@ -31,7 +31,7 @@ To guide your tests and evaluate the quality of the work, you can use [this Goog
 
 
 ## Steps
-[Step 0 — Overview and requirements.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/00-Middleware%20and%20GAMA%20Requirements.md)
+[Step 0 — Overview and requirements.](./00-Tutorial.md)
 
 [Step 1 — Install the Unity Package](./01-Tutorial.md) — install the SIMPLE Unity Package in a Unity project and prepare the scene for GAMA communication.
 
