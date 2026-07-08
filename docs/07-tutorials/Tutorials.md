@@ -18,7 +18,7 @@ To guide your testing and evaluate the quality of the work, you can use [this Go
 
 
 ## Steps
-0. [Overviewand requirements.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/00-Middleware%20and%20GAMA%20Requirements.md)
+0. [Overview and requirements.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/00-Middleware%20and%20GAMA%20Requirements.md)
 1. [Install the Unity package.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/01-Tutorial.md)
 2. [Run the experiment in Unity Play Mode to validate the basic live workflow.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/02-Tutorial.md)
 3. [Personalize agents during Play Mode.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/03-Tutorial.md)
