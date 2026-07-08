@@ -34,7 +34,7 @@ Open the Websocket connection thanks to [this tutorial](https://github.com/proje
 
 ## Steps
 
-1. [Step 1 — Install the Unity Package](./03-Tutorial-Step-1.md) — install the SIMPLE Unity Package in a Unity project and prepare the scene for GAMA communication.
-2. [Step 2 — Set up the Unity scene](./04-Tutorial-Step-2.md) — configure the Unity template to receive traffic model geometry
-3. [Step 3 — Add interactions](./05-Tutorial-Step-3.md) — enable players to open and close roads from inside VR
-
+1. [Step 1 — Install the Unity Package](./01-Tutorial.md) — install the SIMPLE Unity Package in a Unity project and prepare the scene for GAMA communication.
+2. [Step 2 — Run the GAMA experiment in Play Mode](./02-Tutorial.md) — show that the imported GAMA species can be modified live from Unity while the simulation is running.
+3. [Step 3 — Personalize Agents During Play Mode](./03-Tutorial.md) — generate a static preview to inspect the scene in Unity Edit Mode
+4. [Step 4 — Generate and Configure the Unity Preview](./04-Tutorial.md) — After validating the Play Mode, we'll generate a static preview to inspect the scene in Unity Edit Mode.
