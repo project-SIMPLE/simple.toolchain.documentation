@@ -30,6 +30,8 @@ GAMA may start or update the experiment while Unity receives the preview data.
 The Unity scene should show the map and detected agents without entering Play
 Mode.
 
+<img width="653" height="467" alt="image" src="https://github.com/user-attachments/assets/ec92bb08-7e42-4738-b1fb-90361fb1d3fe" />
+
 The scene now contains the generated static preview.
 
 ![Generated static preview scene](/static/img/simple-unity-plugin/tutorial/03-static-preview-scene-built.png)
