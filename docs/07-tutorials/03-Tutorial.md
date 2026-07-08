@@ -33,12 +33,12 @@ the species detected from the running GAMA experiment.
 
 For example, here we have the species `prey`, `predator`, and `vegetation_cell`:
 
-![Uploading 02-agents-grouped-by-species.png…]()
+<img width="226" height="88" alt="02-agents-grouped-by-species" src="https://github.com/user-attachments/assets/0c90e272-6aae-4432-b6ab-87982a10d8de" />
 
 
 ## 3.2 Modify Species Attributes Live
 
-Pick one species in the Inspector. You will see several attributes you can modify live.
+Pick one specie in the Inspector. You will see several attributes you can modify live.
 
 This lets you quickly verify that Unity can override the visual appearance of a GAMA species without changing the GAMA model itself. The scene should update while Play Mode is still running, or on the next visual refresh received from GAMA.
 
