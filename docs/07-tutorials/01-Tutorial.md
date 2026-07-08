@@ -87,8 +87,8 @@ You can verify that the scene contains:
    - a `Connection Manager`;
    - a `Game Manager`;
    - required scene roots for preview and runtime objects.
-   - 
-![Scene ready for middleware](/static/img/simple-unity-plugin/tutorial/01-scene-ready-for-middleware.png)
+
+<img width="793" height="226" alt="image" src="https://github.com/user-attachments/assets/67e1f633-81e5-4654-9785-893460597e76" />
 
 
 ## Result
