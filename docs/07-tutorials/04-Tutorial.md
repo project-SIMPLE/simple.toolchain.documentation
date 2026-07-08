@@ -42,8 +42,7 @@ The scene now contains the generated static preview.
 For each detected species, the preview exposes visual settings that can later be
 applied to Play Mode runtime agents:
 
-![Captured preview species settings](/static/img/simple-unity-plugin/tutorial/03-preview-captured-species-settings.png)
-
+<img width="842" height="723" alt="03-preview-captured-species-settings" src="https://github.com/user-attachments/assets/455f9d78-3139-4728-ac21-1e285d8f8116" />
 
 1. **Info**: details about the captured static preview data.
 2. **Prefab**: replace the default GAMA geometry with a Unity prefab.
