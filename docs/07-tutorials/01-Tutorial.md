@@ -7,7 +7,7 @@ description: Install the SIMPLE Unity Plugin and prepare the Unity scene.
 
 # 1. Install the Unity Package
 
-This chapter will show you how to install the SIMPLE Unity Plugin in a Unity project and prepare the
+This chapter will show you how to install the SIMPLE Unity Package in a Unity project and prepare the
 scene for GAMA communication.
 
 ## 1.1 Create and Open a Unity Project
