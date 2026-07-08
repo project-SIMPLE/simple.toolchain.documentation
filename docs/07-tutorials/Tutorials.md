@@ -32,8 +32,13 @@ To guide your tests and evaluate the quality of the work, you can use [this Goog
 
 ## Steps
 0. [Overview and requirements.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/00-Middleware%20and%20GAMA%20Requirements.md)
-1. [Install the Unity package.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/01-Tutorial.md)
-2. [Run the experiment in Unity Play Mode to validate the basic live workflow.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/02-Tutorial.md)
-3. [Personalize agents during Play Mode.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/03-Tutorial.md)
-4. [Generate an Editor preview and configure species visual parameters.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/04-Tutorial.md)
-5. [Drive dynamic visual properties from GAMA runtime attributes.](https://github.com/project-SIMPLE/simple.toolchain.documentation/blob/simple-unity-plugin/docs/07-tutorials/05-Tutorial.md)
+
+[Step 1 — Install the Unity Package](./01-Tutorial.md) — install the SIMPLE Unity Package in a Unity project and prepare the scene for GAMA communication.
+
+[Step 2 — Run the GAMA experiment in Play Mode](./02-Tutorial.md) — show that the imported GAMA species can be modified live from Unity while the simulation is running.
+
+[Step 3 — Personalize Agents During Play Mode](./03-Tutorial.md) — generate a static preview to inspect the scene in Unity Edit Mode
+
+[Step 4 — Generate and Configure the Unity Preview](./04-Tutorial.md) — After validating the Play Mode, we'll generate a static preview to inspect the scene in Unity Edit Mode.
+
+[Step 5 —Dynamic Colors From GAMA Attributes](./05-Tutorial.md) — configure dynamic colors in Unity Play Mode from the Inspector.
