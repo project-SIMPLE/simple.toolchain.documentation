@@ -8,9 +8,7 @@ description: Change species appearance and prefab settings while the simulation 
 # 3. Personalize Agents During Play Mode
 
 In the previous step, Unity performed a raw import of the GAMA experiment during
-Play Mode.
-
-At this stage, the goal is not yet to build the final visual setup. The goal is
+Play Mode. At this stage, the goal is not yet to build the final visual setup. The goal is
 to show that the imported GAMA species can be modified live from Unity while the
 simulation is running.
 
