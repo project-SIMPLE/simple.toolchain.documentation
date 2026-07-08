@@ -21,7 +21,7 @@ Open **GAMA > GAMA Panel > Generate Preview from GAMA**.
 
 During capture, the GAMA Panel shows that the preview is being built.
 
-![Preview building in the GAMA Panel](/static/img/simple-unity-plugin/tutorial/03-preview-building-panel.png)
+<img width="639" height="238" alt="03-preview-building-panel" src="https://github.com/user-attachments/assets/f3dbf077-1511-41d7-8359-0150715c7c85" />
 
 GAMA may start or update the experiment while Unity receives the preview data.
 
