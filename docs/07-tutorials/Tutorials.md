@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: "Tutorial Introduction"
-sidebar_label: "Introduction"
+sidebar_label: "Overview"
 description: Step-by-step tutorial for using the SIMPLE Unity Plugin with GAMA.
 ---
 
