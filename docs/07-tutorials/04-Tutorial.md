@@ -8,9 +8,7 @@ description: Generate a static preview from GAMA and configure species visuals i
 # 4. Generate and Configure the Unity Preview
 
 After validating the Play Mode, we'll generate a static preview to inspect the scene in
-Unity Edit Mode.
-
-The preview is useful because it lets you tune visual parameters without
+Unity Edit Mode. The preview is useful because it lets you tune visual parameters without
 launching the full live experiment every time.
 
 ## 4.1 Generate The Preview
