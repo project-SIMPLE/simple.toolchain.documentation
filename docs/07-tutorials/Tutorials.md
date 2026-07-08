@@ -5,16 +5,29 @@ sidebar_label: "Introduction"
 description: Step-by-step tutorial for using the SIMPLE Unity Plugin with GAMA.
 ---
 
-# Tutorial: SIMPLE Unity Plugin With GAMA
+# Tutorial: From GAMA Model to Virtual Universe
 
-This tutorial is the main learning path for using the SIMPLE Unity Plugin with
-GAMA through `simple.webplatform`.
+This tutorial walks through building a complete VR simulation from an existing GAMA model. Starting from the prey and predator model in the GAMA library, you will generate a VR version using the SIMPLE wizard, set up the Unity scene, and add player interactions.
 
-The goal is to start from an empty Unity scene, run a live GAMA experiment in
+## What you will build
+
+The goal is to start from an empty Unity project, run a live GAMA experiment in
 Play Mode, then introduce the Unity Editor preview as a faster way to inspect
 and tune the scene before running the live simulation again.
 
-To guide your testing and evaluate the quality of the work, you can use [this Google Doc](https://docs.google.com/document/d/1fPcmjtJquJbMmZKtB6mw8tOPI5hL0mz_csZuU4jNMgs/edit?usp=sharing) as a reference throughout the tutorial. It will help ensure that everyone evaluates the code and documentation using the same criteria, while also allowing you to share your feedback and suggestions in a structured way.
+The result is a VR prey and predator simulation where a population of preys and predators navigates through a grid descretised by a food value that changes its color aspect. 
+
+It demonstrates:
+
+- Generating a VR GAML model from an existing model using the SIMPLE wizard
+- Configuring the Unity project to receive GAMA geometry data
+- Edditing  agent aspects in Unity Play and Edit mode
+- Adding dynamic coloring on agents
+- Adding player interactions that affect the running simulation
+
+## Helping us by testing 
+
+To guide your tests and evaluate the quality of the work, you can use [this Google Doc](https://docs.google.com/document/d/1fPcmjtJquJbMmZKtB6mw8tOPI5hL0mz_csZuU4jNMgs/edit?usp=sharing) as a reference throughout the tutorial. It will help ensure that everyone evaluates the code and documentation using the same criteria, while also allowing you to share your feedback and suggestions in a structured way.
 
 
 ## Steps
