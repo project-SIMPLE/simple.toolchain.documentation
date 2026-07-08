@@ -26,24 +26,22 @@ Wait until Unity finishes building the scene...
 
 After the project opens, you should be on the Unity home/editor screen.
 
-![Unity project home](/static/img/simple-unity-plugin/tutorial/01-unity-home.png)
+<img width="1920" height="1032" alt="01-unity-home" src="https://github.com/user-attachments/assets/c0403e8a-3776-406e-b6c3-b3f7d507b128" />
 
 ## 1.2 Install the Package...
 ### ...From GitHub
 
 1. Open the Package Manager from Unity.
 
-![Open Package Manager from Unity](/static/img/simple-unity-plugin/tutorial/Capture%20d'%C3%A9cran%202026-0dfgedfgdfg6-18%20161333.png)
+<img width="617" height="323" alt="Capture d&#39;écran 2026-0dfgedfgdfg6-18 161333" src="https://github.com/user-attachments/assets/c3129283-69a0-4f48-8a48-9dbff616d63f" />
+
+2. Click the **+** button.
 
 ![Package Manager add button](/static/img/simple-unity-plugin/tutorial/01-package-manager-add-button.png)
 
+3. Select **Add package from git URL...**.
 
-3. Click the **+** button.
-
-
-5. Select **Add package from git URL...**.
-
-6. Enter:
+4. Enter:
 
 ```text
 https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git
@@ -56,9 +54,9 @@ https://github.com/project-SIMPLE/SIMPLE-Unity-Plugin.git#branch-name
 ```
 ![Add package from Git URL](/static/img/simple-unity-plugin/tutorial/01-package-manager-git-url.png)
 
-7. After installation, the package should appear in the Package Manager.
+5. After installation, the package should appear in the Package Manager.
 
-![Package installed](/static/img/simple-unity-plugin/tutorial/01-package-installed.png)
+<img width="1071" height="412" alt="01-package-installed" src="https://github.com/user-attachments/assets/6e99cdf6-e5ea-47f1-bbfe-f4acc966557f" />
 
 ### ...From Local Disk
 
@@ -79,7 +77,8 @@ For local development:
 
 
 3. After a quick build...
-![Unity project ready](/static/img/simple-unity-plugin/tutorial/01-unity-project-ready.png)
+
+<img width="1920" height="1032" alt="01-unity-project-ready" src="https://github.com/user-attachments/assets/3d9818ef-931c-4dda-bab2-5bad6a3378bc" />
 
 ...your scene should contain every object needed to communicate with the middleware.
 You can verify that the scene contains:
