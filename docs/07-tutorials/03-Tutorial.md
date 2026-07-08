@@ -45,7 +45,8 @@ This lets you quickly verify that Unity can override the visual appearance of a 
 For example, the prey and predator species can be given different prefabs,
 colors, and scales so the running experiment becomes readable from Unity.
 
-![Play Mode personalization example](/static/img/simple-unity-plugin/tutorial/03-play-mode-personalization-example.png)
+<img width="630" height="915" alt="Capture d&#39;écran 2026-06-18 163019" src="https://github.com/user-attachments/assets/975716d3-03fe-4bad-b682-f19f0f1388eb" />
+
 
 ![Species Attributes](/static/img/simple-unity-plugin/tutorial/inspector-attributes.png)
 
